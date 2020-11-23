@@ -14,8 +14,11 @@ class ClientsController < ApplicationController
   def create
     @client = Client.new(clients_params)
     @client.user = current_user
-    @client.save
-    redirect_to clients_path
+    if @client.save
+      redirect_to clients_path
+    else
+      render :new
+    end
   end
 
   private
