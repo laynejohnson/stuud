@@ -1,0 +1,7 @@
+<% @clients.each do |client| %>
+  <h2>Full name: <%= client.first_name %> <%= client.last_name %></h2>
+  <p>Email: <%= client.email %></p>
+  <%= link_to 'Show more', client_path(client) %>
+<% end %>
+
+<%= link_to 'New Client', new_client_path %>
