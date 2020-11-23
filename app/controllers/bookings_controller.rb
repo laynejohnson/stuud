@@ -25,7 +25,7 @@ class BookingsController < ApplicationController
 
   private
 
-  def set_dog
+  def set_client
     @client = Client.find(params[:client_id])
   end
 
