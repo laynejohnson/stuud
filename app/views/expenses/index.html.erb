@@ -1,1 +1,17 @@
 <h1> Stüud Expenses Index </h1>
+
+<h3>Income from bookings: <%= @income %>$</h3>
+<h3>Total expenses: <%= @total_expenses %>$</h3>
+<% @expenses.each do |expense| %>
+  <h4>Expense #<%= expense.id %></h4>
+  <ul>
+    <li>Name: <%= expense.name %></li>
+    <li>Amount: <%= expense.amount %>$</li>
+    <li>Date: <%= expense.date.strftime("%m/%d/%Y") %></li>
+  </ul>
+<% end %>
+
+<%= link_to 'Add Expense', new_expense_path %>
+
+<h2>Revenue: <%= @profit %>$</h2>
+
