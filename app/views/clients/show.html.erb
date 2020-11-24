@@ -4,7 +4,7 @@
 <p>address: <%= @client.address %></p>
 <p>color: <%= @client.color %></p>
 
-<%= link_to 'Add a booking', new_client_booking_path(@client) %>
+<%= link_to 'Add a booking', new_booking_path %>
 
 <h2>Bookings: </h2>
 
@@ -14,6 +14,11 @@
   <p>Price: <%= booking.price %>$</p>
   <p>Payment status: <%= booking.payment_status %></p>
   <p>Status: <%= booking.status %></p>
+  <%= link_to "Delete",
+    booking_path(booking),
+    method: :delete,
+    data: { confirm: 'Are you sure?'} %>
 <% end %>
+
 
 <%= link_to 'Go back', clients_path %>

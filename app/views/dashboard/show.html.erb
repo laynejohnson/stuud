@@ -1,4 +1,6 @@
 <h1> Stüud Dashboard </h1>
+<%= link_to 'my clients', clients_path %>
+<%= link_to 'my expenses', expenses_path %>
 
 <h2>Todays Bookings: </h2>
 <% @todays_bookings.each do |booking| %>
@@ -14,9 +16,12 @@
   <p>Date: <%= invoice.date.strftime("%A, %b %d") %></p>
 <% end %>
 <br>
+
+<h2>Weekly report</h2>
 <h3>Appointments: <%= @bookings_weekly_count %></h3>
 <h3>Expenses: <%= @total_expenses_weekly %>$</h3>
 <h3>Income: <%= @income %>$</h3>
 
 
-<%= link_to 'To your clients', clients_path %>
+<%= link_to 'add booking', new_booking_path %>
+<%= link_to 'add client', new_client_path %>
