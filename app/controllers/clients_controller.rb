@@ -1,5 +1,5 @@
 class ClientsController < ApplicationController
-  before_action :client_id, only: [:show]
+  before_action :set_client, only: [:show]
   def index
     @clients = Client.all
   end
@@ -23,7 +23,7 @@ class ClientsController < ApplicationController
 
   private
 
-  def client_id
+  def set_client
     @client = Client.find(params[:id])
   end
 
