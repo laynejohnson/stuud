@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_client, only:[:new, :create]
+  before_action :set_client, only:[:create]
 
   def new
     @booking = Booking.new
@@ -19,18 +19,19 @@ class BookingsController < ApplicationController
   end
 
   def destroy
+    raise
     @booking = Booking.find(params[:id])
     @booking.destroy
-    redirect_to calendar_path
+    redirect_to clients_path
   end
 
   private
 
   def set_client
-    @client = Client.find(params[:client_id])
+    @client = Client.find(params[:booking][:client_id])
   end
 
   def booking_params
-    params.require(:booking).permit(:description, :price, :length, :date, :payment_status, :status)
+    params.require(:booking).permit(:description, :price, :length, :date, :payment_status, :status, :client)
   end
 end
