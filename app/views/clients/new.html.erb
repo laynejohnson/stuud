@@ -4,6 +4,6 @@
   <%= f.input :email %>
   <%= f.input :phone %>
   <%= f.input :address %>
-  <%= f.input :color %>
+  <%= f.input :color, as: :radio_buttons, collection: %w[Yellow Blue Red] %>
   <%= f.submit %>
 <% end %>

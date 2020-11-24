@@ -4,4 +4,16 @@
 <p>address: <%= @client.address %></p>
 <p>color: <%= @client.color %></p>
 
+<%= link_to 'Add a lesson', new_client_booking_path(@client) %>
+
+<h2>Bookings: </h2>
+
+<% @client.bookings.each do |booking|%>
+  <p>Date: <%= booking.date.strftime("%A, %d %b %Y %l:%M %p")%></p>
+  <p>Length: <%= booking.length %></p>
+  <p>Price: <%= booking.price %>$</p>
+  <p>Payment status: <%= booking.payment_status %></p>
+  <p>Status: <%= booking.status %></p>
+<% end %>
+
 <%= link_to 'Go back', clients_path %>
