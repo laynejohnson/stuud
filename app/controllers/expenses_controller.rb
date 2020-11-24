@@ -14,19 +14,7 @@ before_action :set_user
       @total_expenses += expense.amount
     end
 
-    @final_balance = @income - @total_expenses
-    # @totalincome = 0
-    # @income.each { |price| @totalincome += price }
-
-
-
-    # @expenses = Expense.amount.all(@user)
-    # @totalexpenses = 0
-
-    # @expenses.each { |amount| @totalexpenses += amount }
-
-    # @revenue = @totalincome - @totalexpenses
-
+    @profit = @income - @total_expenses
   end
 
   def new
