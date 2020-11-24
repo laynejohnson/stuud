@@ -8,5 +8,5 @@ class Client < ApplicationRecord
   validates :address, presence: true
   validates :phone, presence: true
   validates :email, presence: true
-  validates :color, presence: true
+  validates :color, inclusion: { in: %w[yellow blue red]}
 end

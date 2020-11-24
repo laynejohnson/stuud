@@ -1,7 +1,8 @@
 <%= simple_form_for([@client, @booking]) do |f| %>
   <%= f.input :date %>
-  <%= f.input :length %>
+  <%= f.input :length, collection: @lengths %>
   <%= f.input :price %>
+  <%= f.input :payment_status, as: :radio_buttons %>
   <%= f.input :description %>
   <%= f.submit %>
 <% end %>
