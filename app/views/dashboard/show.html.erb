@@ -1,1 +1,22 @@
 <h1> Stüud Dashboard </h1>
+
+<h2>Todays Bookings: </h2>
+<% @todays_bookings.each do |booking| %>
+  <h4>Full name: <%= booking.client.first_name %> <%= booking.client.last_name %></h4>
+  <p>Date: <%= booking.date.strftime("%b %e, %l:%M %p") %></p>
+<% end %>
+<br>
+<h2>Pending Invoices:</h2>
+<br>
+<% @pending_invoices.each do |invoice| %>
+  <h4>Full name: <%= invoice.client.first_name %> <%= invoice.client.last_name %></h4>
+  <p>Amount: <%= invoice.price %>$</p>
+  <p>Date: <%= invoice.date.strftime("%A, %b %d") %></p>
+<% end %>
+<br>
+<h3>Appointments: <%= @bookings_weekly_count %></h3>
+<h3>Expenses: <%= @total_expenses_weekly %>$</h3>
+<h3>Income: <%= @income %>$</h3>
+
+
+<%= link_to 'To your clients', clients_path %>
