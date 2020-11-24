@@ -4,4 +4,12 @@
 <p>address: <%= @client.address %></p>
 <p>color: <%= @client.color %></p>
 
+<% @client.bookings.each do |booking|%>
+  <p><%= booking.date %></p>
+  <p><%= booking.length %></p>
+  <p><%= booking.price %></p>
+  <p><%= booking.payment_status %></p>
+  <p><%= booking.status %></p>
+<% end %>
+
 <%= link_to 'Go back', clients_path %>

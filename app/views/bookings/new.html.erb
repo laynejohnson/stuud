@@ -1,0 +1,7 @@
+<%= simple_form_for([@client, @booking]) do |f| %>
+  <%= f.input :date %>
+  <%= f.input :length %>
+  <%= f.input :price %>
+  <%= f.input :description %>
+  <%= f.submit %>
+<% end %>

@@ -11,7 +11,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.client = @client
     if @booking.save
-      redirect_to calendar_path
+      redirect_to client_path(@client)
     else
       render :new
     end
