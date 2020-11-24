@@ -4,6 +4,8 @@
 <p>address: <%= @client.address %></p>
 <p>color: <%= @client.color %></p>
 
+<%= link_to 'Add a lesson', new_client_booking_path(@client) %>
+
 <% @client.bookings.each do |booking|%>
   <p><%= booking.date %></p>
   <p><%= booking.length %></p>
