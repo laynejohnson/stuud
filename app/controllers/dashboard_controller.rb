@@ -15,9 +15,9 @@ class DashboardController < ApplicationController
     expenses_weekly =  current_user.expenses
       .where(date: Time.zone.now.beginning_of_week..Time.zone.now.end_of_week)
 
-      @total_expenses_weekly = 0
-      expenses_weekly.each do |expense|
-      @total_expenses_weekly += expense.amount
+    @total_expenses_weekly = 0
+    expenses_weekly.each do |expense|
+    @total_expenses_weekly += expense.amount
     end
 
     @income = 0
