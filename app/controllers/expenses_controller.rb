@@ -5,21 +5,16 @@ before_action :set_user
     @income = User.bookings.price.all(@user)
     @totalincome = 0
 
-    @income.each |price| do {
-      @totalincome += price
-    }
-    end
+    @income.each { |price| @totalincome += price }
+
+
 
     @expenses = Expense.amount.all(@user)
     @totalexpenses = 0
 
-    @expenses.each |amount| do {
-      @totalexpenses += amount
-    }
-    end
+    @expenses.each { |amount| @totalexpenses += amount }
 
     @revenue = @totalincome - @totalexpenses
-
 
   end
 
@@ -30,16 +25,18 @@ before_action :set_user
   def create
   @expense = Expense.new(expense_params)
   @expense.user = current_user
-  if @expense.save
-    redirect_to expenses_path
-  else
-    render :new
+    if @expense.save
+      redirect_to expenses_path
+    else
+      render :new
+    end
   end
 
 private
 
-def set_user
-  @user = current_user
+  def set_user
+    @user = current_user
+  end
 
   def expense_params
     params.require(:expense).permit(:date, :amount, :name)
