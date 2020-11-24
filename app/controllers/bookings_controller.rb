@@ -19,10 +19,10 @@ class BookingsController < ApplicationController
   end
 
   def destroy
-    raise
     @booking = Booking.find(params[:id])
+    @client = @booking.client
     @booking.destroy
-    redirect_to clients_path
+    redirect_to client_path(@client)
   end
 
   private

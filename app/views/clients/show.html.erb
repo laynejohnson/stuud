@@ -15,7 +15,7 @@
   <p>Payment status: <%= booking.payment_status %></p>
   <p>Status: <%= booking.status %></p>
   <%= link_to "Delete",
-    booking_path,
+    booking_path(booking),
     method: :delete,
     data: { confirm: 'Are you sure?'} %>
 <% end %>
