@@ -1,0 +1,8 @@
+<h2>Add a Expense</h2>
+
+<%= simple_form_for(@expense) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :date %>
+  <%= f.input :amount %>
+  <%= f.submit %>
+<% end %>
