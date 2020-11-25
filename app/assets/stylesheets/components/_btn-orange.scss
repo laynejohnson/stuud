@@ -11,9 +11,10 @@
   font-size: 16px;
   padding: 8px 16px;
   border-radius: 3px;
+  transition: background .3s;
 
-  :hover {
-    text-decoration: underline;
-  }
+}
 
+.btn-orange:hover {
+    background-color: #FA4B00;
 }
