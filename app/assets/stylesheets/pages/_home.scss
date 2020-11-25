@@ -6,7 +6,6 @@
 
 
   .home-container {
-    text-align: center;
     width: 450px;
     height: 250px;
     position: absolute;
@@ -17,6 +16,7 @@
   }
 
   h1 {
+    text-align: center;
     color: $sorange;
     font-size: 126px;
     font-weight: 900;
