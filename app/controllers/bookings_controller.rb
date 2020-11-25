@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_client, only:[:create]
+  before_action :set_client, only:[:create, :update]
 
   def new
     @booking = Booking.new
@@ -15,6 +15,20 @@ class BookingsController < ApplicationController
       redirect_to client_path(@client)
     else
       render :new
+    end
+  end
+
+  def edit
+    @booking = Booking.find(params[:id])
+  end
+
+  def update
+    @booking = Booking.find(params[:id])
+    @client = @booking.client
+    if @booking.update(booking_params)
+      redirect_to client_path(@client)
+    else
+      render :edit
     end
   end
 

@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resource :finances, only: [:show], :controller => :finances
 
   resources :clients, only: [:index, :show, :new, :create]
-  resources :bookings, only: [:new, :create, :destroy]
+  resources :bookings, only: [:new, :create, :edit, :update, :destroy]
 
   resources :expenses, only: [:index, :show, :new, :create]
 end

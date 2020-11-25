@@ -14,6 +14,7 @@
   <p>Price: <%= booking.price %>$</p>
   <p>Payment status: <%= booking.payment_status %></p>
   <p>Status: <%= booking.status %></p>
+  <%= link_to 'Edit', edit_booking_path(booking) %>
   <%= link_to "Delete",
     booking_path(booking),
     method: :delete,
