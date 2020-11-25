@@ -12,17 +12,15 @@
   </head>
 
   <body>
-    <div class="page-container">
 
-      <div class="stuud-navbar">
-        <%= render 'shared/navbar' %>
-      </div>
-
-      <div class="page-body">
-        <%= yield %>
-      </div>
-
+    <div class="stuud-navbar">
+      <%= render 'shared/navbar' %>
     </div>
+
+    <div class="page-body">
+      <%= yield %>
+    </div>
+
   <%= render 'shared/flashes' %>
   </body>
 </html>

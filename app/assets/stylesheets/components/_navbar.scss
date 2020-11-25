@@ -1,11 +1,15 @@
 .stuud-navbar {
   // width: 237px;
   height: 100vh;
+  width: 238px;
   background-color: #424d58;
+  position: fixed;
 
   #stuud-logo {
     font-size: 31px;
     font-weight: bold;
+    margin-top: 20px;
+    margin-left: 20px;
 
     a {
       color: $sorange;
@@ -15,6 +19,8 @@
 
   .nav-links {
     list-style-type: none;
+    margin-top: 50px;
+    padding-left: 0px;
 
     }
 
@@ -23,23 +29,67 @@
     color: white;
   }
 
+  .nav-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+
+    }
+  }
+
   .nav-logo {
     height: 50px;
     width: 50px;
     color: white;
+    margin-left: 34px;
   }
 
+  #expenses {
+    position: relative;
+    left: 83px;
+  }
 
   #nav-footer {
     list-style-type: none;
     position: relative;
-    top: 300px;
+    top: 450px;
 
     a {
       text-decoration: none;
       color: white;
+
+      &:hover{
+        color: $sorange;
+      }
+    }
+
+    p {
+      font-size: 16px;
+      color: white;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    img {
+      position: relative;
+      top: 32px;
+      left: 13px;
     }
   }
 
+  #user-info {
+    margin-left: 63px;
+  }
 
+  #item-hover {
+    width: 20px;
+    height: 238px;
+
+    &:hover {
+      color: white;
+    }
+  }
 }

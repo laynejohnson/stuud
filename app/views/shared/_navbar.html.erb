@@ -2,52 +2,56 @@
   <h1 id="stuud-logo"><%= link_to "STUÜD", dashboard_path %></h1>
   <ul class="nav-links">
 
-  <div class="d-flex align-items-center">
+  <div class="nav-item">
+    <div class="item-hover"></div>
     <%= image_tag "noun_dashboard_676468.png", alt: "dashboard logo", class: "nav-logo" %>
     <li><%= link_to "Dashboard", dashboard_path %></li>
   </div>
 
-  <div class="d-flex align-items-center">
+  <div class="nav-item">
     <%= image_tag "noun_Calendar_2080651.png", alt: "calendar logo", class: "nav-logo" %>
     <li><%= link_to "Calendar", calendar_path %></li>
   </div>
 
-  <div class="d-flex align-items-center">
+  <div class="nav-item">
     <%= image_tag "noun_User_1560924.png", alt: "client logo", class: "nav-logo" %>
     <li><%= link_to "Clients", clients_path %></li>
   </div>
 
-  <div class="d-flex align-items-center">
+  <div class="nav-item">
     <%= image_tag "noun_Money_2833397 (1).png", alt: "finances logo", class: "nav-logo" %>
     <li><%= link_to "Finances", dashboard_path %></li>
   </div>
 
-  <div class="d-flex align-items-center">
-    <li><%= link_to "Expenses", expenses_path %></li>
+  <div class="nav-item">
+    <li><%= link_to "Expenses", expenses_path, id: "expenses" %></li>
   </div>
   </ul>
-
-
-
 
   <% if user_signed_in? %>
     <div id="nav-footer">
 
-      <div class="d-flex align-items-center">
         <%= image_tag "19_Cello-1-960x600.jpg", alt: "alttext", class: "avatar" %>
-        <p>Manu G.</p>
+      <div id="user-info">
+
+      <p>Manu G.</p>
+
+      <div class="d-flex justify-content-space-between">
+
+       <%= link_to "Account", dashboard_path, class: "mr-2" %>
+       <p>|</p>
+       <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "ml-2" %>
+
       </div>
-
-      <div class="d-flex">
-
-       <%= link_to "Account", dashboard_path %>
-       <%= link_to "Log out", destroy_user_session_path, method: :delete %>
 
       </div>
 
     </div>
+
       <% else %>
-        <%= link_to "Login", new_user_session_path %>
+        <div class="nav-footer">
+          <%= link_to "Login", new_user_session_path %>
+        </div>
       <% end %>
 
 </div>
