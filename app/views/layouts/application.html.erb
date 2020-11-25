@@ -12,6 +12,8 @@
   </head>
 
   <body>
+
+      <% if current_user %>
     <div class="stuud-navbar">
       <%= render 'shared/navbar' %>
     </div>
@@ -19,7 +21,6 @@
       <%= yield %>
     </div>
   <%= render 'shared/flashes' %>
-      <% if !(controller_name == "pages" && action_name == "home")%>
         <div class="page-container">
           <div class="stuud-navbar">
             <%= render 'shared/navbar' %>
@@ -29,7 +30,11 @@
           </div>
         </div>
       <% else %>
-        <%= yield %>
+        <div class="home-page">
+          <div class="home-container">
+            <%= yield %>
+          </div>
+        </div>
       <% end %>
     <%= render 'shared/flashes' %>
   </body>
