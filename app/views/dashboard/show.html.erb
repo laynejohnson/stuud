@@ -1,8 +1,75 @@
-<h1> Stüud Dashboard </h1>
-<%= link_to 'my clients', clients_path %>
-<%= link_to 'my expenses', expenses_path %>
+<!-- STUUD Dashboard -->
+<div class="dashboard">
 
-<h2>Todays Bookings: </h2>
+
+  <div class="container-left">
+    <h2>Upcoming Appointments </h2>
+    <div class="today">
+      <% @todays_bookings.each do |booking| %>
+        <h4>Full name: <%= booking.client.first_name %> <%= booking.client.last_name %></h4>
+        <p>Date: <%= booking.date.strftime("%b %e, %l:%M %p") %></p>
+      <% end %>
+    </div>
+
+    <div class="future">
+
+    </div>
+
+  </div>
+
+  <div class="container-right">
+    <!------------------ PENDING INVOICES ------------------>
+
+    <h2>Pending Invoices </h2>
+
+    <% @pending_invoices.each do |invoice| %>
+      <h4>Full name: <%= invoice.client.first_name %> <%= invoice.client.last_name %></h4>
+      <p>Amount: <%= invoice.price %>$</p>
+      <p>Date: <%= invoice.date.strftime("%A, %b %d") %></p>
+    <% end %>
+
+    <!------------------ WEEKLY REPORT ------------------>
+
+    <h2>Weekly Report</h2>
+
+    <h3>Appointments: <%= @bookings_weekly_count %></h3>
+    <h3>Expenses: <%= @total_expenses_weekly %>$</h3>
+    <h3>Income: <%= @income %>$</h3>
+
+  </div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!------------------ UPCOMING APPOINTMENTS ------------------>
+
+<h2>Upcoming Appointments: </h2>
+
+<% @todays_bookings.each do |booking| %>
+  <h4>Full name: <%= booking.client.first_name %> <%= booking.client.last_name %></h4>
+  <p>Date: <%= booking.date.strftime("%b %e, %l:%M %p") %></p>
+<% end %>
+
+
+
+
+
+
+
+<!-- <h2>Todays Bookings: </h2>
 <% @todays_bookings.each do |booking| %>
   <h4>Full name: <%= booking.client.first_name %> <%= booking.client.last_name %></h4>
   <p>Date: <%= booking.date.strftime("%b %e, %l:%M %p") %></p>
@@ -20,36 +87,13 @@
 <h2>Weekly report</h2>
 <h3>Appointments: <%= @bookings_weekly_count %></h3>
 <h3>Expenses: <%= @total_expenses_weekly %>$</h3>
-<h3>Income: <%= @income %>$</h3>
+<h3>Income: <%= @income %>$</h3> -->
 
-
-<%= link_to 'add booking', new_booking_path %>
-<%= link_to 'add client', new_client_path %>
-<%= link_to 'expenses', expenses_path %>
-<%= link_to 'my finances', finances_path %>
-
-
-
-    <h2>Todays Bookings: </h2>
-    <% @todays_bookings.each do |booking| %>
-      <h4>Full name: <%= booking.client.first_name %> <%= booking.client.last_name %></h4>
-      <p>Date: <%= booking.date.strftime("%b %e, %l:%M %p") %></p>
-    <% end %>
-    <br>
-    <h2>Pending Invoices:</h2>
-    <br>
-    <% @pending_invoices.each do |invoice| %>
-      <h4>Full name: <%= invoice.client.first_name %> <%= invoice.client.last_name %></h4>
-      <p>Amount: <%= invoice.price %>$</p>
-      <p>Date: <%= invoice.date.strftime("%A, %b %d") %></p>
-    <% end %>
-    <br>
-
-    <h2>Weekly report</h2>
-    <h3>Appointments: <%= @bookings_weekly_count %></h3>
-    <h3>Expenses: <%= @total_expenses_weekly %>$</h3>
-    <h3>Income: <%= @income %>$</h3>
-
-
-    <%= link_to 'add booking', new_booking_path %>
-    <%= link_to 'add client', new_client_path %>
+<ul>
+  <li><%= link_to 'add booking', new_booking_path %></li>
+  <li><%= link_to 'add client', new_client_path %></li>
+  <li><%= link_to 'expenses', expenses_path %></li>
+  <li><%= link_to 'my finances', finances_path %></li>
+  <li><%= link_to 'my clients', clients_path %></li>
+  <li><%= link_to 'my expenses', expenses_path %></li>
+</ul>
