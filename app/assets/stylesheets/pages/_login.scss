@@ -1,0 +1,57 @@
+.login-page {
+  h1 {
+    font-size: 26px;
+    text-align: left;
+  }
+
+  .form-control {
+    border: none;
+  }
+
+  .form-control:focus {
+    border: 2px solid $sorange;
+    box-shadow: none;
+  }
+
+  ::placeholder {
+    color: $sgrey;
+  }
+
+
+
+  input[type=submit] {
+    background-color: $sorange;
+    color: $soffwhite;
+    width: 175px;
+    height: 40px;
+    text-align: center;
+    border: none;
+    text-decoration: none;
+    font-weight: 400;
+    font-family: Montserrat;
+    font-size: 16px;
+    padding: 8px 16px;
+    border-radius: 3px;
+    transition: background .3s;
+  }
+
+  input[type=submit]:hover {
+    background-color: #FA4B00;
+    text-decoration: none;
+    color: $soffwhite;
+  }
+
+  .form-actions {
+  display: flex;
+  justify-content: space-between;
+    a{
+      color: $sorange;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: #FA4B00;
+    }
+  }
+}
+
