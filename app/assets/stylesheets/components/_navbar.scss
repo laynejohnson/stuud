@@ -5,18 +5,6 @@
   background-color: #424d58;
   position: fixed;
 
-  #stuud-logo {
-    font-size: 31px;
-    font-weight: bold;
-    margin-top: 20px;
-    margin-left: 20px;
-
-    a {
-      color: $sorange;
-      text-decoration: none;
-    }
-  }
-
   .nav-links {
     list-style-type: none;
     margin-top: 50px;
@@ -38,6 +26,10 @@
       background-color: rgba(255, 255, 255, 0.1);
 
     }
+
+    a {
+      margin-left: 5px;
+    }
   }
 
   .nav-logo {
@@ -47,21 +39,48 @@
     margin-left: 34px;
   }
 
+    // .item-hover {
+  //   width: 20px;
+  //   height: 238px;
+  //   color: white;
+
+  //   &:hover {
+  //     color: white;
+  //   }
+  // }
+
   #expenses {
     position: relative;
     left: 83px;
   }
 
+  #stuud-logo {
+    font-size: 31px;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-left: 20px;
+
+    a {
+      color: $sorange;
+      text-decoration: none;
+
+      &:hover {
+        color: white;
+      }
+    }
+
+  }
+
   #nav-footer {
     list-style-type: none;
     position: relative;
-    top: 450px;
+    top: 448px;
 
     a {
       text-decoration: none;
       color: white;
 
-      &:hover{
+      &:hover {
         color: $sorange;
       }
     }
@@ -84,12 +103,4 @@
     margin-left: 63px;
   }
 
-  #item-hover {
-    width: 20px;
-    height: 238px;
-
-    &:hover {
-      color: white;
-    }
-  }
 }
