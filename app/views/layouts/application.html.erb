@@ -4,22 +4,12 @@
     <title>Stuud</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
-
   <body>
-    <div class="stuud-navbar">
-      <%= render 'shared/navbar' %>
-    </div>
-    <div class="page-body">
-      <%= yield %>
-    </div>
-  <%= render 'shared/flashes' %>
-      <% if !(controller_name == "pages" && action_name == "home")%>
+      <% if user_signed_in? %>
         <div class="page-container">
           <div class="stuud-navbar">
             <%= render 'shared/navbar' %>
@@ -29,7 +19,11 @@
           </div>
         </div>
       <% else %>
-        <%= yield %>
+        <div class="home-page">
+          <div class="home-container">
+            <%= yield %>
+          </div>
+        </div>
       <% end %>
     <%= render 'shared/flashes' %>
   </body>
