@@ -1,8 +1,9 @@
-<h1>STÜUD</h1>
-<p>______________________________________________________</p>
-<div class="home-btns">
-  <a href="#" class="btn-orange">Login</a>
-  <a href="#" class="btn-orange">Signup</a>
-</div>
-
-
+<div class="home-page">
+  <div class="home-container">
+    <h1>STÜUD</h1>
+    <p>______________________________________________________</p>
+    <div class="home-btns">
+      <%= link_to "Login", new_user_session_path, class: "btn-orange"  %>
+      <%= link_to "Signup", user_session_path, class: "btn-orange"  %>
+    </div>
+  </div>
