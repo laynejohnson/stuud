@@ -1,6 +1,7 @@
 class Client < ApplicationRecord
   belongs_to :user
   has_many :bookings, dependent: :destroy
+  has_many :events, dependent: :destroy
 
   # validations
   validates :first_name, presence: true
@@ -11,6 +12,6 @@ class Client < ApplicationRecord
   validates :color, inclusion: { in: %w[Yellow Blue Red]}
 
   def fullname
-    first_name + " " + last_name
+    first_name.capitalize + " " + last_name.capitalize
   end
 end
