@@ -11,3 +11,13 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+.page-container {
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 236px 1fr;
+}
+
+.page-body {
+  margin: 30px;
+}
