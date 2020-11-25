@@ -9,22 +9,20 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
   <body>
+
       <% if current_user %>
+
     <div class="stuud-navbar">
       <%= render 'shared/navbar' %>
     </div>
+
+
     <div class="page-body">
       <%= yield %>
     </div>
-  <%= render 'shared/flashes' %>
-        <div class="page-container">
-          <div class="stuud-navbar">
-            <%= render 'shared/navbar' %>
-          </div>
-          <div class="page-body">
-            <%= yield %>
-          </div>
-        </div>
+
+    <%= render 'shared/flashes' %>
+
       <% else %>
         <div class="home-page">
           <div class="home-container">
