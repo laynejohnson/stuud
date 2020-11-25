@@ -28,7 +28,7 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     @event.user = current_user
-
+    @event.client = Client.find(params[:event][:client_id])
     respond_to do |format|
       if @event.save
         format.html { redirect_to @event, notice: 'Event was successfully created.' }
@@ -70,13 +70,17 @@ class EventsController < ApplicationController
       @user = current_user
     end
 
+    def set_client
+
+    end
+
     def set_event
       @event = Event.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def event_params
-      params.require(:event).permit(:all_day, :start_time, :end_time, :title, :color, :user)
+      params.require(:event).permit(:all_day, :start_time, :end_time, :title, :color, :user, :client)
     end
 end
 

@@ -1,7 +1,12 @@
 .login-signup {
-  h1 {
+  .title {
     font-size: 26px;
     text-align: left;
+    color: $sorange!important;
+  }
+
+  hr {
+    border-top: 1px solid $sorange;
   }
 
   .form-control {

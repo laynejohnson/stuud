@@ -5,35 +5,59 @@
   <%= content_tag :div, class: 'modal', data: { target: 'calendar.modal' } do %>
     <div class="modal-dialog" role="document">
       <div class="modal-content">
-        <%= form_with model: Event.new, local: true do |form| %>
+        <%#= form_with model: Event.new, local: true do |form| %>
+        <%= simple_form_for(Event.new) do |f| %>
           <div class="modal-body">
             <div class="field">
-              <%= form.label :all_day %>
-              <%= form.check_box :all_day %>
+              <%= f.input :all_day %>
+              <%#= form.label :all_day %>
+              <%#= form.check_box :all_day %>
             </div>
 
             <div class="field">
-              <%= form.label :start_time %>
-              <%= form.text_field :start_time, data: { target: 'calendar.start_time' } %>
+              <%= f.input :start_time %>
+              <%#= form.label :start_time %>
+              <%#= form.text_field :start_time, data: { target: 'calendar.start_time' } %>
             </div>
 
             <div class="field">
-              <%= form.label :end_time %>
-              <%= form.text_field :end_time, data: { target: 'calendar.end_time' } %>
+              <%= f.input :end_time %>
+              <%#= form.label :end_time %>
+              <%#= form.text_field :end_time, data: { target: 'calendar.end_time' } %>
             </div>
 
             <div class="field">
-              <%= form.label :title %>
-              <%= form.text_field :title %>
+              <%= f.input :title %>
+              <%#= form.label :title %>
+              <%#= form.text_field :title %>
             </div>
 
             <div class="field">
-              <%= form.label :color %>
-              <%= form.select :color, collection: [['Yellow','yellow'], ['Blue','blue'], ['Red','red'], ['Orange','orange']] %>
+              <%= f.association :client, :label_method => :fullname %>
+              <%#= form.label :client %>
+              <%#= select(:event, :client_id, Client.all.collect {|c| [ c.first_name.capitalize + " " + c.last_name.capitalize, c.id ] }, {include_blank: 'None'}) %>
             </div>
-          </div>
-          <div class="modal-footer">
-            <%= form.submit class: 'btn btn-primary' %>
+
+            <div class="field">
+              <%= f.input :price %>
+              <%#= form.label :price %>
+              <%#= form.text_field :price %>
+            </div>
+
+            <div class="field">
+              <%= f.input :color, collection: %w[Blue Yellow Red] %>
+              <%#= form.label :color %>
+              <%#= form.select :color, collection: [['Yellow','yellow'], ['Blue','blue'], ['Red','red'], ['Orange','orange']] %>
+            </div>
+            <div class="field">
+              <%= f.input :payment_status %>
+              <%#= form.label :payment_status %>
+              <%#= form.check_box :payment_status %>
+            </div>
+            <div class="modal-footer">
+              <%= f.submit %>
+              <%#= form.submit class: 'btn btn-primary' %>
+            </div>
           </div>
         <% end %>
       </div>
