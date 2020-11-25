@@ -12,15 +12,25 @@
   </head>
 
   <body>
-
     <div class="stuud-navbar">
       <%= render 'shared/navbar' %>
     </div>
-
     <div class="page-body">
       <%= yield %>
     </div>
-
   <%= render 'shared/flashes' %>
+      <% if !(controller_name == "pages" && action_name == "home")%>
+        <div class="page-container">
+          <div class="stuud-navbar">
+            <%= render 'shared/navbar' %>
+          </div>
+          <div class="page-body">
+            <%= yield %>
+          </div>
+        </div>
+      <% else %>
+        <%= yield %>
+      <% end %>
+    <%= render 'shared/flashes' %>
   </body>
 </html>

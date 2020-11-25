@@ -9,5 +9,6 @@ class User < ApplicationRecord
   has_many :bookings, dependent: :destroy
   has_many :expenses, dependent: :destroy
   has_many :clients, through: :bookings
+  has_many :events, dependent: :destroy
 
 end
