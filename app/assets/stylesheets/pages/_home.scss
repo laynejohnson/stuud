@@ -15,11 +15,15 @@
     margin-left: -225px;
   }
 
-  h1 {
+  hr {
+    border-top: 1px solid $sorange;
+  }
+
+  .home-logo {
     text-align: center;
-    color: $sorange;
-    font-size: 126px;
-    font-weight: 900;
+    color: $sorange!important;
+    font-size: 126px!important;
+    font-weight: 900!important;
   }
 
   p {

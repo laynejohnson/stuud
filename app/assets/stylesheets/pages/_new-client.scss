@@ -1,10 +1,5 @@
-.login-page {
-  h1 {
-    font-size: 26px;
-    text-align: left;
-  }
-
-  .form-control {
+.new-client {
+.form-control {
     border: none;
   }
 
@@ -14,7 +9,11 @@
   }
 
   ::placeholder {
-    color: $sgrey;
+    color: #4D526F;
+  }
+
+  hr {
+    border-top: 1px solid $sblue;
   }
 
   input[type=submit] {
@@ -42,7 +41,8 @@
   .form-actions {
   display: flex;
   justify-content: space-between;
-    a{
+  align-content: baseline;
+    a {
       color: $sorange;
       text-decoration: none;
     }
@@ -52,4 +52,3 @@
     }
   }
 }
-
