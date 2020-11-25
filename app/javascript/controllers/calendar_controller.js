@@ -17,7 +17,6 @@ export default class extends Controller {
       initialView: 'timeGridWeek',
       slotMinTime: '06:00:00',
       slotMaxTime: '24:00:00',
-      eventLimit: true,
       eventBackgroundColor: '#FA6C00',
       eventBorderColor: '#414D58',
       editable: true,
