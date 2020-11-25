@@ -1,5 +1,6 @@
 class Event < ApplicationRecord
   belongs_to :user
+  belongs_to :client
   # after_commit :sync_booking
 
   # def sync_booking

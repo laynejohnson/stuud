@@ -28,6 +28,11 @@
             </div>
 
             <div class="field">
+              <%= form.label :client %>
+              <%= select(:event, :client_id, Client.all.collect {|c| [ c.first_name.capitalize + " " + c.last_name.capitalize, c.id ] }, {include_blank: 'None'}) %>
+            </div>
+
+            <div class="field">
               <%= form.label :color %>
               <%= form.select :color, collection: [['Yellow','yellow'], ['Blue','blue'], ['Red','red'], ['Orange','orange']] %>
             </div>
