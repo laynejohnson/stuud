@@ -1,0 +1,27 @@
+<h1>My finances</h1>
+
+<h2>Unpaid invoices</h2>
+<% @pending_invoices.each do |invoice| %>
+  <h4>Full name: <%= invoice.client.first_name %> <%= invoice.client.last_name %></h4>
+  <p>Amount: <%= invoice.price %>$</p>
+  <p>Date: <%= invoice.date.strftime("%A, %b %d") %></p>
+<% end %>
+
+<h2>Paid invoices</h2>
+<% @paid_invoices.each do |invoice| %>
+  <h4>Full name: <%= invoice.client.first_name %> <%= invoice.client.last_name %></h4>
+  <p>Amount: <%= invoice.price %>$</p>
+  <p>Date: <%= invoice.date.strftime("%A, %b %d") %></p>
+<% end %>
+
+<h2>Weekly report</h2>
+<h3>Expenses: <%= @total_expenses_weekly %>$</h3>
+<h3>Income: <%= @income_weakly %>$</h3>
+
+<h2>Monthly report</h2>
+<h3>Expenses: <%= @total_expenses_monthly %>$</h3>
+<h3>Income: <%= @income_monthly %>$</h3>
+
+<h2>Yearly report</h2>
+<h3>Expenses: <%= @total_expenses_weekly %>$</h3>
+<h3>Income: <%= @income_yearly %>$</h3>
