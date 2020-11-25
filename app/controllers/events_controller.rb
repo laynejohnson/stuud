@@ -1,11 +1,12 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :set_user
 
   def index
     # start_date = params[:start]
     # end_date = params[:end]
     # @events = Event.where("start_time >= ? AND end_time <= ?", start_date, end_date)
-    @events = Event.all
+    @events = Event.where(user_id: @user)
   end
 
   # GET /events/1
@@ -26,6 +27,7 @@ class EventsController < ApplicationController
   # POST /events.json
   def create
     @event = Event.new(event_params)
+    @event.user = current_user
 
     respond_to do |format|
       if @event.save
@@ -64,13 +66,17 @@ class EventsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    def set_user
+      @user = current_user
+    end
+
     def set_event
       @event = Event.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def event_params
-      params.require(:event).permit(:all_day, :start_time, :end_time, :title)
+      params.require(:event).permit(:all_day, :start_time, :end_time, :title, :color, :user)
     end
 end
 

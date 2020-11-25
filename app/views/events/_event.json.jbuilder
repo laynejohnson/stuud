@@ -1,5 +1,5 @@
 date_format = "%Y-%m-%d %H:%M%z"
-json.extract! event, :id, :title
+json.extract! event, :id, :title, :color, :user
 json.url event_url(event, format: :json)
 json.show_url event_url(event, format: :html)
 json.start event.start_time.strftime(date_format)

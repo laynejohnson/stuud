@@ -26,6 +26,11 @@
               <%= form.label :title %>
               <%= form.text_field :title %>
             </div>
+
+            <div class="field">
+              <%= form.label :color %>
+              <%= form.select :color, collection: [['Yellow','yellow'], ['Blue','blue'], ['Red','red'], ['Orange','orange']] %>
+            </div>
           </div>
           <div class="modal-footer">
             <%= form.submit class: 'btn btn-primary' %>
