@@ -1,27 +1,27 @@
 .stuud-navbar {
+  // width: 237px;
   height: 100vh;
   background-color: #424d58;
-  // width: 237px;
-}
 
-.nav-links {
-  list-style-type: none;
-}
-
-.nav-item {
-
-}
-
-#stuud-logo {
-  font-size: 31px;
-  font-weight: bold;
-
-  a {
-    color: $sorange;
-    text-decoration: none;
+  .nav-links {
+    list-style-type: none;
   }
-}
 
-#nav-footer {
-  list-style-type: none;
-}
+  .nav-item {
+
+  }
+
+  #stuud-logo {
+    font-size: 31px;
+    font-weight: bold;
+
+    a {
+      color: $sorange;
+      text-decoration: none;
+    }
+  }
+
+  #nav-footer {
+    list-style-type: none;
+  }
+ }
