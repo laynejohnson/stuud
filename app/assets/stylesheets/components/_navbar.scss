@@ -3,14 +3,6 @@
   height: 100vh;
   background-color: #424d58;
 
-  .nav-links {
-    list-style-type: none;
-  }
-
-  .nav-item {
-
-  }
-
   #stuud-logo {
     font-size: 31px;
     font-weight: bold;
@@ -21,7 +13,33 @@
     }
   }
 
+  .nav-links {
+    list-style-type: none;
+
+    }
+
+  li > a {
+    text-decoration: none;
+    color: white;
+  }
+
+  .nav-logo {
+    height: 50px;
+    width: 50px;
+    color: white;
+  }
+
+
   #nav-footer {
     list-style-type: none;
+    position: relative;
+    top: 300px;
+
+    a {
+      text-decoration: none;
+      color: white;
+    }
   }
- }
+
+
+}
