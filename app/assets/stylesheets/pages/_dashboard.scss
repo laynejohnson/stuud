@@ -7,7 +7,6 @@
     overflow: scroll;
     margin-left: 32px;
     max-height: 100vh;
-
   }
 
   .container-left {
@@ -76,6 +75,13 @@
     box-shadow: 0px 4px 4px rgba(198, 198, 198, 0.25);
     border-radius: 3px;
     margin-bottom: 18px;
+  }
+
+  .card-weekly-report {
+    width: 448px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(198, 198, 198, 0.25);
+    border-radius: 3px;
   }
 
   .client-name {
