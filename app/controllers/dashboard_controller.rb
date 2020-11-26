@@ -1,10 +1,10 @@
 class DashboardController < ApplicationController
   def show
     @todays_bookings = current_user.bookings
-      .where(date: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day)
+      .where(date: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day).order(:date)
 
     @future_bookings = current_user.bookings
-      .where('date >= ?', DateTime.now.tomorrow.beginning_of_day)
+      .where('date >= ?', DateTime.now.tomorrow.beginning_of_day).order(:date)
 
     @pending_invoices = current_user.bookings
       .where(payment_status:false)

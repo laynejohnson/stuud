@@ -14,7 +14,15 @@
           <p class="client-name"><%= booking.client.first_name %> <%= booking.client.last_name %></p>
           <p class="event-date"><%= booking.date.strftime("%b %e, %l:%M %p") %></p>
           <%= image_tag "noun_Vertical Dots_3560972 (1).svg", alt: "alttext" %>
-          <div id="color-indicator"></div>
+            <% if booking.client.color == "Red" %>
+              <div class="color-indicator-red"></div>
+            <% elsif booking.client.color == "Yellow" %>
+              <div class="color-indicator-yellow"></div>
+            <% elsif booking.client.color == "Blue" %>
+              <div class="color-indicator-blue"></div>
+            <% else %>
+              <div></div>
+            <% end %>
         </div>
       <% end %>
 
@@ -33,25 +41,23 @@
         <p class="client-name"><%= booking.client.first_name %> <%= booking.client.last_name %></p>
         <p class="event-date"><%= booking.date.strftime("%b %e, %l:%M %p") %></p>
         <%= image_tag "noun_Vertical Dots_3560972 (1).svg", alt: "alttext" %>
-        <div id="color-indicator"></div>
+          <% if booking.client.color == "Red" %>
+            <div class="color-indicator-red"></div>
+          <% elsif booking.client.color == "Yellow" %>
+            <div class="color-indicator-yellow"></div>
+          <% elsif booking.client.color == "Blue" %>
+            <div class="color-indicator-blue"></div>
+          <% else %>
+            <div></div>
+          <% end %>
       </div>
       <% end %>
-
-
-
     </div>
-
   </div>
-
-
-
-
-
   <div class="container-right">
   <!------------------ PENDING INVOICES ------------------>
-    <h1> Pending Invoices </h1>
+  <h1> Pending Invoices </h1>
     <hr/>
-
     <div class="pending-invoices">
       <% @pending_invoices.each do |invoice| %>
         <div class="card-invoice">
@@ -61,13 +67,19 @@
             <p><%= invoice.price %>$</p>
             <p><%= invoice.date.strftime("%A, %b %d") %></p>
           </div>
-          <div id="color-indicator"></div>
+            <% if invoice.client.color == "Red" %>
+              <div class="color-indicator-red"></div>
+            <% elsif invoice.client.color == "Yellow" %>
+              <div class="color-indicator-yellow"></div>
+            <% elsif invoice.client.color == "Blue" %>
+              <div class="color-indicator-blue"></div>
+            <% else %>
+              <div></div>
+            <% end %>
         </div>
       <% end %>
     </div>
-
     <!------------------ WEEKLY REPORT ------------------>
-
     <h1> Weekly Report </h1>
     <hr/>
     <div class="card-weekly-report">
@@ -77,8 +89,6 @@
       <%= link_to "New Booking", new_booking_path  %>
     </div>
   </div>
-
-
 </div>
 
 
