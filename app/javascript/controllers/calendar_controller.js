@@ -6,7 +6,7 @@ import interactionPlugin from '@fullcalendar/interaction'
 import Rails from '@rails/ujs'
 
 export default class extends Controller {
-  static targets = ["calendar", "modal", "start_time", "end_time"]
+  static targets = ["calendar", "modal", "start_time", "end_time", "color"]
 
   connect() {
     let _this = this
