@@ -25,11 +25,7 @@
             <% end %>
         </div>
       <% end %>
-
     </div>
-
-
-
 <!------------------ UPCOMING APPOINTMENTS ------------------>
     <div class="future">
 
@@ -79,16 +75,19 @@
         </div>
       <% end %>
     </div>
-    <!------------------ WEEKLY REPORT ------------------>
+  <!------------------ WEEKLY REPORT ------------------>
     <h1> Weekly Report </h1>
     <hr/>
     <div class="card-weekly-report">
-      <h3>Appointments: <%= @bookings_weekly_count %></h3>
-      <h3>Expenses: <%= @total_expenses_weekly %>$</h3>
-      <h3>Income: <%= @income %>$</h3>
-      <%= link_to "New Booking", new_booking_path  %>
+      <div id="card-content-weekly">
+        <h3>Appointments: <%= @bookings_weekly_count %></h3>
+        <h3>Expenses: <%= @total_expenses_weekly %>$</h3>
+      </div>
+      <div id="total-income">
+        <div><h3>Income:</h3></div>
+        <div><h3>$<%= @income %></h3></div>
+      </div>
+
     </div>
   </div>
 </div>
-
-
