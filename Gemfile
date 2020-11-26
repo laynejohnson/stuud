@@ -29,6 +29,7 @@ gem 'redis', '~> 4.0'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'letter_opener', group: :development
+gem 'dotenv-rails', groups: [:development, :test]
 
 gem 'devise'
 
