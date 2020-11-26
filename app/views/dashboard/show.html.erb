@@ -3,21 +3,34 @@
 
 
   <div class="container-left">
-    <h2>Upcoming Appointments </h2>
+    <h1>Upcoming Appointments </h1>
+    <div class="divider">
+      <h2 class="divider">Today</h2>
+    </div>
     <div class="today">
       <% @todays_bookings.each do |booking| %>
-        <h4>Full name: <%= booking.client.first_name %> <%= booking.client.last_name %></h4>
-        <p>Date: <%= booking.date.strftime("%b %e, %l:%M %p") %></p>
+        <div class="card-dashboard">
+          <p id="client-name"><%= booking.client.first_name %> <%= booking.client.last_name %></p>
+          <p id="event-date"><%= booking.date.strftime("%b %e, %l:%M %p") %></p>
+          <%= image_tag "noun_Vertical Dots_3560972 (1).svg", alt: "alttext" %>
+        </div>
       <% end %>
+
     </div>
+
+
 
 <!------------------ UPCOMING APPOINTMENTS ------------------>
     <div class="future">
-      <h2>Future Appointments: </h2>
+      <h2>Future Appointments: delete </h2>
 
     </div>
 
   </div>
+
+
+
+
 
   <div class="container-right">
   <!------------------ PENDING INVOICES ------------------>
@@ -42,3 +55,5 @@
 
 
 </div>
+
+<%= link_to "New Booking", new_booking_path  %>

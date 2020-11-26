@@ -3,6 +3,9 @@ class DashboardController < ApplicationController
     @todays_bookings = current_user.bookings
       .where(date: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day)
 
+    # @future_bookings = current_user.bookings
+    #   .where(date: Time.now.future?)
+
     @pending_invoices = current_user.bookings
       .where(payment_status:false)
 
