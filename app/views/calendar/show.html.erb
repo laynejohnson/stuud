@@ -34,8 +34,9 @@
 
             <div class="field">
               <%#= f.association :client, :label_method => :fullname %>
+              <%# @clientlist = Client.where(user_id:@user) %>
               <%= form.label :client %>
-              <%= select(:event, :client_id, Client.all.collect {|c| [ c.first_name.capitalize + " " + c.last_name.capitalize, c.id ] }, {include_blank: 'None'}) %>
+              <%= select(:event, :client_id, Client.where(user_id:current_user).collect {|c| [ c.first_name.capitalize + " " + c.last_name.capitalize, c.id ] }, {include_blank: 'None'}) %>
             </div>
 
             <div class="field">
