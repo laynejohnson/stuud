@@ -1,7 +1,9 @@
 class ClientsController < ApplicationController
   before_action :set_client, only: [:show]
+  before_action :set_user, only: [:index]
+
   def index
-    @clients = Client.all
+    @clients = Client.where(user_id: @user)
   end
 
   def show
@@ -22,6 +24,10 @@ class ClientsController < ApplicationController
   end
 
   private
+
+  def set_user
+    @user = current_user
+  end
 
   def set_client
     @client = Client.find(params[:id])
