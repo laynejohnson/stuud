@@ -11,8 +11,8 @@
     <div class="today">
       <% @todays_bookings.each do |booking| %>
         <div class="card-dashboard">
-          <p id="client-name"><%= booking.client.first_name %> <%= booking.client.last_name %></p>
-          <p id="event-date"><%= booking.date.strftime("%b %e, %l:%M %p") %></p>
+          <p class="client-name"><%= booking.client.first_name %> <%= booking.client.last_name %></p>
+          <p class="event-date"><%= booking.date.strftime("%b %e, %l:%M %p") %></p>
           <%= image_tag "noun_Vertical Dots_3560972 (1).svg", alt: "alttext" %>
           <div id="color-indicator"></div>
         </div>
@@ -39,26 +39,35 @@
 
   <div class="container-right">
   <!------------------ PENDING INVOICES ------------------>
+    <h1> Pending Invoices </h1>
+    <hr/>
 
-    <h2>Pending Invoices </h2>
-
-    <% @pending_invoices.each do |invoice| %>
-      <h4>Full name: <%= invoice.client.first_name %> <%= invoice.client.last_name %></h4>
-      <p>Amount: <%= invoice.price %>$</p>
-      <p>Date: <%= invoice.date.strftime("%A, %b %d") %></p>
-    <% end %>
+    <div class="pending-invoices">
+      <% @pending_invoices.each do |invoice| %>
+        <div class="card-invoice">
+          <p class="client-name"><%= invoice.client.first_name %> <%= invoice.client.last_name %></p>
+          <div id="invoice-info">
+            <p>#Invoice #5555</p>
+            <p><%= invoice.price %>$</p>
+            <p><%= invoice.date.strftime("%A, %b %d") %></p>
+          </div>
+          <div id="color-indicator"></div>
+        </div>
+      <% end %>
+    </div>
 
     <!------------------ WEEKLY REPORT ------------------>
 
-    <h2>Weekly Report</h2>
+    <h1> Weekly Report </h1>
+    <hr/>
 
     <h3>Appointments: <%= @bookings_weekly_count %></h3>
     <h3>Expenses: <%= @total_expenses_weekly %>$</h3>
     <h3>Income: <%= @income %>$</h3>
-
+    <%= link_to "New Booking", new_booking_path  %>
   </div>
 
 
 </div>
 
-<%= link_to "New Booking", new_booking_path  %>
+

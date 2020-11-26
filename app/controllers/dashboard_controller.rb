@@ -27,6 +27,5 @@ class DashboardController < ApplicationController
     @bookings_weekly.each do |booking|
       @income += booking.price
     end
-
   end
 end

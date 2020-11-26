@@ -4,11 +4,14 @@
   grid-template-columns: 1fr 1fr;
 
   .container-right {
+    overflow: scroll;
     margin-left: 32px;
+    max-height: 100vh;
 
   }
 
   .container-left {
+    max-height: 100vh;
   }
 
   hr {
@@ -57,7 +60,25 @@
     }
   }
 
-  #client-name {
+  .pending-invoices {
+    overflow: scroll;
+    max-height: 432px;
+    margin-top: 30px;
+  }
+
+  .card-invoice {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 448px;
+    height: 90px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(198, 198, 198, 0.25);
+    border-radius: 3px;
+    margin-bottom: 18px;
+  }
+
+  .client-name {
     font-size: 16px !important;
     font-weight: bold;
     line-height: 16px;
@@ -65,7 +86,7 @@
     margin-bottom: 0px;
   }
 
-  #event-date {
+  .event-date {
     font-size: 16px !important;
     margin-bottom: 0px;
 
@@ -75,6 +96,15 @@
     background-color: rgb(222, 42, 99);
     width: 14px;
     height: 90px;
+  }
+
+  #invoice-info {
+    height: 90px;
+    text-align: right;
+
+    p {
+      margin-bottom: 0px;
+    }
   }
 
 
