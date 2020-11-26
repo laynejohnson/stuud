@@ -3,34 +3,115 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
 
+  .container-right {
+    overflow: scroll;
+    margin-left: 32px;
+    max-height: 100vh;
+  }
 
+  .container-left {
+    max-height: 100vh;
+  }
 
+  hr {
+    border-top: 1px solid $sblue;
 
+  }
 
+  .divider {
 
+    margin-top: 23px;
+    margin-bottom: 17px;
 
+     h2 {
+      position: relative !important;
+      color: rgba(41, 50, 102, 0.56)!important;
+      overflow: hidden;
+      text-align:left;
 
+     }
 
+      h2:after {
+        display: inline-block;
+        content: "";
+        height: 1.5px;
+        background: rgba(41, 50, 102, 0.40);
+        position: absolute;
+        width: 68%;
+        top: 50%;
+        margin-left: 10px;
+      }
+  }
 
+  .card-dashboard {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 673px;
+    height: 90px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(198, 198, 198, 0.25);
+    border-radius: 3px;
+    margin-bottom: 24px;
 
+    img {
 
+    }
+  }
 
+  .pending-invoices {
+    overflow: scroll;
+    max-height: 432px;
+    margin-top: 30px;
+  }
 
+  .card-invoice {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 448px;
+    height: 90px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(198, 198, 198, 0.25);
+    border-radius: 3px;
+    margin-bottom: 18px;
+  }
 
+  .card-weekly-report {
+    width: 448px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(198, 198, 198, 0.25);
+    border-radius: 3px;
+  }
 
+  .client-name {
+    font-size: 16px !important;
+    font-weight: bold;
+    line-height: 16px;
+    margin-left: 48px;
+    margin-bottom: 0px;
+  }
 
+  .event-date {
+    font-size: 16px !important;
+    margin-bottom: 0px;
 
+  }
 
+  #color-indicator {
+    background-color: rgb(222, 42, 99);
+    width: 14px;
+    height: 90px;
+  }
 
+  #invoice-info {
+    height: 90px;
+    text-align: right;
 
-
-
-
-
-
-
-
-
+    p {
+      margin-bottom: 0px;
+    }
+  }
 
 
 }
