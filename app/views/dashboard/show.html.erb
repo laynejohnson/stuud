@@ -76,18 +76,49 @@
       <% end %>
     </div>
   <!------------------ WEEKLY REPORT ------------------>
+  <div class="weekly-report">
     <h1> Weekly Report </h1>
     <hr/>
     <div class="card-weekly-report">
       <div id="card-content-weekly">
-        <h3>Appointments: <%= @bookings_weekly_count %></h3>
-        <h3>Expenses: <%= @total_expenses_weekly %>$</h3>
-      </div>
-      <div id="total-income">
-        <div><h3>Income:</h3></div>
-        <div><h3>$<%= @income %></h3></div>
+
+        <div class="flex-center contain">
+          <div>
+            <h3 class="bold">Appointments:</h3>
+          </div>
+          <div>
+            <h3><%= @bookings_weekly_count %></h3>
+          </div>
+        </div>
+
+      <div class="flex-center contain">
+          <div>
+            <h3 class="bold">Expenses:</h3>
+          </div>
+          <div>
+            <h3>$<%= @total_expenses_weekly %></h3>
+          </div>
+        </div>
+
+      <div class="flex-center contain">
+        <div>
+          <h3 class="bold">Income:</h3>
+        </div>
+        <div>
+          <h3>$<%= @income %></h3>
+        </div>
       </div>
 
+      <div class="flex-center contain highlight">
+        <div>
+          <h3 class="bold">Total Income:</h3>
+        </div>
+        <div>
+          <h3 class="bold">$<%= @income %></h3>
+        </div>
+      </div>
+    </div>
+    </div>
     </div>
   </div>
 </div>

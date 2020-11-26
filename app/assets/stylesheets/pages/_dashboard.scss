@@ -3,6 +3,35 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
 
+  // Styles ––––––––––––––––––––––––––––––––––––––––––––––
+
+  .bold {
+    font-weight: bold !important;
+  }
+
+  .flex-center {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    padding-right: 24px;
+    padding-left: 24px;
+    text-align: center;
+  }
+
+  .contain {
+    width: 370px;
+    height: 50px;
+    border-radius: 5px;
+  }
+
+  .highlight {
+    background: rgba(230, 232, 230, 0.3);
+
+  }
+
+  // Containers ––––––––––––––––––––––––––––––––––––––––––––––
+
   .container-right {
     overflow: scroll;
     margin-left: 32px;
@@ -12,6 +41,14 @@
   .container-left {
     max-height: 100vh;
   }
+
+  .pending-invoices {
+    overflow: scroll;
+    max-height: 432px;
+    margin-top: 30px;
+  }
+
+  // Dividers ––––––––––––––––––––––––––––––––––––––––––––––
 
   hr {
     border-top: 1px solid $sblue;
@@ -43,6 +80,8 @@
       }
   }
 
+  // Cards ––––––––––––––––––––––––––––––––––––––––––––––
+
   .card-dashboard {
     display: flex;
     align-items: center;
@@ -59,12 +98,6 @@
     }
   }
 
-  .pending-invoices {
-    overflow: scroll;
-    max-height: 432px;
-    margin-top: 30px;
-  }
-
   .card-invoice {
     display: flex;
     align-items: center;
@@ -79,7 +112,7 @@
 
   .card-weekly-report {
     width: 448px;
-    height: 305px;
+    height: 297px;
     background: #FFFFFF;
     box-shadow: 0px 4px 4px rgba(198, 198, 198, 0.25);
     border-radius: 3px;
@@ -115,9 +148,7 @@
   .event-date {
     font-size: 16px !important;
     margin-bottom: 0px;
-
   }
-
 
   #invoice-info {
     height: 90px;
@@ -129,22 +160,11 @@
   }
 
   #card-content-weekly {
-    margin-left: 45px;
-    padding-top: 35px;
-  }
-
-  #total-income {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 340px;
-    height: 71px;
-    background: rgba(230, 232, 230, 0.3);
-    border-radius: 5px;
+    font-size: 18px;
+    width: 370px;
+    height: 300px;
     margin: 0 auto;
-    padding-right: 24px;
-    padding-left: 24px;
-    text-align: center;
+
   }
 
 }
