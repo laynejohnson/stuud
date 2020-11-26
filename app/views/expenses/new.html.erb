@@ -1,8 +1,24 @@
-<h2>Add a Expense</h2>
+<div class="add-expense">
+  <h1>Add a Expense</h1>
+  <hr/>
 
-<%= simple_form_for(@expense) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :date %>
-  <%= f.input :amount %>
-  <%= f.submit %>
-<% end %>
+  <%= simple_form_for(@expense) do |f| %>
+    <%= f.input :name,
+                required: true,
+                autofocus: true,
+                label: false,
+                placeholder: "name" %>
+    <%= f.input :amount,
+                required: true,
+                label: false,
+                placeholder: "amount" %>
+    <%= f.input :date,
+                as: :string,
+                required: true,
+                label: false,
+                placeholder: "date" %>
+    <div class="form-actions">
+    <%= f.submit %>
+  <% end %>
+  </div>
+</div>
