@@ -3,7 +3,23 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
 
+  .container-right {
+    margin-left: 32px;
+
+  }
+
+  .container-left {
+  }
+
+  hr {
+    border-top: 1px solid $sblue;
+
+  }
+
   .divider {
+
+    margin-top: 23px;
+    margin-bottom: 17px;
 
      h2 {
       position: relative !important;
@@ -16,12 +32,11 @@
       h2:after {
         display: inline-block;
         content: "";
-        height: 1px;
-        background: rgba(41, 50, 102, 0.56);
+        height: 1.5px;
+        background: rgba(41, 50, 102, 0.40);
         position: absolute;
-        width: 55%;
+        width: 68%;
         top: 50%;
-        // margin-top: -2px;
         margin-left: 10px;
       }
   }
@@ -44,6 +59,7 @@
 
   #client-name {
     font-size: 16px !important;
+    font-weight: bold;
     line-height: 16px;
     margin-left: 48px;
     margin-bottom: 0px;
@@ -53,6 +69,12 @@
     font-size: 16px !important;
     margin-bottom: 0px;
 
+  }
+
+  #color-indicator {
+    background-color: rgb(222, 42, 99);
+    width: 14px;
+    height: 90px;
   }
 
 
