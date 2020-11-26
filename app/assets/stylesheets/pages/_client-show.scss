@@ -1,0 +1,44 @@
+.client-show {
+
+  hr {
+    border-top: 1px solid $sblue;
+  }
+
+  img {
+    margin-right: 16px;
+  }
+
+  .info-section {
+    display: flex;
+    align-items: center;
+    margin-top: 16px;
+    margin-bottom: 16px;
+  }
+
+
+  .notes {
+    height: 300px;
+
+  }
+
+  .client-container {
+    display: grid;
+    grid-column-gap: 16px;
+    grid-template-columns: 50% 50%;
+  }
+
+  .appt-card {
+    height: 90px;
+    display: flex;
+    justify-content: space-between;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(198, 198, 198, 0.25);
+    border-radius: 5px;
+    margin-bottom: 16px;
+    padding-top: 32px;
+    padding-left: 32px;
+    padding-right:32px;
+  }
+
+
+}
