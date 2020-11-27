@@ -6,27 +6,24 @@
 
   </div>
 
-
   <div class="container-right">
-  <!------------------ PENDING INVOICES ------------------>
+
   <h1>Invoices</h1>
     <hr/>
     <div class="invoices">
-
-    <div class="divider">
-      <h2 class="divider">Overdue</h2>
+  <!------------------ OVERDUE INVOICES ------------------>
+    <div class="overdue">
+      <div class="divider">
+        <h2 class="divider">Overdue</h2>
+      </div>
     </div>
 
-    <div class="today">
-    </div>
-
-    <div class="future">
+  <!------------------ PENDING INVOICES ------------------>
+    <div class="pending">
       <div class="divider">
         <h2 class="divider">Pending</h2>
       </div>
-
-
-    </div>
+    <div class="pending-invoices">
       <% @pending_invoices.each do |invoice| %>
         <div class="card-invoice">
           <%= link_to invoice.client.first_name + " " + invoice.client.last_name, client_path(invoice.client), class: "client-name" %>
@@ -46,6 +43,26 @@
             <% end %>
         </div>
       <% end %>
+    </div>
+
+
+
+
+
+
+    </div>
+
+  <!------------------ PAID INVOICES ------------------>
+
+    <div class="paid">
+      <div class="divider">
+        <h2 class="divider">Paid</h2>
+      </div>
+    </div>
+
+
+
+
     </div>
   </div>
 
