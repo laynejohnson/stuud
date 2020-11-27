@@ -1,16 +1,42 @@
 <h1> Stüud Expenses Index </h1>
+<div class="dashboard">
+  <div class="container-left">
+    <h3>Income from bookings: <%= @income %>$</h3>
+    <h3>Total expenses: <%= @total_expenses %>$</h3>
+    <% @expenses.each do |expense| %>
+      <h4>Expense #<%= expense.id %></h4>
+      <ul>
+        <li>Name: <%= expense.name %></li>
+        <li>Amount: <%= expense.amount %>$</li>
+        <li>Date: <%= expense.date.strftime("%m/%d/%Y") %></li>
+      </ul>
+    <% end %>
 
-<h3>Income from bookings: <%= @income %>$</h3>
-<h3>Total expenses: <%= @total_expenses %>$</h3>
-<% @expenses.each do |expense| %>
-  <h4>Expense #<%= expense.id %></h4>
-  <ul>
-    <li>Name: <%= expense.name %></li>
-    <li>Amount: <%= expense.amount %>$</li>
-    <li>Date: <%= expense.date.strftime("%m/%d/%Y") %></li>
-  </ul>
-<% end %>
+    <%= link_to 'Add Expense', new_expense_path %>
+    <hr>
+    <h2>Revenue: <%= @profit %>$</h2>
+  </div>
 
-<%= link_to 'Add Expense', new_expense_path %>
+  <div class="container-right">
+    <%= pie_chart Booking.group(:description).sum(:price),
+    donut: true,
+    label: "Income",
+    suffix: "$",
+    title: "Total Income #{@income} $",
+    width: "400px",
+    height: "300px",
+    colors: ["#424D58", "#FB6C00", "#ffe954"],
+    library: {backgroundColor: "#F6F5F6"} %>
+    <br>
+    <%= column_chart Expense.group(:name).sum(:amount),
+    # donut: true,
+    label: "Expense",
+    suffix: "$",
+    title: "Total Expenses #{@total_expenses} $",
+    width: "400px",
+    height: "300px",
+    colors: ["#D42803", "#FB6C00", "#424D58"],
+    library: {backgroundColor: "#F6F5F6"} %>
 
-<h2>Revenue: <%= @profit %>$</h2>
+  </div>
+</div>
