@@ -17,6 +17,7 @@ class EventsController < ApplicationController
   # GET /events/new
   def new
     @event = Event.new
+    @lengths = [15, 30, 60]
   end
 
   # GET /events/1/edit
@@ -80,7 +81,7 @@ class EventsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def event_params
-      params.require(:event).permit(:all_day, :start_time, :end_time, :title, :color, :user, :client)
+      params.require(:event).permit(:all_day, :start_time, :end_time, :title, :color, :user, :client_id, :description, :price, :length, :date, :status, :payment_status)
     end
 end
 

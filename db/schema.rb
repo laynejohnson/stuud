@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_25_195342) do
+ActiveRecord::Schema.define(version: 2020_11_27_032327) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,7 +26,14 @@ ActiveRecord::Schema.define(version: 2020_11_25_195342) do
     t.bigint "client_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "event_id", null: false
+    t.boolean "all_day"
+    t.string "title"
+    t.string "color"
+    t.datetime "start_time"
+    t.datetime "end_time"
     t.index ["client_id"], name: "index_bookings_on_client_id"
+    t.index ["event_id"], name: "index_bookings_on_event_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
@@ -88,6 +95,7 @@ ActiveRecord::Schema.define(version: 2020_11_25_195342) do
   end
 
   add_foreign_key "bookings", "clients"
+  add_foreign_key "bookings", "events"
   add_foreign_key "bookings", "users"
   add_foreign_key "clients", "users"
   add_foreign_key "events", "clients"
