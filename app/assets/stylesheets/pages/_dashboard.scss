@@ -3,6 +3,35 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
 
+  // Styles ––––––––––––––––––––––––––––––––––––––––––––––
+
+  .bold {
+    font-weight: bold !important;
+  }
+
+  .flex-center {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    padding-right: 24px;
+    padding-left: 24px;
+    text-align: center;
+  }
+
+  .contain {
+    width: 370px;
+    height: 50px;
+    border-radius: 5px;
+  }
+
+  .highlight {
+    background: rgba(230, 232, 230, 0.3);
+
+  }
+
+  // Containers ––––––––––––––––––––––––––––––––––––––––––––––
+
   .container-right {
     overflow: scroll;
     margin-left: 32px;
@@ -12,6 +41,18 @@
   .container-left {
     max-height: 100vh;
   }
+
+  .pending-invoices {
+    overflow: scroll;
+    max-height: 432px;
+    margin-top: 30px;
+  }
+
+  .weekly-report {
+    margin-top: 38px;
+  }
+
+  // Dividers ––––––––––––––––––––––––––––––––––––––––––––––
 
   hr {
     border-top: 1px solid $sblue;
@@ -43,6 +84,8 @@
       }
   }
 
+  // Cards ––––––––––––––––––––––––––––––––––––––––––––––
+
   .card-dashboard {
     display: flex;
     align-items: center;
@@ -55,14 +98,10 @@
     margin-bottom: 24px;
 
     img {
+      // position: relative;
+      // left: 80px;
 
     }
-  }
-
-  .pending-invoices {
-    overflow: scroll;
-    max-height: 432px;
-    margin-top: 30px;
   }
 
   .card-invoice {
@@ -79,9 +118,30 @@
 
   .card-weekly-report {
     width: 448px;
+    height: 250px;
     background: #FFFFFF;
     box-shadow: 0px 4px 4px rgba(198, 198, 198, 0.25);
     border-radius: 3px;
+    margin-top: 30px;
+    margin-bottom: 49px;
+  }
+
+  .color-indicator-red {
+    background-color: rgb(222, 42, 99);
+    width: 14px;
+    height: 90px;
+  }
+
+  .color-indicator-yellow {
+    background-color: rgb(254, 230, 108);
+    width: 14px;
+    height: 90px;
+  }
+
+  .color-indicator-blue {
+    background-color: rgb(37, 148, 223);
+    width: 14px;
+    height: 90px;
   }
 
   .client-name {
@@ -95,13 +155,6 @@
   .event-date {
     font-size: 16px !important;
     margin-bottom: 0px;
-
-  }
-
-  #color-indicator {
-    background-color: rgb(222, 42, 99);
-    width: 14px;
-    height: 90px;
   }
 
   #invoice-info {
@@ -113,5 +166,12 @@
     }
   }
 
+  #card-content-weekly {
+    font-size: 18px;
+    width: 370px;
+    height: 200px;
+    margin: 0 auto;
+
+  }
 
 }
