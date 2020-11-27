@@ -8,13 +8,17 @@ before_action :set_clients
       @income += booking.price unless booking.price.nil?
     end
 
-    @expenses = Expense.where(user_id: @user)
+    @expenses = Expense.where(user_id: @user).order(:date)
     @total_expenses = 0
     @expenses.each do |expense|
       @total_expenses += expense.amount
     end
 
     @profit = @income - @total_expenses
+  end
+
+  def show
+    @expense = Expense.find(params[:id])
   end
 
   def new
@@ -30,6 +34,7 @@ before_action :set_clients
       render :new
     end
   end
+
 
 private
 
