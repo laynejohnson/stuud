@@ -12,7 +12,7 @@
       <% @todays_bookings.each do |booking| %>
         <div class="card-dashboard">
           <p class="client-name"><%= booking.client.first_name %> <%= booking.client.last_name %></p>
-          <p class="event-date"><%= booking.date.strftime("%b %e, %l:%M %p") %></p>
+          <p class="event-date"><%= booking.start_time.strftime("%b %e, %l:%M %p") %></p>
           <%= image_tag "noun_Vertical Dots_3560972 (1).svg", alt: "alttext" %>
             <% if booking.client.color == "Red" %>
               <div class="color-indicator-red"></div>
@@ -35,7 +35,7 @@
       <% @future_bookings.each do |booking| %>
       <div class="card-dashboard">
         <p class="client-name"><%= booking.client.first_name %> <%= booking.client.last_name %></p>
-        <p class="event-date"><%= booking.date.strftime("%b %e, %l:%M %p") %></p>
+        <p class="event-date"><%= booking.start_time.strftime("%b %e, %l:%M %p") %></p>
         <%= image_tag "noun_Vertical Dots_3560972 (1).svg", alt: "alttext" %>
           <% if booking.client.color == "Red" %>
             <div class="color-indicator-red"></div>
@@ -61,7 +61,7 @@
           <div id="invoice-info">
             <p>#Invoice #5555</p>
             <p><%= invoice.price %>$</p>
-            <p><%= invoice.date.strftime("%A, %b %d") %></p>
+            <p><%= invoice.start_time.strftime("%A, %b %d") %></p>
           </div>
             <% if invoice.client.color == "Red" %>
               <div class="color-indicator-red"></div>
