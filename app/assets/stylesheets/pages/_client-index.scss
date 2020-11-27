@@ -97,11 +97,22 @@
     }
   }
 
-  .color-tag {
+ .color-indicator-red {
+    background-color: rgb(222, 42, 99);
     width: 14px;
-    height: 100%;
-    background-color: $spink;
-    margin-left: 12px;
+    height: 90px;
+  }
+
+  .color-indicator-yellow {
+    background-color: rgb(254, 230, 108);
+    width: 14px;
+    height: 90px;
+  }
+
+  .color-indicator-blue {
+    background-color: rgb(37, 148, 223);
+    width: 14px;
+    height: 90px;
   }
 
   .new-client-btn {
