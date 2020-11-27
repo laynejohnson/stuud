@@ -1,0 +1,183 @@
+.finances {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  // Styles ––––––––––––––––––––––––––––––––––––––––––––––
+
+  .bold {
+    font-weight: bold !important;
+  }
+
+  .flex-center {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    padding-right: 24px;
+    padding-left: 24px;
+    text-align: center;
+  }
+
+  .contain {
+    width: 370px;
+    height: 50px;
+    border-radius: 5px;
+  }
+
+  .highlight {
+    background: rgba(230, 232, 230, 0.3);
+
+  }
+
+  // Containers ––––––––––––––––––––––––––––––––––––––––––––––
+
+  .container-right {
+    overflow: scroll;
+    margin-left: 32px;
+    max-height: 100vh;
+  }
+
+  .container-left {
+    max-height: 100vh;
+  }
+
+  .invoices {
+    overflow: scroll;
+    max-height: 432px;
+    margin-top: 30px;
+  }
+
+  .weekly-report {
+    margin-top: 38px;
+  }
+
+  // Dividers ––––––––––––––––––––––––––––––––––––––––––––––
+
+  hr {
+    border-top: 1px solid $sblue;
+
+  }
+
+  .divider {
+
+    margin-top: 23px;
+    margin-bottom: 17px;
+
+     h2 {
+      position: relative !important;
+      color: rgba(41, 50, 102, 0.56)!important;
+      overflow: hidden;
+      text-align:left;
+
+     }
+
+      h2:after {
+        display: inline-block;
+        content: "";
+        height: 1.5px;
+        background: rgba(41, 50, 102, 0.40);
+        position: absolute;
+        width: 68%;
+        top: 50%;
+        margin-left: 10px;
+      }
+  }
+
+  // Cards ––––––––––––––––––––––––––––––––––––––––––––––
+
+  .card-dashboard {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 673px;
+    height: 90px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(198, 198, 198, 0.25);
+    border-radius: 3px;
+    margin-bottom: 24px;
+
+    img {
+      // position: relative;
+      // left: 80px;
+
+    }
+  }
+
+  .card-invoice {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 448px;
+    height: 90px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(198, 198, 198, 0.25);
+    border-radius: 3px;
+    margin-bottom: 18px;
+  }
+
+  .card-weekly-report {
+    width: 448px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(198, 198, 198, 0.25);
+    border-radius: 3px;
+    margin-top: 30px;
+    margin-bottom: 49px;
+  }
+
+  .color-indicator-red {
+    background-color: rgb(222, 42, 99);
+    width: 14px;
+    height: 90px;
+  }
+
+  .color-indicator-yellow {
+    background-color: rgb(254, 230, 108);
+    width: 14px;
+    height: 90px;
+  }
+
+  .color-indicator-blue {
+    background-color: rgb(37, 148, 223);
+    width: 14px;
+    height: 90px;
+  }
+
+  .client-name {
+    font-size: 16px !important;
+    text-decoration: none;
+    width: 44%;
+    color: $sblue;
+    font-weight: bold;
+    line-height: 16px;
+    margin-left: 48px;
+    margin-bottom: 0px;
+
+    &:hover {
+      color: $sorange;
+    }
+  }
+
+  .event-date {
+    font-size: 16px !important;
+    margin-bottom: 0px;
+    width: 30%;
+  }
+
+  #invoice-info {
+    text-align: right;
+
+    p {
+      font-size: 14px !important;
+      margin-bottom: 0px;
+    }
+  }
+
+  #card-content-weekly {
+    font-size: 18px;
+    width: 370px;
+    height: 200px;
+    margin: 0 auto;
+
+  }
+}
