@@ -50,11 +50,11 @@
               <%= form.label :color %>
               <%= form.select :color, collection: [['Yellow','yellow'], ['Blue','blue'], ['Red','red'], ['Orange','orange'], ['Pink','pink'], ['Black','black']] %>
             </div>
-            <%# <div class="field">
+            <div class="field">
               <%#= f.input :payment_status %>
-              <%#= form.label :payment_status %>
-              <%#= form.check_box :payment_status %>
-            <%# </div> %>
+              <%= form.label :payment_status %>
+              <%= form.check_box :payment_status %>
+             </div>
             <div class="modal-footer">
               <%#= f.submit %>
               <%= form.submit class: 'btn btn-primary' %>
