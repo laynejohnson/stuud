@@ -62,9 +62,5 @@ class FinancesController < ApplicationController
     @bookings_yearly.each do |booking|
       @income_yearly += booking.price
     end
-
-
-
-
   end
 end

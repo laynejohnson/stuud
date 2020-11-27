@@ -87,6 +87,20 @@
     margin-bottom: 32px;
 
   }
+  .client-name {
+    font-size: 16px !important;
+    text-decoration: none;
+    width: 44%;
+    color: $sblue;
+    font-weight: bold;
+    line-height: 16px;
+    // margin-left: 48px;
+    margin-bottom: 0px;
+
+    &:hover {
+      color: $sorange;
+    }
+  }
 
   .next-appt {
     margin-top: auto;
@@ -95,6 +109,13 @@
     p{
       margin-bottom: 0;
     }
+  }
+
+  .card-end {
+    width: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 
  .color-indicator-red {
