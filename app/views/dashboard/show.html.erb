@@ -1,7 +1,5 @@
 <!-- STUUD Dashboard -->
 <div class="dashboard">
-
-
   <div class="container-left">
     <h1>Upcoming Appointments </h1>
     <hr/>
@@ -11,8 +9,8 @@
     <div class="today">
       <% @todays_bookings.each do |booking| %>
         <div class="card-dashboard">
-          <p class="client-name"><%= booking.client.first_name %> <%= booking.client.last_name %></p>
-          <p class="event-date"><%= booking.start_time.strftime("%b %e, %l:%M %p") %></p>
+          <%= link_to booking.client.first_name + " " + booking.client.last_name, client_path(booking.client), class: "client-name" %>
+          <p class="event-date"><%= booking.date.strftime("%b %e, %l:%M %p") %></p>
           <%= image_tag "noun_Vertical Dots_3560972 (1).svg", alt: "alttext" %>
             <% if booking.client.color == "Red" %>
               <div class="color-indicator-red"></div>
@@ -34,8 +32,8 @@
     </div>
       <% @future_bookings.each do |booking| %>
       <div class="card-dashboard">
-        <p class="client-name"><%= booking.client.first_name %> <%= booking.client.last_name %></p>
-        <p class="event-date"><%= booking.start_time.strftime("%b %e, %l:%M %p") %></p>
+        <%= link_to booking.client.first_name + " " + booking.client.last_name, client_path(booking.client), class: "client-name" %>
+        <p class="event-date"><%= booking.date.strftime("%b %e, %l:%M %p") %></p>
         <%= image_tag "noun_Vertical Dots_3560972 (1).svg", alt: "alttext" %>
           <% if booking.client.color == "Red" %>
             <div class="color-indicator-red"></div>
@@ -57,11 +55,11 @@
     <div class="pending-invoices">
       <% @pending_invoices.each do |invoice| %>
         <div class="card-invoice">
-          <p class="client-name"><%= invoice.client.first_name %> <%= invoice.client.last_name %></p>
+          <%= link_to invoice.client.first_name + " " + invoice.client.last_name, client_path(invoice.client), class: "client-name" %>
           <div id="invoice-info">
-            <p>#Invoice #5555</p>
-            <p><%= invoice.price %>$</p>
-            <p><%= invoice.start_time.strftime("%A, %b %d") %></p>
+            <p>Invoice #<%= invoice.id %></p>
+            <p>$<%= invoice.price %></p>
+            <p class="bold"><%= invoice.date.strftime("%A, %b %d") %></p>
           </div>
             <% if invoice.client.color == "Red" %>
               <div class="color-indicator-red"></div>

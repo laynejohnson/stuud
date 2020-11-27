@@ -10,8 +10,6 @@ class BookingsController < ApplicationController
     @lengths = [15, 30, 60]
   end
 
-
-
   def create
     @booking = Booking.new(booking_params)
     @booking.user = current_user
