@@ -28,6 +28,8 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     @client = @booking.client
     if @booking.update(booking_params)
+      mail = EventMailer.with(client: @client).confirmation
+      mail.deliver_now
       redirect_to client_path(@client)
     else
       render :edit
