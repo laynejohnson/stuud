@@ -2,19 +2,19 @@ class FinancesController < ApplicationController
 
   def show
   @pending_invoices = current_user.bookings
-    .where(payment_status:false)
+    .where(payment_status: false)
 
   @paid_invoices = current_user.bookings
-    .where(payment_status:true)
+    .where(payment_status: true)
 
   @bookings_weekly = current_user.bookings
-    .where(date: Time.zone.now.beginning_of_week..Time.zone.now.end_of_week)
+    .where(start_time: Time.zone.now.beginning_of_week..Time.zone.now.end_of_week)
 
   @bookings_monthly = current_user.bookings
-    .where(date: Time.zone.now.beginning_of_month..Time.zone.now.end_of_month)
+    .where(start_time: Time.zone.now.beginning_of_month..Time.zone.now.end_of_month)
 
   @bookings_yearly = current_user.bookings
-    .where(date: Time.zone.now.beginning_of_year..Time.zone.now.end_of_year)
+    .where(start_time: Time.zone.now.beginning_of_year..Time.zone.now.end_of_year)
 
 
     # Weakly expenses
