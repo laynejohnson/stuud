@@ -61,9 +61,9 @@
         <div class="card-invoice">
           <%= link_to invoice.client.first_name + " " + invoice.client.last_name, client_path(invoice.client), class: "client-name" %>
           <div id="invoice-info">
-            <p>#Invoice #5555</p>
-            <p><%= invoice.price %>$</p>
-            <p><%= invoice.date.strftime("%A, %b %d") %></p>
+            <p>Invoice #<%= invoice.id %></p>
+            <p>$<%= invoice.price %></p>
+            <p class="bold"><%= invoice.date.strftime("%A, %b %d") %></p>
           </div>
             <% if invoice.client.color == "Red" %>
               <div class="color-indicator-red"></div>
