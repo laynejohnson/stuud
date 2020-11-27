@@ -1,10 +1,15 @@
 class BookingsController < ApplicationController
   before_action :set_client, only:[:create, :update]
 
+  def show
+    @booking = Booking.find(params[:id])
+  end
+
   def new
     @booking = Booking.new
     @lengths = [15, 30, 60]
   end
+
 
 
   def create
