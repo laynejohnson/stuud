@@ -18,7 +18,7 @@
   </div>
 
   <div class="container-right">
-    <%= pie_chart Booking.group(:description).sum(:price),
+    <%= line_chart Booking.group(:description).sum(:price),
     donut: true,
     label: "Income",
     suffix: "$",
@@ -28,8 +28,8 @@
     colors: ["#424D58", "#FB6C00", "#ffe954"],
     library: {backgroundColor: "#F6F5F6"} %>
     <br>
-    <%= column_chart Expense.group(:name).sum(:amount),
-    # donut: true,
+    <%= pie_chart Expense.group(:name).sum(:amount),
+    donut: true,
     label: "Expense",
     suffix: "$",
     title: "Total Expenses #{@total_expenses} $",
