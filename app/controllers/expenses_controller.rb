@@ -17,6 +17,10 @@ before_action :set_clients
     @profit = @income - @total_expenses
   end
 
+  def show
+    @expense = Expense.find(params[:id])
+  end
+
   def new
     @expense = Expense.new(params[:user_id])
   end
@@ -30,6 +34,7 @@ before_action :set_clients
       render :new
     end
   end
+
 
 private
 

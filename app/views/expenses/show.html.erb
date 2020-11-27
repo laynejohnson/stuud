@@ -1,5 +1,9 @@
 
-  <h1>Expenses Show</h1>
+  <h1><%= @expense.name %></h1>
+  <hr/>
+  <p><%= @expense.date.strftime("%b %e") %></p>
+  <p>$<%= @expense.amount %></p>
+  <%#= link_to 'Edit', edit_expense_path %>
 
 
 
