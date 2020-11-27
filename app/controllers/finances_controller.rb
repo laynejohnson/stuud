@@ -28,6 +28,8 @@ class FinancesController < ApplicationController
 
     @income_weakly = 0
     @bookings_weekly.each do |booking|
+      # raise
+      p booking
       @income_weakly += booking.price
     end
 
