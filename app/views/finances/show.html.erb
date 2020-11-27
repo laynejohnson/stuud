@@ -69,14 +69,14 @@
 <% @pending_invoices.each do |invoice| %>
   <h4>Full name: <%= invoice.client.first_name %> <%= invoice.client.last_name %></h4>
   <p>Amount: <%= invoice.price %>$</p>
-  <p>Date: <%= invoice.date.strftime("%A, %b %d") %></p>
+  <p>Date: <%= invoice.start_time.strftime("%A, %b %d") %></p>
 <% end %>
 
 <h2>Paid invoices</h2>
 <% @paid_invoices.each do |invoice| %>
   <h4>Full name: <%= invoice.client.first_name %> <%= invoice.client.last_name %></h4>
   <p>Amount: <%= invoice.price %>$</p>
-  <p>Date: <%= invoice.date.strftime("%A, %b %d") %></p>
+  <p>Date: <%= invoice.start_time.strftime("%A, %b %d") %></p>
 <% end %>
 
 <h2>Weekly report</h2>
