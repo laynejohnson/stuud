@@ -1,5 +1,6 @@
 class ExpensesController < ApplicationController
 before_action :set_user
+before_action :set_clients
 
   def index
     @income = 0
@@ -31,6 +32,11 @@ before_action :set_user
   end
 
 private
+
+  def set_clients
+    @clients = Client.where(user_id:current_user)
+    @clientsnames = @clients.select(:first_name,:last_name)
+  end
 
   def set_user
     @user = current_user

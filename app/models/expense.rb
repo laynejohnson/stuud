@@ -6,4 +6,5 @@ class Expense < ApplicationRecord
   validates :date, presence: true
   validates :amount, presence: true
   validates :user, presence: true
+
 end
