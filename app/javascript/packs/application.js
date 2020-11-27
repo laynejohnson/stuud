@@ -28,6 +28,7 @@ require("chartkick").use(require("highcharts"))
 // External imports
 import "bootstrap";
 import flatpickr from "flatpickr";
+import "@fullcalendar/common/main.min.css"
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
