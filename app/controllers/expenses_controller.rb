@@ -8,7 +8,7 @@ before_action :set_clients
       @income += booking.price
     end
 
-    @expenses = Expense.all
+    @expenses = Expense.where(user_id: @user)
     @total_expenses = 0
     @expenses.each do |expense|
       @total_expenses += expense.amount
