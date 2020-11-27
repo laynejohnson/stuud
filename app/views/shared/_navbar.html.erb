@@ -18,11 +18,11 @@
   </div>
   <div class="nav-item">
     <%= image_tag "noun_Money_2833397 (1).png", alt: "finances logo", class: "nav-logo" %>
-    <li><%= link_to "Finances", dashboard_path %></li>
+    <li><%= link_to "Finances", finances_path %></li>
   </div>
-<!--   <div class="nav-item">
+ <div class="nav-item">
     <li><%= link_to "Expenses", expenses_path, id: "expenses" %></li>
-  </div> -->
+  </div>
   </ul>
 
   <% if user_signed_in? %>
