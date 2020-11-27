@@ -31,9 +31,17 @@
         <div class="card-section"><h2><%= client.first_name %> <%= client.last_name %></h2></div>
         <div class="card-section"><p><%= client.phone %></p></div>
         <div class="card-section"><p><%= client.email %></p></div>
-        <div class="next-appt"><h3>Next appt:</h3><p>Wednesday 4:30pm</p></div>
+        <div class="next-appt"><h3>Next appt:</h3><%= client.bookings.first %></div>
         <%= image_tag "noun_Vertical Dots_3560972 (1).svg", alt: "alttext" %>
-        <div class="color-tag"></div>
+        <% if client.color == "Red" %>
+              <div class="color-indicator-red"></div>
+            <% elsif client.color == "Yellow" %>
+              <div class="color-indicator-yellow"></div>
+            <% elsif client.color == "Blue" %>
+              <div class="color-indicator-blue"></div>
+            <% else %>
+              <div></div>
+            <% end %>
       </div>
     <% end %>
   </div>
