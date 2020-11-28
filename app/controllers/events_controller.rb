@@ -72,7 +72,7 @@ class EventsController < ApplicationController
     end
 
     def set_client
-
+      @client = Client.find(params[:event][:client_id])
     end
 
     def set_event

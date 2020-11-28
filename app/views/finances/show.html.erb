@@ -29,7 +29,7 @@
     <h3>Income: <%= @income_monthly %>$</h3>
 
     <h2>Yearly report</h2>
-    <h3>Expenses: <%= @total_expenses_weekly %>$</h3>
+    <h3>Expenses: <%= @total_expenses_yearly %>$</h3>
     <h3>Income: <%= @income_yearly %>$</h3>
 
   </div>
@@ -40,6 +40,7 @@
     <hr/>
     <div class="invoices">
   <!------------------ OVERDUE INVOICES ------------------>
+  <%# Overdue =/= Paid - further logic needed %>
     <div class="overdue">
       <div class="divider">
         <h2 class="divider">Overdue</h2>

@@ -37,7 +37,14 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
 
-  flatpickr(".datepicker", {});
+  flatpickr(".datepicker", {
+    enableTime: true,
+    minTime: "06:00",
+    maxTime: "23:00",
+    dateFormat: 'Z',
+    altInput: true,
+    altFormat: 'Y-m-d h:i K'
+    });
 });
 
 import "controllers"

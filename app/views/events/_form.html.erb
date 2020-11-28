@@ -1,16 +1,41 @@
-
+<hr/>
+<div class="new-booking">
 <%= simple_form_for(@event) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="form-inputs">
-    <%= f.input :all_day %>
-    <%= f.input :start_time %>
-    <%= f.input :end_time %>
-    <%= f.input :title %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
-<% end %>
+<%= f.association :client,
+                      :label_method => :fullname,
+                      required: true,
+                      # label: false,
+                      placeholder: "client"  %>
+   <%= f.input :start_time,
+                as: :string,
+                input_html: {class: "datepicker"},
+                #required: true,
+                # label: false,
+                placeholder: "start" %>
+    <%= f.input :end_time,
+                as: :string,
+                input_html: {class: "datepicker"},
+                required: true,
+                # label: false,
+                placeholder: "end" %>
+    <%# <%= f.input :length,
+                collection: @lengths,
+                # label: false,
+                placeholder: "length" %>
+    <%= f.input :price,
+                # label: false,
+                placeholder: "price" %>
+    <%= f.input :payment_status,
+                label: "paid?",
+                placeholder: "paid?",
+                as: :select %>
+    <%= f.input :title,
+                # label: false,
+                placeholder: "description" %>
+   <div class="form-actions">
+    <%= f.submit %>
+  <% end %>
+</div>
