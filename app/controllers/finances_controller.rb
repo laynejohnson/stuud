@@ -1,19 +1,19 @@
 class FinancesController < ApplicationController
 
   def show
-  @pending_invoices = current_user.bookings
-    .where(payment_status: false)
+  @pending_invoices = current_user.events
+    .where(payment_status:false)
 
-  @paid_invoices = current_user.bookings
-    .where(payment_status: true)
+  @paid_invoices = current_user.events
+    .where(payment_status:true)
 
-  @bookings_weekly = current_user.bookings
+  @bookings_weekly = current_user.events
     .where(start_time: Time.zone.now.beginning_of_week..Time.zone.now.end_of_week)
 
-  @bookings_monthly = current_user.bookings
+  @bookings_monthly = current_user.events
     .where(start_time: Time.zone.now.beginning_of_month..Time.zone.now.end_of_month)
 
-  @bookings_yearly = current_user.bookings
+  @bookings_yearly = current_user.events
     .where(start_time: Time.zone.now.beginning_of_year..Time.zone.now.end_of_year)
 
 

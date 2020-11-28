@@ -4,7 +4,7 @@ before_action :set_clients
 
   def index
     @income = 0
-    @user.bookings.each do |booking|
+    @user.events.each do |booking|
       @income += booking.price unless booking.price.nil?
     end
 
