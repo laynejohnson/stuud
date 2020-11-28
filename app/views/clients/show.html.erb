@@ -24,24 +24,24 @@
       </div>
       <div class="btns">
         <p class="btn-orange"><%= link_to 'Edit', edit_client_path %></p>
-        <p class="btn-orange"><%= link_to 'Add a booking', new_booking_path %></p>
+        <p class="btn-orange"><%= link_to 'Add a booking', new_event_path %></p>
       </div>
     </div>
 
   <div class="client-right">
     <h2>Upcoming Appointments:</h2>
 
-    <% @client.bookings.each do |booking|%>
+    <% @client.events.each do |event|%>
     <div class="appt-card">
-      <div><h2><%= booking.start_time.strftime("%b %e")%></h2></div>
-      <div><p><%= booking.start_time.strftime("%l:%M %p")%></p></div>
-      <!-- <p>Length: <%= booking.length %></p> -->
-    <!--   <p>Price: <%= booking.price %>$</p> -->
-      <!-- <p>Payment status: <%= booking.payment_status %></p> -->
-      <div><h2><%= booking.status %>Confirmed</h2></div>
-      <!-- <div><%= link_to 'Edit', edit_booking_path(booking) %></div>
+      <div><h2><%= event.start_time.strftime("%b %e")%></h2></div>
+      <div><p><%= event.start_time.strftime("%l:%M %p")%></p></div>
+      <!-- <p>Length: <%= event.length %></p> -->
+    <!--   <p>Price: <%= event.price %>$</p> -->
+      <!-- <p>Payment status: <%= event.payment_status %></p> -->
+      <div><h2><%= event.status %>Confirmed</h2></div>
+      <!-- <div><%= link_to 'Edit', edit_booking_path(event) %></div>
       <div><%= link_to "Delete",
-        booking_path(booking),
+        event_path(event),
         method: :delete,
         data: { confirm: 'Are you sure?'} %></div> -->
     </div>
