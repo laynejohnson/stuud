@@ -1,22 +1,22 @@
 class DashboardController < ApplicationController
   def show
-    @todays_bookings = current_user.bookings
+    @todays_bookings = current_user.events
       .where(start_time: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day).order(:start_time)
 
-    @future_bookings = current_user.bookings
+    @future_bookings = current_user.events
       .where('start_time >= ?', DateTime.now.tomorrow.beginning_of_day).order(:start_time)
 
-    @pending_invoices = current_user.bookings
+    @pending_invoices = current_user.events
       .where(payment_status: false)
 
-    @bookings_weekly_count = current_user.bookings
+    @bookings_weekly_count = current_user.events
       .where(start_time: Time.zone.now.beginning_of_week..Time.zone.now.end_of_week).count
 
-    @bookings_weekly = current_user.bookings
+    @bookings_weekly = current_user.events
       .where(start_time: Time.zone.now.beginning_of_week..Time.zone.now.end_of_week)
 
     @expenses_weekly =  current_user.expenses
-      .where(date: Time.zone.now.beginning_of_week..Time.zone.now.end_of_week)
+      .where(date: DateTime.now.beginning_of_week..DateTime.now.end_of_week)
 
     @total_expenses_weekly = 0
     @expenses_weekly.each do |expense|
