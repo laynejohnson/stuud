@@ -27,6 +27,12 @@ export default class extends Controller {
         _this.start_timeTarget.value = date
         _this.end_timeTarget.value = date
       },
+      eventContent: function(arg) {
+        console.log(arg.event)
+        return {
+          html: arg.event.start.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', hour12: true}) + ' - ' + arg.event.end.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', hour12: true}) + '</br>' + arg.event.extendedProps.client.first_name + ' ' +  arg.event.extendedProps.client.last_name + '</br>' + arg.event.title
+        }
+      },
       eventClick: function (info) {
         info.jsEvent.preventDefault()
         Turbolinks.visit(info.event.extendedProps.show_url)
