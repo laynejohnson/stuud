@@ -1,16 +1,27 @@
-<h1> Stüud Expenses Index </h1>
+<div class="expenses-index">
+  <h1> Expenses </h1>
+  <hr/>
 
-<h3>Income from bookings: <%= @income %>$</h3>
-<h3>Total expenses: <%= @total_expenses %>$</h3>
-<% @expenses.each do |expense| %>
-  <h4>Expense #<%= expense.id %></h4>
-  <ul>
-    <li>Name: <%= expense.name %></li>
-    <li>Amount: <%= expense.amount %>$</li>
-    <li>Date: <%= expense.date.strftime("%m/%d/%Y") %></li>
-  </ul>
-<% end %>
+  <div class="expense-cards">
+    <% @expenses.each do |expense| %>
+   <div class="expense-card">
+    <div class="card-left">
+     <div class="card-section"><h2><%= expense.name %></h2></div>
+     <div class="card-section"><p><%= expense.date.strftime("%b %e")%></p></div>
+    </div>
+     <div class="card-section"><h2>$<%= expense.amount %></h2></div>
+   </div>
+      <% end %>
+</div>
+   <div class="total-container">
+    <div class="new-client-btn">
+    <p class="btn-orange"><%= link_to 'Add Expense', new_expense_path %></p>
+  </div>
+    <div class="total">
+      <p>Total:</p>
+      <h2>$<%= @total_expenses %></h2>
+   </div>
+  </div>
 
-<%= link_to 'Add Expense', new_expense_path %>
 
-<h2>Revenue: <%= @profit %>$</h2>
+

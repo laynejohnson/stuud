@@ -1,7 +1,55 @@
-<% @clients.each do |client| %>
-  <h2>Full name: <%= client.first_name %> <%= client.last_name %></h2>
-  <p>Email: <%= client.email %></p>
-  <%= link_to 'Show more', client_path(client) %>
-<% end %>
+<div class="client-index">
+  <div class="header">
+    <h1>My Clients</h1>
+    <hr/>
+  </div>
+  <div class="top-bar">
+    <div class="search-bar">
+      <%= simple_form_for :search, url: clients_path, method: :get do |f| %>
+      <div class="search-form-control form-group no-bmargin">
+        <div>
+          <input class="form-control string required" type="text" name="query" id="search_query" placeholder="search"/>
+        </div>
+      </div>
+      <% end %>
 
-<%= link_to 'New Client', new_client_path %>
+    </div>
+    <div class="tags">
+      <div>
+        <h3>Tags:</h3>
+      </div>
+      <div class="tag-icons">
+        <div class="red-tag"></div>
+        <div class="yellow-tag"></div>
+        <div class="blue-tag"></div>
+      </div>
+    </div>
+  </div>
+  <div class="client-cards">
+    <% @clients.each do |client| %>
+      <div class="client-card">
+        <div class="card-section"><%= link_to client.first_name + " " + client.last_name, client_path(client), class: "client-name" %></div>
+        <div class="card-section"><p><%= client.phone %></p></div>
+        <div class="card-section"><p><%= client.email %></p></div>
+        <div class="next-appt"><h3>Next appt:</h3><p>Wednesday 4:30pm</p></div>
+        <div class="card-end">
+          <%= image_tag "noun_Vertical Dots_3560972 (1).png", alt: "alttext", height: 50 %>
+          <% if client.color == "Red" %>
+                <div class="color-indicator-red"></div>
+              <% elsif client.color == "Yellow" %>
+                <div class="color-indicator-yellow"></div>
+              <% elsif client.color == "Blue" %>
+                <div class="color-indicator-blue"></div>
+              <% else %>
+                <div></div>
+              <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="new-client-btn">
+    <p class="btn-orange"><%= link_to 'New Client', new_client_path %></p>
+  </div>
+
+
+</div>

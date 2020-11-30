@@ -1,19 +1,24 @@
 class ExpensesController < ApplicationController
 before_action :set_user
+before_action :set_clients
 
   def index
     @income = 0
-    @user.bookings.each do |booking|
-      @income += booking.price
+    @user.events.each do |booking|
+      @income += booking.price unless booking.price.nil?
     end
 
-    @expenses = Expense.all
+    @expenses = Expense.where(user_id: @user).order(:date)
     @total_expenses = 0
     @expenses.each do |expense|
       @total_expenses += expense.amount
     end
 
     @profit = @income - @total_expenses
+  end
+
+  def show
+    @expense = Expense.find(params[:id])
   end
 
   def new
@@ -30,7 +35,13 @@ before_action :set_user
     end
   end
 
+
 private
+
+  def set_clients
+    @clients = Client.where(user_id:current_user)
+    @clientsnames = @clients.select(:first_name,:last_name)
+  end
 
   def set_user
     @user = current_user

@@ -20,5 +20,10 @@
   <%= @event.title %>
 </p>
 
+<p>
+  <strong>Client:</strong>
+  <%= @event.client.first_name %><%= @event.client.last_name %>
+</p>
+
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', calendar_path %>

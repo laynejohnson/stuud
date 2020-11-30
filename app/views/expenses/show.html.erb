@@ -1,3 +1,33 @@
-<h1>Expenses SHOW</h1>
 
 
+  <h1><%= @expense.name %></h1>
+  <hr/>
+  <p><%= @expense.date.strftime("%b %e") %></p>
+  <p>$<%= @expense.amount %></p>
+  <%#= link_to 'Edit', edit_expense_path %>
+
+
+
+
+
+
+
+ <%= pie_chart Event.group(:title).sum(:price),
+    donut: true,
+    label: "Income",
+    suffix: "$",
+    title: "Total Income #{@income} $",
+    width: "400px",
+    height: "300px",
+    colors: ["#424D58", "#FB6C00", "#ffe954"],
+    library: {backgroundColor: "#F6F5F6"} %>%
+    <br>
+  <%= column_chart Expense.group(:name).sum(:amount),
+    # donut: true,
+    label: "Expense",
+    suffix: "$",
+    title: "Total Expenses #{@total_expenses} $",
+    width: "400px",
+    height: "300px",
+    colors: ["#D42803", "#FB6C00", "#424D58"],
+    library: {backgroundColor: "#F6F5F6"} %>

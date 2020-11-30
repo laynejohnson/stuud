@@ -1,25 +1,55 @@
-<H2>Name: <%= @client.first_name %> <%= @client.last_name %></H2>
-<p>Email: <%= @client.email %></p>
-<p>phone: <%= @client.phone %></p>
-<p>address: <%= @client.address %></p>
-<p>color: <%= @client.color %></p>
+<div class="client-show">
+  <h1><%= @client.first_name.capitalize %> <%= @client.last_name.capitalize %></h1>
+  <hr/>
+  <div class="client-container">
+    <div class="client-left">
+      <div class="client-info">
+        <h2><%= @client.color %></h2>
+        <div class="info-section">
+          <%= image_tag "email.svg", height: 40, width: 40 %>
+          <h2><%= @client.email %></h2>
+        </div>
+        <div class="info-section">
+          <%= image_tag "phone.svg", height: 40, width: 40 %>
+          <h2><%= @client.phone %></h2>
+        </div>
+        <div class="info-section">
+          <%= image_tag "address.svg", height: 40, width: 40 %>
+          <h2><%= @client.address %></h2>
+         </div>
+        <div class="notes">
+          <h2> Notes: </h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+      </div>
+      <div class="btns">
+        <p class="btn-orange"><%= link_to 'Edit', edit_client_path %></p>
+        <p class="btn-orange"><%= link_to 'Add a booking', new_event_path %></p>
+      </div>
+    </div>
 
-<%= link_to 'Add a booking', new_booking_path %>
+  <div class="client-right">
+    <h2>Upcoming Appointments:</h2>
 
-<h2>Bookings: </h2>
+    <% @client.events.each do |event|%>
+    <div class="appt-card">
+      <div><h2><%= event.start_time.strftime("%b %e")%></h2></div>
+      <div><p><%= event.start_time.strftime("%l:%M %p")%></p></div>
+      <!-- <p>Length: <%= event.length %></p> -->
+    <!--   <p>Price: <%= event.price %>$</p> -->
+      <!-- <p>Payment status: <%= event.payment_status %></p> -->
+      <div><h2><%= event.status %>Confirmed</h2></div>
+      <!-- <div><%= link_to 'Edit', edit_booking_path(event) %></div>
+      <div><%= link_to "Delete",
+        event_path(event),
+        method: :delete,
+        data: { confirm: 'Are you sure?'} %></div> -->
+    </div>
+    <% end %>
 
-<% @client.bookings.each do |booking|%>
-  <p>Date: <%= booking.date.strftime("%A, %d %b %Y %l:%M %p")%></p>
-  <p>Length: <%= booking.length %></p>
-  <p>Price: <%= booking.price %>$</p>
-  <p>Payment status: <%= booking.payment_status %></p>
-  <p>Status: <%= booking.status %></p>
-  <%= link_to 'Edit', edit_booking_path(booking) %>
-  <%= link_to "Delete",
-    booking_path(booking),
-    method: :delete,
-    data: { confirm: 'Are you sure?'} %>
-<% end %>
+  </div>
+</div>
 
 
-<%= link_to 'Go back', clients_path %>
+  <%#= link_to 'Go back', clients_path %>
+</div>

@@ -1,8 +1,26 @@
-<h2>Add a Expense</h2>
-
-<%= simple_form_for(@expense) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :date %>
-  <%= f.input :amount %>
-  <%= f.submit %>
-<% end %>
+<div class="add-expense">
+  <h1>Add a Expense</h1>
+  <hr/>
+<!-- labels enabled right how until I figure out
+how to get dropdowns to have a placeholder -->
+  <%= simple_form_for(@expense) do |f| %>
+    <%= f.input :name,
+                required: true,
+                autofocus: true,
+                # label: false,
+                placeholder: "name" %>
+    <%= f.input :amount,
+                required: true,
+                # label: false,
+                placeholder: "amount" %>
+    <%= f.input :date,
+                as: :string,
+                input_html: {class: "datepicker"},
+                required: true,
+                # label: false,
+                placeholder: "date" %>
+    <div class="form-actions">
+    <%= f.submit %>
+  <% end %>
+  </div>
+</div>

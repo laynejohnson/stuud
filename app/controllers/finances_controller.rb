@@ -1,20 +1,20 @@
 class FinancesController < ApplicationController
 
   def show
-  @pending_invoices = current_user.bookings
+  @pending_invoices = current_user.events
     .where(payment_status:false)
 
-  @paid_invoices = current_user.bookings
+  @paid_invoices = current_user.events
     .where(payment_status:true)
 
-  @bookings_weekly = current_user.bookings
-    .where(date: Time.zone.now.beginning_of_week..Time.zone.now.end_of_week)
+  @events_weekly = current_user.events
+    .where(start_time: Time.zone.now.beginning_of_week..Time.zone.now.end_of_week)
 
-  @bookings_monthly = current_user.bookings
-    .where(date: Time.zone.now.beginning_of_month..Time.zone.now.end_of_month)
+  @events_monthly = current_user.events
+    .where(start_time: Time.zone.now.beginning_of_month..Time.zone.now.end_of_month)
 
-  @bookings_yearly = current_user.bookings
-    .where(date: Time.zone.now.beginning_of_year..Time.zone.now.end_of_year)
+  @events_yearly = current_user.events
+    .where(start_time: Time.zone.now.beginning_of_year..Time.zone.now.end_of_year)
 
 
     # Weakly expenses
@@ -27,8 +27,10 @@ class FinancesController < ApplicationController
     end
 
     @income_weakly = 0
-    @bookings_weekly.each do |booking|
-      @income_weakly += booking.price
+    @events_weekly.each do |event|
+      # raise
+      p event
+      @income_weakly += event.price
     end
 
     # Monthly expenses
@@ -42,8 +44,8 @@ class FinancesController < ApplicationController
     end
 
     @income_monthly = 0
-    @bookings_monthly.each do |booking|
-      @income_monthly += booking.price
+    @events_monthly.each do |event|
+      @income_monthly += event.price
     end
 
     # Yearly
@@ -57,12 +59,8 @@ class FinancesController < ApplicationController
     end
 
     @income_yearly = 0
-    @bookings_yearly.each do |booking|
-      @income_yearly += booking.price
+    @events_yearly.each do |event|
+      @income_yearly += event.price
     end
-
-
-
-
   end
 end

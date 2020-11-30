@@ -6,7 +6,7 @@ import interactionPlugin from '@fullcalendar/interaction'
 import Rails from '@rails/ujs'
 
 export default class extends Controller {
-  static targets = ["calendar", "modal", "start_time", "end_time"]
+  static targets = ["calendar", "modal", "start_time", "end_time", "color"]
 
   connect() {
     let _this = this
@@ -26,6 +26,12 @@ export default class extends Controller {
         _this.modalTarget.style.display = "block"
         _this.start_timeTarget.value = date
         _this.end_timeTarget.value = date
+      },
+      eventContent: function(arg) {
+        console.log(arg.event)
+        return {
+          html: arg.event.start.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', hour12: true}) + ' - ' + arg.event.end.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', hour12: true}) + '</br>' + arg.event.extendedProps.client.first_name + ' ' +  arg.event.extendedProps.client.last_name + '</br>' + arg.event.title
+        }
       },
       eventClick: function (info) {
         info.jsEvent.preventDefault()

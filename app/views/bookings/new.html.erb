@@ -1,9 +1,37 @@
-<%= simple_form_for(@booking) do |f| %>
-  <%= f.association :client, :label_method => :fullname  %>
-  <%= f.input :date %>
-  <%= f.input :length, collection: @lengths %>
-  <%= f.input :price %>
-  <%= f.input :payment_status, as: :radio_buttons %>
-  <%= f.input :description %>
-  <%= f.submit %>
-<% end %>
+<div class="new-booking">
+  <h1>New Booking</h1>
+  <hr/>
+  <!-- labels enabled right how until I figure out
+how to get dropdowns to have a placeholder -->
+  <%= simple_form_for(@booking) do |f| %>
+    <%= f.association :client,
+                      :label_method => :fullname,
+                      required: true,
+                      # label: false,
+                      placeholder: "client"  %>
+   <%= f.input :date,
+                as: :string,
+                input_html: {class: "datepicker"},
+                required: true,
+                # label: false,
+                placeholder: "date" %>
+    <%= f.input :length,
+                collection: @lengths,
+                # label: false,
+                placeholder: "length" %>
+    <%= f.input :price,
+                # label: false,
+                placeholder: "price" %>
+    <%= f.input :payment_status,
+                # label: false,
+                placeholder: "paid?",
+                as: :select %>
+    <%= f.input :description,
+                # label: false,
+                placeholder: "description" %>
+   <div class="form-actions">
+    <%= f.submit %>
+  <% end %>
+
+
+</div>

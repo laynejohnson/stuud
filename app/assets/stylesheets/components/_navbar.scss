@@ -8,7 +8,7 @@
   .nav-links {
     list-style-type: none;
     margin-top: 50px;
-    padding-left: 0px;
+    padding-left: 5px;
 
     }
 
@@ -57,8 +57,8 @@
   #stuud-logo {
     font-size: 31px;
     font-weight: bold;
-    margin-top: 20px;
-    margin-left: 20px;
+    margin-top: 36px;
+    margin-left: 30px;
 
     a {
       color: $sorange;
@@ -73,8 +73,8 @@
 
   #nav-footer {
     list-style-type: none;
-    position: relative;
-    top: 448px;
+    position: absolute;
+    top: 825px;
 
     a {
       text-decoration: none;
@@ -87,7 +87,7 @@
 
     p {
       font-size: 16px;
-      color: white;
+      color: white !important;
       font-weight: bold;
       margin-bottom: 5px;
     }
