@@ -19,6 +19,8 @@ class InvoicesController < ApplicationController
     @invoice.event = Event.find (params[:invoice][:event_id])
     @invoice.user = current_user
     if @invoice.save
+      mail = EventMailer.with(invoice: @invoice).invoice_pdf(@invoice.id)
+      mail.deliver_now
       redirect_to invoice_path(@invoice)
     else
       render :new
