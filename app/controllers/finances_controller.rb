@@ -26,11 +26,11 @@ class FinancesController < ApplicationController
     @total_expenses_weekly += expense.amount
     end
 
-    @income_weakly = 0
+    @income_weekly = 0
     @events_weekly.each do |event|
       # raise
       p event
-      @income_weakly += event.price
+      @income_weekly += event.price
     end
 
     # Monthly expenses
