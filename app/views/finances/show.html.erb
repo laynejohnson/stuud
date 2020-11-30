@@ -16,7 +16,6 @@
       </div>
     </div>
 
-
     <div class="graph">
 
     <%= line_chart [{ name: "Income", data: @events_yearly.group_by_day(:start_time).sum(:price) },{ name: "Expenses", data: Expense.group_by_day(:date).sum(:amount)}],
@@ -32,17 +31,38 @@
 
     </div>
 
-    <h2>Weekly</h2>
-    <h3>Expenses: <%= @total_expenses_weekly %>$</h3>
-    <h3>Income: <%= @income_weekly %>$</h3>
+    <div class="data-graph">
 
-    <h2>Monthly</h2>
-    <h3>Expenses: <%= @total_expenses_monthly %>$</h3>
-    <h3>Income: <%= @income_monthly %>$</h3>
+      <div class="card-data income">
+        <h3>Income</h3>
+        <% if @income_weekly == nil %>
+          <p>$0</p>
+        <% else %>
+          <p>$<%= @income_weekly %></p>
+<!--         <p>&<%= @income_monthly %>$</p>
+        <p>&<%= @income_yearly %>$</p> -->
+        <% end %>
+      </div>
 
-    <h2>Yearly</h2>
-    <h3>Expenses: <%= @total_expenses_yearly %>$</h3>
-    <h3>Income: <%= @income_yearly %>$</h3>
+      <div class="bold mt-2"><p>-</p></div>
+
+      <div class="card-data expenses">
+        <h3>Expenses</h3>
+        <p>$<%= @total_expenses_weekly %></p>
+<!--         <p>Expenses: <%= @total_expenses_monthly %>$</p>
+        <p>Expenses: <%= @total_expenses_yearly %>$</p> -->
+      </div>
+
+      <div class="bold mt-2"><p>=</p></div>
+
+      <!-- NEED TOTAL INCOME LOGIC -->
+
+      <div class="card-data total">
+        <h3>Total Income</h3>
+        <p>$0</p>
+      </div>
+
+    </div>
 
   </div>
 
@@ -57,7 +77,7 @@
   <div class="overdue">
     <div class="divider">
       <h2 class="divider">Overdue</h2>
-      
+
     </div>
     <% @overdue_invoices.each do |invoice| %>
       <div class="card-invoice">
@@ -81,7 +101,7 @@
   </div>
 
   <!------------------ PENDING INVOICES ------------------>
-    
+
   <div class="pending">
     <div class="divider">
       <h2 class="divider">Pending</h2>
@@ -134,8 +154,4 @@
       </div>
     <% end %>
   </div>
-
 </div>
-
-
-

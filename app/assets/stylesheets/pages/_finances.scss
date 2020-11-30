@@ -34,16 +34,14 @@
 
   .btn-graph {
     background-color: $sorange;
-    // color: $soffwhite;
-    width: 175px;
-    height: 40px;
+    color: $soffwhite;
     text-align: center;
     border: none;
     text-decoration: none;
-    font-weight: 400;
+    font-weight: 500;
     font-family: Montserrat;
     font-size: 16px;
-    padding: 8px 16px;
+    padding: 12px 70px;
     border-radius: 3px;
     transition: background .3s;
 
@@ -72,6 +70,9 @@
 
   #graph-buttons {
     display: flex;
+    justify-content: space-around;
+    margin-bottom: 30px;
+    margin-top: 38px;
   }
 
   .graph {
@@ -84,6 +85,13 @@
     box-shadow: 0px 4px 4px rgba(198, 198, 198, 0.25);
     border-radius: 3px;
     margin-bottom: 24px;
+  }
+
+  .data-graph {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
   }
 
   // Dividers ––––––––––––––––––––––––––––––––––––––––––––––
@@ -119,6 +127,68 @@
   }
 
   // Cards ––––––––––––––––––––––––––––––––––––––––––––––
+
+  .card-data {
+    display: flex;
+    flex-direction: vertical;
+
+    width: 162px;
+    height: 94px;
+    left: 324px;
+    top: 674px;
+
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(198, 198, 198, 0.25);
+    border-radius: 3px;
+  }
+
+  .income {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    h3 {
+
+    }
+
+    p {
+      // color: #3db1c0 !important;
+      font-weight: bold;
+      font-size: 18px !important;
+      margin-bottom: 0px;
+    }
+  }
+
+  .expenses {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    p {
+      // color: #de2a63 !important;
+      font-weight: bold;
+      font-size: 18px !important;
+      margin-bottom: 0px;
+    }
+
+  }
+
+  .total {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    p {
+      color: #29316a !important;
+      font-weight: bold;
+      font-size: 18px !important;
+      margin-bottom: 0px;
+    }
+
+  }
 
   .card-dashboard {
     display: flex;
@@ -216,7 +286,7 @@
   #invoice-info {
     text-align: right;
     margin-right: 10px;
-    width: 30%;
+    width: 35%;
 
     p {
       font-size: 14px !important;
