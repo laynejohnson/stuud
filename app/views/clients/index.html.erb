@@ -19,19 +19,35 @@
         <h3>Tags:</h3>
       </div>
       <div class="tag-icons">
-        <div class="red-tag"></div>
-        <div class="yellow-tag"></div>
-        <div class="blue-tag"></div>
+        <div class="tag-icon">
+          <%= link_to clients_path + "?query=red" do %>
+            <%= image_tag "red-tag.svg", height: 24, width: 24 %>
+          <% end %>
+        </div>
+        <div class="tag-icon">
+          <%= link_to clients_path + "?query=yellow" do %>
+            <%= image_tag "yellow-tag.svg", height: 24, width: 24 %>
+          <% end %>
+        </div>
+        <div class="tag-icon">
+          <%= link_to clients_path + "?query=blue" do %>
+            <%= image_tag "blue-tag.svg", height: 24, width: 24 %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
   <div class="client-cards">
     <% @clients.each do |client| %>
       <div class="client-card">
-        <div class="card-section"><%= link_to client.first_name + " " + client.last_name, client_path(client), class: "client-name" %></div>
-        <div class="card-section"><p><%= client.phone %></p></div>
-        <div class="card-section"><p><%= client.email %></p></div>
-        <div class="next-appt"><h3>Next appt:</h3><p>Wednesday 4:30pm</p></div>
+        <div class="card-half">
+          <div class="card-section"><%= link_to client.first_name + " " + client.last_name, client_path(client), class: "client-name" %></div>
+          <div class="card-section"><p><%= client.phone %></p></div>
+        </div>
+        <div class="card-half">
+          <div class="card-section"><p><%= client.email %></p></div>
+          <div class="next-appt"><h3>Next appt:</h3><p>Wednesday 4:30pm</p></div>
+        </div>
         <div class="card-end">
           <%= image_tag "noun_Vertical Dots_3560972 (1).png", alt: "alttext", height: 50 %>
           <% if client.color == "Red" %>

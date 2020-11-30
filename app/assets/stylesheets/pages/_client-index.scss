@@ -37,30 +37,12 @@
     justify-content: space-between;
   }
 
-  .red-tag {
+  .tag-icon {
     width: 24px;
     height: 24px;
-    border-radius: 3px;
-    background-color: $spink;
     margin-right: 16px;
-  }
-    .yellow-tag {
-    width: 24px;
-    height: 24px;
-    border-radius: 3px;
-    background-color: $tyellow;
-    margin-left: 16px;
-    margin-right: 16px;
-  }
-    .blue-tag {
-    width: 24px;
-    height: 24px;
-    border-radius: 3px;
-    background-color: $tblue;
     margin-left: 16px;
   }
-
-
 
   .client-cards {
     overflow: scroll;
@@ -77,14 +59,21 @@
     border-radius: 3px;
     margin-top: 24px;
     margin-bottom: 24px;
-    padding-left: 76px;
     text-align: center;
 
+  }
+
+  .card-half {
+    display: flex;
+    justify-content: space-between;
+    width: 44%;
   }
 
   .card-section {
     margin-top: 32px;
     margin-bottom: 32px;
+    margin-left: 16px;
+    margin-right: 16px;
 
   }
   .client-name {
@@ -105,6 +94,8 @@
   .next-appt {
     margin-top: auto;
     margin-bottom: auto;
+    // margin-right: 8px;
+    text-align: right;
 
     p{
       margin-bottom: 0;
