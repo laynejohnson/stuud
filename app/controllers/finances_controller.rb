@@ -1,24 +1,35 @@
 class FinancesController < ApplicationController
 
+  def index
+    respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = WickedPdf.new.pdf_from_html_file(‘/home/ale/code/Stuud/app/views/finances/invoices.pdf.erb’)
+        render pdf: "file_name"   # Excluding ".pdf" extension.
+      end
+    end
+  end
+
   def show
-  @pending_invoices = current_user.events
-    .where(payment_status:false)
 
-  @paid_invoices = current_user.events
-    .where(payment_status:true)
+    @pending_invoices = current_user.events
+      .where(payment_status:false)
 
-  @events_weekly = current_user.events
-    .where(start_time: Time.zone.now.beginning_of_week..Time.zone.now.end_of_week)
+    @paid_invoices = current_user.events
+      .where(payment_status:true)
 
-  @events_monthly = current_user.events
-    .where(start_time: Time.zone.now.beginning_of_month..Time.zone.now.end_of_month)
+    @events_weekly = current_user.events
+      .where(start_time: Time.zone.now.beginning_of_week..Time.zone.now.end_of_week)
 
-  @events_yearly = current_user.events
-    .where(start_time: Time.zone.now.beginning_of_year..Time.zone.now.end_of_year)
+    @events_monthly = current_user.events
+      .where(start_time: Time.zone.now.beginning_of_month..Time.zone.now.end_of_month)
+
+    @events_yearly = current_user.events
+      .where(start_time: Time.zone.now.beginning_of_year..Time.zone.now.end_of_year)
 
 
     # Weakly expenses
-  expenses_weekly =  current_user.expenses
+    expenses_weekly =  current_user.expenses
       .where(date: Time.zone.now.beginning_of_week..Time.zone.now.end_of_week)
 
     @total_expenses_weekly = 0
