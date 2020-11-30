@@ -45,9 +45,9 @@ ActiveRecord::Schema.define(version: 2020_11_30_174115) do
     t.string "address"
     t.string "color"
     t.bigint "user_id", null: false
-    t.text "notes"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.text "notes"
     t.index ["user_id"], name: "index_clients_on_user_id"
   end
 
