@@ -19,7 +19,6 @@
     <div class="graph">
 
     <%= column_chart [{ name: "Income", data: @events_yearly.group_by_week(:start_time).sum(:price) },{ name: "Expenses", data: Expense.group_by_week(:date).sum(:amount)}],
-        defer: true,
         suffix: "$",
         width: "600px",
         height: "400px",
