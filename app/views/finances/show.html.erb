@@ -16,8 +16,8 @@
       </div>
     </div>
 
-    <div class="graph">
 
+    <div class="graph">
 
     </div>
 
@@ -46,6 +46,7 @@
   <div class="overdue">
     <div class="divider">
       <h2 class="divider">Overdue</h2>
+      
     </div>
     <% @overdue_invoices.each do |invoice| %>
       <div class="card-invoice">
@@ -59,7 +60,7 @@
         <div id="invoice-info">
           <p>Invoice #<%= invoice.id %></p>
           <p>$<%= invoice.price %></p>
-          <p class="bold"><%= invoice.start_time.strftime("%A, %b %d") %></p>
+          <p class="bold"><%= invoice.start_time.localtime.strftime("%A, %b %d") %></p>
         </div>
         <div class="invoice-status-indicator">
           <%= image_tag "noun_Close_23269(1).png", alt: "overdue icon"%>
@@ -69,7 +70,7 @@
   </div>
 
   <!------------------ PENDING INVOICES ------------------>
-
+    
   <div class="pending">
     <div class="divider">
       <h2 class="divider">Pending</h2>
@@ -86,7 +87,7 @@
         <div id="invoice-info">
           <p>Invoice #<%= invoice.id %></p>
           <p>$<%= invoice.price %></p>
-          <p class="bold"><%= invoice.start_time.strftime("%A, %b %d") %></p>
+          <p class="bold"><%= invoice.start_time.localtime.strftime("%A, %b %d") %></p>
         </div>
         <div class="invoice-status-indicator">
           <%= image_tag "noun_clock_23236.png", alt: "pending icon"%>
@@ -100,6 +101,7 @@
   <div class="paid">
     <div class="divider">
       <h2 class="divider">Paid</h2>
+
     </div>
     <% @paid_invoices.each do |invoice| %>
       <div class="card-invoice">
@@ -113,7 +115,7 @@
         <div id="invoice-info">
           <p>Invoice #<%= invoice.id %></p>
           <p>$<%= invoice.price %></p>
-          <p class="bold"><%= invoice.start_time.strftime("%A, %b %d") %></p>
+          <p class="bold"><%= invoice.start_time.localtime.strftime("%A, %b %d") %></p>
         </div>
         <div class="invoice-status-indicator">
           <%= image_tag "noun_Check Mark_23235.png", alt: "paid icon"%>
