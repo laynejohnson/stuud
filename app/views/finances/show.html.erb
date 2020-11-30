@@ -46,7 +46,12 @@
 
       <div class="card-data total">
         <h3>Total Income</h3>
-        <p><%= @total_income %></p>
+        <% if @total_income == nil %>
+          <p>$0</p>
+        <% else %>
+          <p><%= @total_income %></p>
+        <% end %>
+
       </div>
 
     </div>
