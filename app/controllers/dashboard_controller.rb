@@ -6,6 +6,9 @@ class DashboardController < ApplicationController
     @future_events = current_user.events
       .where('start_time >= ?', DateTime.now.tomorrow.beginning_of_day).order(:start_time)
 
+      @future_events_limit_week = current_user.events
+      .where('start_time >= ? AND end_time <= ?', DateTime.now.tomorrow.beginning_of_day, DateTime.now.tomorrow.beginning_of_day + 7).order(:start_time)
+
     @pending_invoices = current_user.events
       .where(payment_status: false)
 
@@ -15,7 +18,7 @@ class DashboardController < ApplicationController
     @events_weekly = current_user.events
       .where(start_time: Time.zone.now.beginning_of_week..Time.zone.now.end_of_week)
 
-    @expenses_weekly =  current_user.expenses
+    @expenses_weekly = current_user.expenses
       .where(date: DateTime.now.beginning_of_week..DateTime.now.end_of_week)
 
     @total_expenses_weekly = 0
