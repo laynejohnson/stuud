@@ -1,29 +1,51 @@
 class FinancesController < ApplicationController
+before_action :set_user
 
   def show
-  @pending_invoices = current_user.events
-    .where(payment_status:false)
+    @income = 0
 
-  @paid_invoices = current_user.events
-    .where(payment_status:true)
+    @user.events.each do |booking|
+      @income += booking.price unless booking.price.nil?
+    end
 
-  @events_weekly = current_user.events
-    .where(start_time: Time.zone.now.beginning_of_week..Time.zone.now.end_of_week)
+    @expenses = Expense.where(user_id: @user).order(:date)
 
-  @events_monthly = current_user.events
-    .where(start_time: Time.zone.now.beginning_of_month..Time.zone.now.end_of_month)
+    @total_expenses = 0
+    @expenses.each do |expense|
+      @total_expenses += expense.amount
+    end
 
-  @events_yearly = current_user.events
-    .where(start_time: Time.zone.now.beginning_of_year..Time.zone.now.end_of_year)
+    @profit = @income - @total_expenses
 
+    @overdue_invoices = current_user.events.where("end_time <= ?", Date.today - 7)
 
-    # Weakly expenses
-  expenses_weekly =  current_user.expenses
+    @pending_invoices = current_user.events
+      .where(payment_status:false)
+
+    @paid_invoices = current_user.events
+      .where(payment_status:true)
+
+    @paid_invoices_total = 0
+    @paid_invoices.each do |paid|
+      @paid_invoices_total += paid.price
+    end
+
+    @events_weekly = current_user.events
+      .where(start_time: Time.zone.now.beginning_of_week..Time.zone.now.end_of_week)
+
+    @events_monthly = current_user.events
+      .where(start_time: Time.zone.now.beginning_of_month..Time.zone.now.end_of_month)
+
+    @events_yearly = current_user.events
+      .where(start_time: Time.zone.now.beginning_of_year..Time.zone.now.end_of_year)
+
+      # Weekly expenses
+    expenses_weekly =  current_user.expenses
       .where(date: Time.zone.now.beginning_of_week..Time.zone.now.end_of_week)
 
     @total_expenses_weekly = 0
     expenses_weekly.each do |expense|
-    @total_expenses_weekly += expense.amount
+      @total_expenses_weekly += expense.amount
     end
 
     @income_weekly = 0
@@ -62,5 +84,12 @@ class FinancesController < ApplicationController
     @events_yearly.each do |event|
       @income_yearly += event.price
     end
+  end
+
+private
+
+
+  def set_user
+    @user = current_user
   end
 end

@@ -23,6 +23,10 @@
                 required: false,
                 label: false,
                 placeholder: "address"  %>
+    <%= f.input :notes,
+                required: false,
+                label: false,
+                placeholder: "notes"  %>
     <div class="form-actions">
       <div><%= f.input :color, as: :radio_buttons, collection: %w[Yellow Blue Red] %></div>
       <div><%= f.submit %></div>
