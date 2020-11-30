@@ -1,10 +1,19 @@
 <div class="client-show">
   <h1><%= @client.first_name.capitalize %> <%= @client.last_name.capitalize %></h1>
-  <hr/>
+  <% if @client.color == "Red" %>
+      <hr style="height:2px; border-width:0; color:rgb(222, 42, 99); background-color:rgb(222, 42, 99)">
+  <% elsif @client.color == "Yellow" %>
+      <hr style="height:2px; border-width:0; rgb(254, 230, 108); background-color:rgb(254, 230, 108)">
+  <% elsif @client.color == "Blue" %>
+      <hr style="height:2px; border-width:0; color:rgb(38, 149, 223); background-color:rgb(38, 149, 223)">
+  <% else %>
+    <div>
+       <hr style="height:2px; border-width:0; color:rgb(42, 50, 102); background-color:rgb(42, 50, 102)">
+    </div>
+  <% end %>
   <div class="client-container">
     <div class="client-left">
       <div class="client-info">
-        <h2><%= @client.color %></h2>
         <div class="info-section">
           <%= image_tag "email.svg", height: 40, width: 40 %>
           <h2><%= @client.email %></h2>
