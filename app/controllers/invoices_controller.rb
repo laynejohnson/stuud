@@ -41,6 +41,11 @@ class InvoicesController < ApplicationController
     end
   end
 
+  def send_email
+    mail = EventMailer.with(invoice: @invoice).invoice_pdf(@invoice.id)
+    mail.deliver_now
+  end
+
   def destroy
     @client = @invoice.client
     @event = @invoice.event
