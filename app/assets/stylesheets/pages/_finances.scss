@@ -87,6 +87,13 @@
     margin-bottom: 24px;
   }
 
+  .data-graph {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+  }
+
   // Dividers ––––––––––––––––––––––––––––––––––––––––––––––
 
   hr {
@@ -120,6 +127,55 @@
   }
 
   // Cards ––––––––––––––––––––––––––––––––––––––––––––––
+
+  .card-data {
+    width: 162px;
+    height: 94px;
+    left: 324px;
+    top: 674px;
+
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(198, 198, 198, 0.25);
+    border-radius: 3px;
+  }
+
+  .income {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    p {
+      color: #3db1c0 !important;
+      font-weight: bold;
+      font-size: 18px !important;
+    }
+  }
+
+  .expenses {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    p {
+      color: #de2a63 !important;
+      font-weight: bold;
+      font-size: 18px !important;
+    }
+
+  }
+
+  .total {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    p {
+      color: #29316a !important;
+      font-weight: bold;
+      font-size: 18px !important;
+    }
+
+  }
 
   .card-dashboard {
     display: flex;

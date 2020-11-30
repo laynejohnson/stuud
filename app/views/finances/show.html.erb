@@ -20,17 +20,28 @@
 
     </div>
 
-    <h2>Weekly</h2>
-    <h3>Expenses: <%= @total_expenses_weekly %>$</h3>
-    <h3>Income: <%= @income_weekly %>$</h3>
+    <div class="data-graph">
 
-    <h2>Monthly</h2>
-    <h3>Expenses: <%= @total_expenses_monthly %>$</h3>
-    <h3>Income: <%= @income_monthly %>$</h3>
+      <div class="card-data income">
+        <p>$<%= @income_weekly %></p>
+<!--         <p>&<%= @income_monthly %>$</p>
+        <p>&<%= @income_yearly %>$</p> -->
+      </div>
 
-    <h2>Yearly</h2>
-    <h3>Expenses: <%= @total_expenses_yearly %>$</h3>
-    <h3>Income: <%= @income_yearly %>$</h3>
+      <div><p>-</p></div>
+
+      <div class="card-data expenses">
+        <p>$<%= @total_expenses_weekly %></p>
+<!--         <p>Expenses: <%= @total_expenses_monthly %>$</p>
+        <p>Expenses: <%= @total_expenses_yearly %>$</p> -->
+      </div>
+
+      <div><p>=</p></div>
+
+      <div class="card-data total">
+      </div>
+
+    </div>
 
   </div>
 
