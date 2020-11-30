@@ -38,7 +38,7 @@
     text-align: center;
     border: none;
     text-decoration: none;
-    font-weight: 400;
+    font-weight: 500;
     font-family: Montserrat;
     font-size: 16px;
     padding: 12px 70px;
@@ -71,7 +71,7 @@
   #graph-buttons {
     display: flex;
     justify-content: space-around;
-    margin-bottom: 26px;
+    margin-bottom: 30px;
     margin-top: 38px;
   }
 
@@ -129,6 +129,9 @@
   // Cards ––––––––––––––––––––––––––––––––––––––––––––––
 
   .card-data {
+    display: flex;
+    flex-direction: vertical;
+
     width: 162px;
     height: 94px;
     left: 324px;
@@ -141,38 +144,48 @@
 
   .income {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    h3 {
+
+    }
 
     p {
-      color: #3db1c0 !important;
+      // color: #3db1c0 !important;
       font-weight: bold;
       font-size: 18px !important;
+      margin-bottom: 0px;
     }
   }
 
   .expenses {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    flex-direction: column;
 
     p {
-      color: #de2a63 !important;
+      // color: #de2a63 !important;
       font-weight: bold;
       font-size: 18px !important;
+      margin-bottom: 0px;
     }
 
   }
 
   .total {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    flex-direction: column;
 
     p {
       color: #29316a !important;
       font-weight: bold;
       font-size: 18px !important;
+      margin-bottom: 0px;
     }
 
   }

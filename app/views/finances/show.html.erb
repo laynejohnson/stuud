@@ -23,14 +23,20 @@
     <div class="data-graph">
 
       <div class="card-data income">
-        <p>$<%= @income_weekly %></p>
+        <h3>Income</h3>
+        <% if @income_weekly == nil %>
+          <p>$0</p>
+        <% else %>
+          <p>$<%= @income_weekly %></p>
 <!--         <p>&<%= @income_monthly %>$</p>
         <p>&<%= @income_yearly %>$</p> -->
+        <% end %>
       </div>
 
       <div><p>-</p></div>
 
       <div class="card-data expenses">
+        <h3>Expenses</h3>
         <p>$<%= @total_expenses_weekly %></p>
 <!--         <p>Expenses: <%= @total_expenses_monthly %>$</p>
         <p>Expenses: <%= @total_expenses_yearly %>$</p> -->
@@ -38,7 +44,11 @@
 
       <div><p>=</p></div>
 
+      <!-- NEED TOTAL INCOME LOGIC -->
+
       <div class="card-data total">
+        <h3>Total Income</h3>
+        <p>$0</p>
       </div>
 
     </div>
