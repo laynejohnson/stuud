@@ -30,6 +30,34 @@
 
   }
 
+  // Components:
+
+  .btn-graph {
+    background-color: $sorange;
+    // color: $soffwhite;
+    width: 175px;
+    height: 40px;
+    text-align: center;
+    border: none;
+    text-decoration: none;
+    font-weight: 400;
+    font-family: Montserrat;
+    font-size: 16px;
+    padding: 8px 16px;
+    border-radius: 3px;
+    transition: background .3s;
+
+    a {
+      color: $soffwhite;
+    }
+  }
+
+  .btn-graph:hover {
+      background-color: #FA4B00;
+      text-decoration: none;
+      color: $soffwhite;
+  }
+
   // Containers ––––––––––––––––––––––––––––––––––––––––––––––
 
   .container-right {
@@ -42,8 +70,20 @@
     max-height: 100vh;
   }
 
-  .weekly-report {
-    margin-top: 38px;
+  #graph-buttons {
+    display: flex;
+  }
+
+  .graph {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 673px;
+    height: 50%;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(198, 198, 198, 0.25);
+    border-radius: 3px;
+    margin-bottom: 24px;
   }
 
   // Dividers ––––––––––––––––––––––––––––––––––––––––––––––
@@ -138,6 +178,9 @@
   }
 
   .invoice-status-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: 90px;
     width: 90px;
     background-color: rgba(230, 232, 230, 0.5);
@@ -186,6 +229,6 @@
     width: 370px;
     height: 200px;
     margin: 0 auto;
-
   }
+
 }

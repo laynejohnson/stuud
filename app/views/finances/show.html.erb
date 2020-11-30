@@ -4,15 +4,32 @@
     <h1>My Finances</h1>
     <hr/>
 
-    <h2>Weekly report</h2>
-    <h3>Expenses: <%= @total_expenses_weekly %>$</h3>
-    <h3>Income: <%= @income_weakly %>$</h3>
+    <div id="graph-buttons">
+      <div>
+        <a href="#" class="btn-graph">Week</a>
+      </div>
+      <div>
+        <a href="#" class="btn-graph">Month</a>
+      </div>
+      <div>
+        <a href="#" class="btn-graph">Year</a>
+      </div>
+    </div>
 
-    <h2>Monthly report</h2>
+    <div class="graph">
+
+
+    </div>
+
+    <h2>Weekly</h2>
+    <h3>Expenses: <%= @total_expenses_weekly %>$</h3>
+    <h3>Income: <%= @income_weekly %>$</h3>
+
+    <h2>Monthly</h2>
     <h3>Expenses: <%= @total_expenses_monthly %>$</h3>
     <h3>Income: <%= @income_monthly %>$</h3>
 
-    <h2>Yearly report</h2>
+    <h2>Yearly</h2>
     <h3>Expenses: <%= @total_expenses_yearly %>$</h3>
     <h3>Income: <%= @income_yearly %>$</h3>
 
