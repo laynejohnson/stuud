@@ -6,13 +6,13 @@
 
     <div id="graph-buttons">
       <div>
-        <a href="?finance_calculation=week" class="btn-graph">Week</a>
+        <a href="?my_finances=week" class="btn-graph">Week</a>
       </div>
       <div>
-        <a href="#" class="btn-graph">Month</a>
+        <a href="?my_finances=month" class="btn-graph">Month</a>
       </div>
       <div>
-        <a href="#" class="btn-graph">Year</a>
+        <a href="?my_finances=year" class="btn-graph">Year</a>
       </div>
     </div>
 
@@ -86,7 +86,7 @@
           <%= image_tag "noun_Close_23269(1).png", alt: "overdue icon"%>
         </div>
       </div>
-      <!-- Modal -->
+      <!-- Invoice Status Modal -->
       <div class="modal fade" id="invoice-id-<%=invoice.id%>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
