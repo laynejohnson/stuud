@@ -34,16 +34,14 @@
 
   .btn-graph {
     background-color: $sorange;
-    // color: $soffwhite;
-    width: 175px;
-    height: 40px;
+    color: $soffwhite;
     text-align: center;
     border: none;
     text-decoration: none;
     font-weight: 400;
     font-family: Montserrat;
     font-size: 16px;
-    padding: 12px 50px;
+    padding: 12px 70px;
     border-radius: 3px;
     transition: background .3s;
 
@@ -73,8 +71,8 @@
   #graph-buttons {
     display: flex;
     justify-content: space-around;
-    margin-bottom: 25px;
-    margin-top: 25px;
+    margin-bottom: 26px;
+    margin-top: 38px;
   }
 
   .graph {
