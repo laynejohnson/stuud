@@ -30,6 +30,15 @@
 
   }
 
+  .link {
+    text-decoration: none;
+    color: $sblue;
+
+    &:hover {
+      color: $sorange;
+    }
+  }
+
   // Containers ––––––––––––––––––––––––––––––––––––––––––––––
 
   .container-right {
@@ -85,6 +94,10 @@
   }
 
   // Cards ––––––––––––––––––––––––––––––––––––––––––––––
+
+  .no-appointments {
+    width: 95%;
+  }
 
   .card-dashboard {
     display: flex;
@@ -181,4 +194,13 @@
     margin: 0 auto;
 
   }
+
+  #add-appointment {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+  }
+
+
 }
