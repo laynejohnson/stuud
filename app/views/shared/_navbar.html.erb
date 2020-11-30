@@ -31,7 +31,11 @@
         <%= image_tag "19_Cello-1-960x600.jpg", alt: "alttext", class: "avatar" %>
       <div id="user-info">
 
-      <p>Manu G.</p>
+      <% if current_user.last_name.length > 10 %>
+        <p><%= current_user.first_name%> <%= current_user.last_name[0] %>.</p>
+      <% else %>
+        <p><%= current_user.first_name%> <%= current_user.last_name %></p>
+      <% end %>
 
       <div class="d-flex justify-content-space-between">
 
