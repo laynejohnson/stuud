@@ -6,13 +6,13 @@
 
     <div id="graph-buttons">
       <div>
-        <a href="#" class="btn-graph">Week</a>
+        <a href="?my_finances=week" class="btn-graph">Week</a>
       </div>
       <div>
-        <a href="#" class="btn-graph">Month</a>
+        <a href="?my_finances=month" class="btn-graph">Month</a>
       </div>
       <div>
-        <a href="#" class="btn-graph">Year</a>
+        <a href="?my_finances=year" class="btn-graph">Year</a>
       </div>
     </div>
 
@@ -32,10 +32,10 @@
 
       <div class="card-data income">
         <h3>Income</h3>
-        <% if @income_weekly == nil %>
+        <% if @income == nil %>
           <p>$0</p>
         <% else %>
-          <p>$<%= @income_weekly %></p>
+          <p>$<%= @income %></p>
 <!--         <p>&<%= @income_monthly %>$</p>
         <p>&<%= @income_yearly %>$</p> -->
         <% end %>
@@ -45,18 +45,21 @@
 
       <div class="card-data expenses">
         <h3>Expenses</h3>
-        <p>$<%= @total_expenses_weekly %></p>
-<!--         <p>Expenses: <%= @total_expenses_monthly %>$</p>
-        <p>Expenses: <%= @total_expenses_yearly %>$</p> -->
-      </div>
+        <p>$<%= @total_expenses %></p>
 
+      </div>
       <div class="bold mt-2"><p>=</p></div>
 
       <!-- NEED TOTAL INCOME LOGIC -->
 
       <div class="card-data total">
         <h3>Total Income</h3>
-        <p>$0</p>
+        <% if @total_income == nil %>
+          <p>$0</p>
+        <% else %>
+          <p><%= @total_income %></p>
+        <% end %>
+
       </div>
 
     </div>
@@ -90,8 +93,19 @@
           <p>$<%= invoice.price %></p>
           <p class="bold"><%= invoice.start_time.localtime.strftime("%A, %b %d") %></p>
         </div>
-        <div class="invoice-status-indicator">
+        <div class="invoice-status-indicator" data-toggle="modal" data-target="#invoice-id-<%=invoice.id%>">
           <%= image_tag "noun_Close_23269(1).png", alt: "overdue icon"%>
+        </div>
+      </div>
+      <!-- Invoice Status Modal -->
+      <div class="modal fade" id="invoice-id-<%=invoice.id%>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <%=simple_form_for invoice do |f|%>
+              <%= f.input :status, as: :hidden, input_html: {value: true} %>
+              <%= f.submit %>
+            <% end %>
+          </div>
         </div>
       </div>
     <% end %>
