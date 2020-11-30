@@ -1,29 +1,30 @@
 class FinancesController < ApplicationController
 
   def show
-  @pending_invoices = current_user.events
-    .where(payment_status:false)
+    @overdue_invoices = current_user.events.where("end_time <= ?", Date.today - 7)
 
-  @paid_invoices = current_user.events
-    .where(payment_status:true)
+    @pending_invoices = current_user.events
+      .where(payment_status:false)
 
-  @events_weekly = current_user.events
-    .where(start_time: Time.zone.now.beginning_of_week..Time.zone.now.end_of_week)
+    @paid_invoices = current_user.events
+      .where(payment_status:true)
 
-  @events_monthly = current_user.events
-    .where(start_time: Time.zone.now.beginning_of_month..Time.zone.now.end_of_month)
+    @events_weekly = current_user.events
+      .where(start_time: Time.zone.now.beginning_of_week..Time.zone.now.end_of_week)
 
-  @events_yearly = current_user.events
-    .where(start_time: Time.zone.now.beginning_of_year..Time.zone.now.end_of_year)
+    @events_monthly = current_user.events
+      .where(start_time: Time.zone.now.beginning_of_month..Time.zone.now.end_of_month)
 
+    @events_yearly = current_user.events
+      .where(start_time: Time.zone.now.beginning_of_year..Time.zone.now.end_of_year)
 
-    # Weakly expenses
-  expenses_weekly =  current_user.expenses
+      # Weekly expenses
+    expenses_weekly =  current_user.expenses
       .where(date: Time.zone.now.beginning_of_week..Time.zone.now.end_of_week)
 
     @total_expenses_weekly = 0
     expenses_weekly.each do |expense|
-    @total_expenses_weekly += expense.amount
+      @total_expenses_weekly += expense.amount
     end
 
     @income_weekly = 0
