@@ -28,6 +28,9 @@ gem 'redis', '~> 4.0'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
+gem 'letter_opener', group: :development
+gem 'dotenv-rails', groups: [:development, :test]
+
 gem 'devise'
 
 gem 'autoprefixer-rails'
