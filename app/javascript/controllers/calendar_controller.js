@@ -57,6 +57,10 @@ export default class extends Controller {
     calendar.render()
   }
 
+  closeModal() {
+    var close = this.modalTarget.style.display = 'none'
+  }
+
   data(info) {
     return {
       "event[start_time]": info.event.start,

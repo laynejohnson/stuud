@@ -33,8 +33,8 @@
 
     <% @client.events.each do |event|%>
     <div class="appt-card">
-      <div><h2><%= event.start_time.strftime("%b %e")%></h2></div>
-      <div><p><%= event.start_time.strftime("%l:%M %p")%></p></div>
+      <div><h2><%= event.start_time.localtime.strftime("%b %e")%></h2></div>
+      <div><p><%= event.start_time.localtime.strftime("%l:%M %p")%></p></div>
       <!-- <p>Length: <%= event.length %></p> -->
     <!--   <p>Price: <%= event.price %>$</p> -->
       <!-- <p>Payment status: <%= event.payment_status %></p> -->
