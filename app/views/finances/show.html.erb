@@ -6,7 +6,7 @@
 
     <div id="graph-buttons">
       <div>
-        <a href="#" class="btn-graph">Week</a>
+        <a href="?finance_calculation=week" class="btn-graph">Week</a>
       </div>
       <div>
         <a href="#" class="btn-graph">Month</a>
@@ -82,8 +82,19 @@
           <p>$<%= invoice.price %></p>
           <p class="bold"><%= invoice.start_time.localtime.strftime("%A, %b %d") %></p>
         </div>
-        <div class="invoice-status-indicator">
+        <div class="invoice-status-indicator" data-toggle="modal" data-target="#invoice-id-<%=invoice.id%>">
           <%= image_tag "noun_Close_23269(1).png", alt: "overdue icon"%>
+        </div>
+      </div>
+      <!-- Modal -->
+      <div class="modal fade" id="invoice-id-<%=invoice.id%>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <%=simple_form_for invoice do |f|%>
+              <%= f.input :status, as: :hidden, input_html: {value: true} %>
+              <%= f.submit %>
+            <% end %>
+          </div>
         </div>
       </div>
     <% end %>

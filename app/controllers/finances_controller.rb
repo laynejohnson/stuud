@@ -9,6 +9,11 @@ class FinancesController < ApplicationController
     @paid_invoices = current_user.events
       .where(payment_status:true)
 
+    if params[:finance_calculation] == "week"
+    elsif params[:finance_calculation] == "month"
+    else
+    end
+
     @events_weekly = current_user.events
       .where(start_time: Time.zone.now.beginning_of_week..Time.zone.now.end_of_week)
 
@@ -22,15 +27,23 @@ class FinancesController < ApplicationController
     expenses_weekly =  current_user.expenses
       .where(date: Time.zone.now.beginning_of_week..Time.zone.now.end_of_week)
 
-    @total_expenses_weekly = 0
+
+
+
+
+
+
+
+
+
+   @total_expenses_weekly = 0
     expenses_weekly.each do |expense|
       @total_expenses_weekly += expense.amount
     end
 
+
     @income_weekly = 0
     @events_weekly.each do |event|
-      # raise
-      p event
       @income_weekly += event.price
     end
 
