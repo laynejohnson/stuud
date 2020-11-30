@@ -3,7 +3,13 @@ class ClientsController < ApplicationController
   before_action :set_user, only: [:index]
 
   def index
-    @clients = Client.where(user_id: @user)
+    # raise
+    if params[:query].present?
+     @clients = Client.all.search_by_color(params[:query])
+    else
+      @clients = Client.where(user_id: @user)
+    end
+
   end
 
   def show

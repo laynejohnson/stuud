@@ -7,6 +7,12 @@
       <h2 class="divider">Today</h2>
     </div>
     <div class="today">
+      <% if @todays_events == [] %>
+      <div class="card-dashboard">
+        <p class="ml-3 mt-3 p-3 text-align-center highlight no-appointments">No Appointments Today...</p>
+      </div>
+      <% end %>
+
       <% @todays_events.each do |event| %>
         <div class="card-dashboard">
           <%= link_to event.client.first_name + " " + event.client.last_name, client_path(event.client), class: "client-name" %>
@@ -28,9 +34,25 @@
     <div class="future">
 
     <div class="divider">
-      <h2 class="divider">Future</h2>
+      <h2 class="divider">This Week</h2>
     </div>
-      <% @future_events.each do |event| %>
+
+      <% if @future_events == [] %>
+      <div class="card-dashboard">
+       <div id="add-appointment" class=" no-appointments highlight">
+        <div>
+          <%= link_to "Schedule An Appointment", new_event_path, class: "ml-3 p-3 text-align-center link"  %>
+        </div>
+          <%= link_to new_event_path do %>
+        <div>
+          <%= image_tag 'noun_add_8394.png', width: 60, height: 60, alt: 'add an appointment'%>
+        </div>
+          <% end %>
+      </div>
+
+      </div>
+      <% end %>
+      <% @future_events_limit_week.each do |event| %>
       <div class="card-dashboard">
         <%= link_to event.client.first_name + " " + event.client.last_name, client_path(event.client), class: "client-name" %>
         <p class="event-date"><%= event.start_time.strftime("%b %e, %l:%M %p") %></p>
