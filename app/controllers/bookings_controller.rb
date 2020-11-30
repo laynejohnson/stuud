@@ -15,8 +15,6 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.client = @client
     if @booking.save
-      mail = EventMailer.with(client: @client).confirmation
-      mail.deliver_now
       redirect_to client_path(@client)
     else
       render :new
