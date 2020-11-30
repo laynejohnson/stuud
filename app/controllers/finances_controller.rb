@@ -22,48 +22,49 @@ class FinancesController < ApplicationController
     expenses_weekly =  current_user.expenses
       .where(date: Time.zone.now.beginning_of_week..Time.zone.now.end_of_week)
 
+    expenses_monthly =  current_user.expenses
+      .where(date: Time.zone.now.beginning_of_month..Time.zone.now.end_of_month)
 
     if params[:my_finances] == "week"
-      @total_expenses_weekly = 0
+      @total_expenses = 0
       expenses_weekly.each do |expense|
-        @total_expenses_weekly += expense.amount
+        @total_expenses += expense.amount
       end
 
-      @income_weekly = 0
+      @income = 0
       @events_weekly.each do |event|
-        @income_weekly += event.price
+        @income += event.price
       end
 
     elsif params[:my_finances] == "month"
 
-      expenses_monthly =  current_user.expenses
+      expenses = current_user.expenses
       .where(date: Time.zone.now.beginning_of_month..Time.zone.now.end_of_month)
 
-      @total_expenses_monthly = 0
+      @total_expenses = 0
       expenses_monthly.each do |expense|
-      @total_expenses_monthly += expense.amount
+      @total_expenses += expense.amount
       end
 
-      @income_monthly = 0
+      @income= 0
       @events_monthly.each do |event|
-        @income_monthly += event.price
+        @income += event.price
       end
 
     else
 
-      expenses_yearly =  current_user.expenses
+      expenses = current_user.expenses
         .where(date: Time.zone.now.beginning_of_year..Time.zone.now.end_of_year)
 
-      @total_expenses_yearly = 0
-      expenses_yearly.each do |expense|
-      @total_expenses_yearly += expense.amount
+      @total_expenses = 0
+      expenses.each do |expense|
+      @total_expenses += expense.amount
       end
 
-      @income_yearly = 0
+      @income = 0
       @events_yearly.each do |event|
-        @income_yearly += event.price
+        @income += event.price
       end
-
     end
 
   end

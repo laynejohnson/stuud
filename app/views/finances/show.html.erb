@@ -24,10 +24,10 @@
 
       <div class="card-data income">
         <h3>Income</h3>
-        <% if @income_weekly == nil %>
+        <% if @income == nil %>
           <p>$0</p>
         <% else %>
-          <p>$<%= @income_weekly %></p>
+          <p>$<%= @income %></p>
 <!--         <p>&<%= @income_monthly %>$</p>
         <p>&<%= @income_yearly %>$</p> -->
         <% end %>
@@ -37,18 +37,16 @@
 
       <div class="card-data expenses">
         <h3>Expenses</h3>
-        <p>$<%= @total_expenses_weekly %></p>
-<!--         <p>Expenses: <%= @total_expenses_monthly %>$</p>
-        <p>Expenses: <%= @total_expenses_yearly %>$</p> -->
-      </div>
+        <p>$<%= @total_expenses %></p>
 
+      </div>
       <div class="bold mt-2"><p>=</p></div>
 
       <!-- NEED TOTAL INCOME LOGIC -->
 
       <div class="card-data total">
         <h3>Total Income</h3>
-        <p>$0</p>
+        <p><%= @total_income %></p>
       </div>
 
     </div>
