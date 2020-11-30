@@ -143,6 +143,17 @@
     height: 90px;
   }
 
+  .invoice-status-indicator {
+    height: 90px;
+    width: 200px;
+    background-color: rgba(230, 232, 230, 0.5);
+
+    img {
+      height: 60px;
+      width: 60px;
+    }
+  }
+
   .client-name {
     font-size: 16px !important;
     text-decoration: none;
