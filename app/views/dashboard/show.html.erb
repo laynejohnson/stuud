@@ -52,7 +52,7 @@
 
       </div>
       <% end %>
-      <% @future_events.each do |event| %>
+      <% @future_events_limit_week.each do |event| %>
       <div class="card-dashboard">
         <%= link_to event.client.first_name + " " + event.client.last_name, client_path(event.client), class: "client-name" %>
         <p class="event-date"><%= event.start_time.strftime("%b %e, %l:%M %p") %></p>
