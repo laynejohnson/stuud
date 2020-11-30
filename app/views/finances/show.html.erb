@@ -18,6 +18,7 @@
 
 
     <div class="graph">
+
     <%= line_chart [{ name: "Income", data: @events_yearly.group_by_day(:start_time).sum(:price) },{ name: "Expenses", data: Expense.group_by_day(:date).sum(:amount)}],
         defer: true,
         adapter: "highcharts",
@@ -28,6 +29,7 @@
         title: "Expected Income #{@income_yearly} $ vs. Total Expenses #{@total_expenses_yearly} $  (#{DateTime.now.year}) ",
         legend: true,
         colors: ["#FB6C00", "#424D58"] %>
+
     </div>
 
     <h2>Weekly</h2>
