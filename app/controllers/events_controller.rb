@@ -34,6 +34,8 @@ class EventsController < ApplicationController
       if @event.save
         format.html { redirect_to @event, notice: 'Event was successfully created.' }
         format.json { render :show, status: :created, location: @event }
+        mail = EventMailer.with(event: @event).confirmation
+        mail.deliver_now
       else
         format.html { render :new }
         format.json { render json: @event.errors, status: :unprocessable_entity }
@@ -81,7 +83,7 @@ class EventsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def event_params
-      params.require(:event).permit(:all_day, :start_time, :end_time, :title, :color, :user, :client_id, :description, :price, :length, :date, :status, :payment_status)
+      params.require(:event).permit(:all_day, :start_time, :end_time, :title, :color, :user, :client, :description, :price, :length, :date, :status, :payment_status)
     end
 end
 
