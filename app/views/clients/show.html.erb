@@ -44,15 +44,18 @@
     <div class="appt-card">
       <div><h2><%= event.start_time.localtime.strftime("%b %e")%></h2></div>
       <div><p><%= event.start_time.localtime.strftime("%l:%M %p")%></p></div>
-      <!-- <p>Length: <%= event.length %></p> -->
-    <!--   <p>Price: <%= event.price %>$</p> -->
-      <!-- <p>Payment status: <%= event.payment_status %></p> -->
       <div><h2><%= event.status %>Confirmed</h2></div>
-      <!-- <div><%= link_to 'Edit', edit_booking_path(event) %></div>
-      <div><%= link_to "Delete",
-        event_path(event),
-        method: :delete,
-        data: { confirm: 'Are you sure?'} %></div> -->
+      <div class="card-end">
+          <% if event.client.color == "Red" %>
+                <div class="color-indicator-red"></div>
+              <% elsif event.client.color == "Yellow" %>
+                <div class="color-indicator-yellow"></div>
+              <% elsif event.client.color == "Blue" %>
+                <div class="color-indicator-blue"></div>
+              <% else %>
+                <div></div>
+              <% end %>
+        </div>
     </div>
     <% end %>
 
