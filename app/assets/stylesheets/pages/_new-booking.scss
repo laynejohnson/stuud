@@ -18,8 +18,22 @@
     box-shadow: none;
   }
 
+  .form-control[readonly] {
+    border: none;
+    background-color: white;
+  }
+
+  .form-control[readonly]:focus {
+    border: 2px solid $sorange;
+    box-shadow: none;
+  }
+
   ::placeholder {
     color: #4D526F;
+  }
+
+  label {
+    color: $sblue;
   }
 
   hr {
