@@ -1,0 +1,18 @@
+<h1>PDF FILE</h1>
+
+<h1>Client infos</h1>
+
+<p>First name: <%= @invoice.client.first_name.capitalize %></p>
+<p>Last name: <%= @invoice.client.last_name.capitalize %></p>
+<p>Email: <%= @invoice.client.email %></p>
+<p>Address: <%= @invoice.client.address %></p>
+<p>Phone: <%= @invoice.client.phone %></p>
+
+
+<h1>Lesson</h1>
+<p>Date: <%= @invoice.event.event_time %></p>
+<p>Amount: $<%= @invoice.event.price %></p>
+<p>Payment Status: <%= @invoice.event.payment_status %></p>
+
+
+
