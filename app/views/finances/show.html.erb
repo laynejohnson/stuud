@@ -27,31 +27,21 @@
         colors: ["#FB6C00", "#424D58"] %>
 
     </div>
-
     <div class="data-graph">
-
       <div class="card-data income">
         <h3>Income</h3>
         <% if @income == nil %>
           <p>$0</p>
         <% else %>
           <p>$<%= @income %></p>
-<!--         <p>&<%= @income_monthly %>$</p>
-        <p>&<%= @income_yearly %>$</p> -->
         <% end %>
       </div>
-
       <div class="bold mt-2"><p>-</p></div>
-
       <div class="card-data expenses">
         <h3>Expenses</h3>
         <p>$<%= @total_expenses %></p>
-
       </div>
       <div class="bold mt-2"><p>=</p></div>
-
-      <!-- NEED TOTAL INCOME LOGIC -->
-
       <div class="card-data total">
         <h3>Total Income</h3>
         <% if @total_income == nil %>
@@ -59,25 +49,17 @@
         <% else %>
           <p><%= @total_income %></p>
         <% end %>
-
       </div>
-
     </div>
-
   </div>
-
   <div class="container-right">
-
   <h1>Invoices</h1>
     <hr/>
     <div class="invoices">
-
   <!------------------ OVERDUE INVOICES ------------------>
-
   <div class="overdue">
     <div class="divider">
       <h2 class="divider">Overdue</h2>
-
     </div>
     <% @overdue_invoices.each do |invoice| %>
       <div class="card-invoice">
@@ -143,7 +125,6 @@
   <div class="paid">
     <div class="divider">
       <h2 class="divider">Paid</h2>
-
     </div>
     <% @paid_invoices.each do |invoice| %>
       <div class="card-invoice">
