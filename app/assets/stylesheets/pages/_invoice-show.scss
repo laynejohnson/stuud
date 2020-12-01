@@ -1,0 +1,25 @@
+.invoice-show {
+  hr {
+      border-top: 1px solid $sblue;
+    }
+    .container {
+      margin-top: 48px;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .user-info {
+      text-align: right;
+    }
+
+    .invoice-section {
+      margin-top: 16px;
+    }
+
+    .total {
+      text-align: right;
+    }
+}

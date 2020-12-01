@@ -1,18 +1,33 @@
-<h1>PDF FILE</h1>
+<div class="invoice-show">
+  <div class="container">
+    <div class="header">
+      <h1>Invoice # 10148<%= @invoice.id %></h1>
+      <div class= "user-info">
+        <h2><%= current_user.first_name %> <%= current_user.last_name %></h2>
+        <h3><%= current_user.email %></h3>
+      </div>
+    </div>
+    <hr/>
+  <div class="invoice-section">
+    <h2>Client information:</h2>
+    <p><%= @invoice.client.first_name.capitalize %> <%= @invoice.client.last_name.capitalize %></p>
+    <p>Email: <%= @invoice.client.email %></p>
+    <p>Address: <%= @invoice.client.address %></p>
+    <p>Phone: <%= @invoice.client.phone %></p>
+  </div>
 
-<h1>Client infos</h1>
+  <div class="invoice-section">
+    <h2>Lesson:</h2>
+    <p>Date: <%= @invoice.event.event_time %></p>
+    <p>Payment Status: <%= @invoice.event.payment_status %></p>
+    <hr/>
+  </div>
 
-<p>First name: <%= @invoice.client.first_name.capitalize %></p>
-<p>Last name: <%= @invoice.client.last_name.capitalize %></p>
-<p>Email: <%= @invoice.client.email %></p>
-<p>Address: <%= @invoice.client.address %></p>
-<p>Phone: <%= @invoice.client.phone %></p>
+  <div class="total">
+    <h1>Amount due:</h1>
+    <h1> $<%= @invoice.event.price %></h1>
 
+  </div>
+  </div>
 
-<h1>Lesson</h1>
-<p>Date: <%= @invoice.event.event_time %></p>
-<p>Amount: $<%= @invoice.event.price %></p>
-<p>Payment Status: <%= @invoice.event.payment_status %></p>
-
-
-
+</div>

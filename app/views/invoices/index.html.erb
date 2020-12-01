@@ -1,15 +1,46 @@
-<h1>invoices</h1>
-<%= link_to "Add an invoice", new_invoice_path %>
+<div class="invoice-index">
+  <div class="header">
+    <h1>My Invoices</h1>
+    <hr/>
+  </div>
+  <div class="invoice-cards">
+    <% @invoices.each do |invoice| %>
+    <div class="invoice-card">
+        <div class="card-left">
+          <div class= "card-section"><h2><%= link_to invoice.client.fullname, client_path(invoice.client) %></h2></div>
+      <%= link_to invoice_path(invoice, format: :pdf), target: "_blank" do %>
+          <div class= "card-section"><p>Invoice #<%= invoice.id %></p></div>
+      <% end %>
+        </div>
+        <div class="card-right">
+          <div class= "card-section"><p><%= invoice.event.start_time.localtime.strftime("%b %e") %></p></div>
+          <div class= "card-section"><p><%= link_to "Edit", edit_invoice_path(invoice) %></p></div>
+          <div class= "card-section"><p><%= link_to "Remove",
+              invoice_path(invoice),
+              method: :delete, data: { confirm: "Are you sure?" }%></p></div>
+          <% if invoice.event.payment_status == false %>
+            <%= link_to "Send invoice", invoice_send_email_path(invoice), method: :post %>
+          <% end %>
+           <div class="card-end">
+          <%= image_tag "noun_Vertical Dots_3560972 (1).png", alt: "alttext", height: 50 %>
+          <% if invoice.client.color == "Red" %>
+                <div class="color-indicator-red"></div>
+              <% elsif invoice.client.color == "Yellow" %>
+                <div class="color-indicator-yellow"></div>
+              <% elsif invoice.client.color == "Blue" %>
+                <div class="color-indicator-blue"></div>
+              <% else %>
+                <div></div>
+              <% end %>
+        </div>
+        </div>
 
-<% @invoices.each do |invoice| %>
-  <%= link_to invoice_path(invoice, format: :pdf) do %>
-    <p>Invoice <%= invoice.id %></p>
-    <%= link_to "Edit", edit_invoice_path(invoice) %>
-    <%= link_to "Remove",
-        invoice_path(invoice),
-        method: :delete, data: { confirm: "Are you sure?" }%></li>
-    <% if invoice.event.payment_status == false %>
-      <%= link_to "Send invoice", invoice_send_email_path(invoice), method: :post %>
+    </div>
+
     <% end %>
-  <% end %>
-<% end %>
+
+  </div>
+  <div class="new-invoice-btn">
+    <p class="btn-orange"><%= link_to "New Invoice", new_invoice_path %></p>
+  </div>
+</div>
