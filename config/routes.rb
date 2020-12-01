@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   resource :calendar, only: [:show], :controller => :calendar
   resource :finances, only: [:show], :controller => :finances
   post 'invoices/:id/send_email', to: "invoices#send_email", as: :invoice_send_email
+  get "invoices/client", to: "invoices#set_client", as: :invoice_set_client
   resources :invoices
+
 
   resources :clients, only: [:index, :show, :new, :create, :edit, :update]
   resources :bookings, only: [:new, :show, :create, :edit, :update, :destroy]

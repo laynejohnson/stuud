@@ -1,10 +1,66 @@
+<style>
+  body {
+    background-color: rgb(246, 245, 246);
+  }
+
+  h1 {
+  font-family: 'Playfair Display', serif!important;
+  font-size: 26px!important;
+  color: #2a3266!important;
+  }
+
+  h2 {
+  font-family: 'Montserrat', sans-serif!important;
+  font-size: 16px!important;
+  font-weight: bold!important;
+  color: #2a3266!important;
+  }
+
+  h3 {
+  font-family: 'Montserrat', sans-serif!important;
+  font-size: 16px!important;
+  font-weight: 500!important;
+  color: #2a3266!important;
+  }
+
+  p {
+  font-family: 'Montserrat', sans-serif!important;
+  font-size: 16px!important;
+  color: #2a3266!important;
+  }
+
+  hr {
+      border-top: 1px solid $sblue;
+    }
+    .container {
+      margin-top: 48px;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .user-info {
+      text-align: right;
+    }
+
+    .invoice-section {
+      margin-top: 16px;
+    }
+
+    .total {
+      text-align: right;
+    }
+</style>
+
 <div class="invoice-show">
   <div class="container">
     <div class="header">
       <h1>Invoice # 10148<%= @invoice.id %></h1>
       <div class= "user-info">
-        <h2><%= current_user.first_name %> <%= current_user.last_name %></h2>
-        <h3><%= current_user.email %></h3>
+        <h2><%= @invoice.user.first_name %> <%= @invoice.user.last_name %></h2>
+        <h3><%= @invoice.user.email %></h3>
       </div>
     </div>
     <hr/>
@@ -19,7 +75,7 @@
   <div class="invoice-section">
     <h2>Lesson:</h2>
     <p>Date: <%= @invoice.event.event_time %></p>
-    <p>Payment Status: <%= @invoice.event.payment_status %></p>
+    <p>Payment Status: <%= @invoice.event.payment_status ? "Paid" : "Due" %></p>
     <hr/>
   </div>
 

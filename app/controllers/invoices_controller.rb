@@ -3,13 +3,19 @@ class InvoicesController < ApplicationController
   layout 'invoice', only: :show
 
   def index
-    @invoices = Invoice.all
+    @invoices = Invoice.where(user: current_user)
   end
 
   def show
   end
 
+  def set_client
+    @clients = Client.all
+  end
+
   def new
+    @client = Client.find(params[:client])
+    @events = @client.events
     @invoice = Invoice.new
   end
 
@@ -61,6 +67,6 @@ class InvoicesController < ApplicationController
   end
 
   def invoices_params
-    params.require(:invoice).permit(:event, :client, :user)
+    params.require(:invoice).permit(:event_id, :client_id, :user)
   end
 end

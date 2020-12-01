@@ -1,0 +1,5 @@
+<div class="new-booking">
+  <% @clients.each do |client| %>
+    <%= link_to client.fullname, new_invoice_path(client: client.id) %>
+  <% end %>
+</div>
