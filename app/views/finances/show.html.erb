@@ -26,7 +26,13 @@
         height: "400px",
         title: "Weekly Income vs. Expenses ( #{DateTime.now.day}-#{DateTime.now.month}-#{DateTime.now.year} ) ",
         legend: true,
-        colors: ["#FB6C00", "#424D58"] %>
+        colors: ["#FB6C00", "#424D58"],
+        library: { chart: {
+          style: {
+            fontFamily: "'Montserrat', sans-serif"
+            }
+            }
+          } %>
     </div>
 
   <% elsif params[:my_finances] == "month" %>
@@ -37,7 +43,13 @@
         height: "400px",
         title: "Monthly Income vs. Expenses ( #{DateTime.now.month}-#{DateTime.now.year} ) ",
         # legend: true,
-        colors: ["#FB6C00", "#424D58"] %>
+        colors: ["#FB6C00", "#424D58"],
+        library: { chart: {
+          style: {
+            fontFamily: "'Montserrat', sans-serif"
+            }
+            }
+          } %>
      </div>
 
   <% else %>
@@ -48,7 +60,13 @@
         height: "400px",
         title: "Expected Income vs. Expenses ( #{DateTime.now.year} ) ",
         # legend: true,
-        colors: ["#FB6C00", "#424D58"] %>
+        colors: ["#FB6C00", "#424D58"],
+        library: { chart: {
+          style: {
+            fontFamily: "'Montserrat', sans-serif"
+            }
+            }
+          } %>
      </div>
   <% end %>
   </div>
