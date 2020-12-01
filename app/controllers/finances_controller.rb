@@ -50,17 +50,25 @@ before_action :set_user
 # GRAPH DISPLAY LOGIC
 
     if params[:my_finances] == "week"
-      @total_expenses = 0
-      expenses_weekly.each do |expense|
-        @total_expenses += expense.amount
-      end
 
       @income = 0
       @events_weekly.each do |event|
         @income += event.price
       end
 
+      @total_expenses = 0
+      expenses_weekly.each do |expense|
+        @total_expenses += expense.amount
+      end
+
+      @profit = @income - @total_expenses
+
     elsif params[:my_finances] == "month"
+
+      @income= 0
+      @events_monthly.each do |event|
+        @income += event.price
+      end
 
       expenses = current_user.expenses
       .where(date: Time.zone.now.beginning_of_month..Time.zone.now.end_of_month)
@@ -70,12 +78,14 @@ before_action :set_user
       @total_expenses += expense.amount
       end
 
-      @income= 0
-      @events_monthly.each do |event|
-        @income += event.price
-      end
+      @profit = @income - @total_expenses
 
     else
+
+      @income = 0
+      @events_yearly.each do |event|
+        @income += event.price
+      end
 
       expenses = current_user.expenses
         .where(date: Time.zone.now.beginning_of_year..Time.zone.now.end_of_year)
@@ -85,16 +95,12 @@ before_action :set_user
       @total_expenses += expense.amount
       end
 
-      @income = 0
-      @events_yearly.each do |event|
-        @income += event.price
-      end
-    end
+      @profit = @income - @total_expenses
 
+    end
   end
 
 private
-
 
   def set_user
     @user = current_user

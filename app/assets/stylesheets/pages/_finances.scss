@@ -32,7 +32,16 @@
 
   }
 
-  // Components:
+  .link {
+    text-decoration: none;
+    color: $sblue;
+
+    &:hover {
+      color: $sorange;
+    }
+  }
+
+ // Components ––––––––––––––––––––––––––––––––––––––––––––––
 
   .btn-graph {
     background-color: $sorange;
@@ -70,7 +79,7 @@
     max-height: 100vh;
   }
 
-  #graph-buttons {
+  .graph-buttons {
     display: flex;
     justify-content: space-around;
     margin-bottom: 40px;
@@ -95,6 +104,11 @@
     align-items: center;
     padding: 5px 33px 0px 33px;
 
+  }
+
+  .invoice-buttons {
+    display: flex;
+    justify-content: space-around;
   }
 
   // Dividers ––––––––––––––––––––––––––––––––––––––––––––––

@@ -4,7 +4,7 @@
     <h1>My Finances</h1>
     <hr/>
 
-    <div id="graph-buttons">
+    <div class="graph-buttons">
       <div>
         <a href="?my_finances=week" class="btn-graph">Week</a>
       </div>
@@ -43,17 +43,30 @@
       </div>
       <div class="bold mt-2"><p>=</p></div>
       <div class="card-data total">
-        <h3>Total Income</h3>
-        <% if @total_income == nil %>
+        <h3>Profit</h3>
+        <% if @profit == nil %>
           <p>$0</p>
         <% else %>
-          <p><%= @total_income %></p>
+          <p><%= @profit %></p>
         <% end %>
       </div>
     </div>
   </div>
   <div class="container-right">
   <h1>Invoices</h1>
+
+  <div class="invoice-buttons">
+    <div>
+      <a href="?invoices=overdue" class="link">Overdue</a>
+    </div>
+    <div>
+      <a href="?invoices=pending" class="link">Pending</a>
+    </div>
+    <div>
+      <a href="?invoices=paid" class="link">Paid</a>
+    </div>
+  </div>
+
     <hr/>
     <div class="invoices">
   <!------------------ OVERDUE INVOICES ------------------>
