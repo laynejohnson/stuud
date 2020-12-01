@@ -1,0 +1,15 @@
+<h1>invoices</h1>
+<%= link_to "Add an invoice", new_invoice_path %>
+
+<% @invoices.each do |invoice| %>
+  <%= link_to invoice_path(invoice, format: :pdf) do %>
+    <p>Invoice <%= invoice.id %></p>
+    <%= link_to "Edit", edit_invoice_path(invoice) %>
+    <%= link_to "Remove",
+        invoice_path(invoice),
+        method: :delete, data: { confirm: "Are you sure?" }%></li>
+    <% if invoice.event.payment_status == false %>
+      <%= link_to "Send invoice", invoice_send_email_path(invoice), method: :post %>
+    <% end %>
+  <% end %>
+<% end %>

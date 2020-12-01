@@ -1,6 +1,7 @@
 class FinancesController < ApplicationController
 before_action :set_user
 
+
   def show
     @income = 0
 
