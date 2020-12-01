@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
   before_action :set_user
+  before_action :set_user_clients, only: [:new]
 
   def index
     # start_date = params[:start]
@@ -77,6 +78,10 @@ class EventsController < ApplicationController
 
     def set_client
       @client = Client.find(params[:event][:client_id])
+    end
+
+    def set_user_clients
+      @user_clients = Client.where(user_id:current_user)
     end
 
     def set_event
