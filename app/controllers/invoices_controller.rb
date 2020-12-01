@@ -19,9 +19,7 @@ class InvoicesController < ApplicationController
     @invoice.event = Event.find (params[:invoice][:event_id])
     @invoice.user = current_user
     if @invoice.save
-      mail = EventMailer.with(invoice: @invoice).invoice_pdf(@invoice.id)
-      mail.deliver_now
-      redirect_to invoice_path(@invoice)
+      redirect_to invoices_path
     else
       render :new
     end
@@ -43,7 +41,9 @@ class InvoicesController < ApplicationController
 
   def send_email
     mail = EventMailer.with(invoice: @invoice).invoice_pdf(@invoice.id)
-    mail.deliver_now
+    mail.deliver_later
+    redirect_to request.referrer
+    flash[:notice] = "Email sent"
   end
 
   def destroy
