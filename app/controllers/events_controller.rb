@@ -51,8 +51,6 @@ class EventsController < ApplicationController
       if @event.update(event_params)
         format.html { redirect_to @event, notice: 'Event was successfully updated.' }
         format.json { render :show, status: :ok, location: @event }
-        mail = EventMailer.with(event: @event).confirmation
-        mail.deliver_later
       else
         format.html { render :edit }
         format.json { render json: @event.errors, status: :unprocessable_entity }

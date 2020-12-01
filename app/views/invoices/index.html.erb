@@ -17,10 +17,12 @@
           <div class= "card-section"><p><%= link_to "Edit", edit_invoice_path(invoice) %></p></div>
           <div class= "card-section"><p><%= link_to "Remove",
               invoice_path(invoice),
-              method: :delete, data: { confirm: "Are you sure?" }%></p></div>
-          <% if invoice.event.payment_status == false %>
-            <%= link_to "Send invoice", invoice_send_email_path(invoice), method: :post %>
-          <% end %>
+              method: :delete, data: { confirm: "Are you sure?" }%></p>
+              <% if invoice.event.payment_status == false %>
+                <%= link_to "Send invoice", invoice_send_email_path(invoice), method: :post %>
+              <% end %>
+            </div>
+
            <div class="card-end">
           <%= image_tag "noun_Vertical Dots_3560972 (1).png", alt: "alttext", height: 50 %>
           <% if invoice.client.color == "Red" %>
