@@ -1,0 +1,11 @@
+.event-show {
+  hr {
+    border-top: 1px solid $sblue;
+  }
+
+  .btns {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+  }
+}

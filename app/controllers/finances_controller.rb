@@ -48,6 +48,10 @@ before_action :set_user
     expenses_monthly =  current_user.expenses
       .where(date: Time.zone.now.beginning_of_month..Time.zone.now.end_of_month)
 
+    @expenses_yearly = current_user.expenses
+      .where(date: Time.zone.now.beginning_of_year..Time.zone.now.end_of_year)
+
+
 # GRAPH DISPLAY LOGIC
 
     if params[:my_finances] == "week"

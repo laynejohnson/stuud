@@ -6,40 +6,26 @@
 
 <%= f.association :client,
                       :label_method => :fullname,
-                      required: true,
-                      # label: false,
-                      placeholder: "client"  %>
+                      required: true%>
+    <%= f.input :title,
+                required: true%>
    <%= f.input :start_time,
                 as: :string,
                 required: true,
-                input_html: {class: "datepicker"},
-                #required: true,
-                # label: false,
-                placeholder: "start" %>
+                input_html: {class: "datepicker"}%>
     <%= f.input :end_time,
                 as: :string,
                 input_html: {class: "datepicker"},
-                required: true,
-                # label: false,
-                placeholder: "end" %>
-    <%# <%= f.input :length,
-                collection: @lengths,
-                # label: false,
-                placeholder: "length" %>
+                required: true%>
     <%= f.input :price,
                 # label: false,
-                required: true,
-                placeholder: "price" %>
+                required: true%>
     <%= f.input :payment_status,
                 required: true,
                 label: "paid?",
                 placeholder: "paid?",
                 as: :select %>
-    <%= f.input :title,
-                required: true,
-                # label: false,
-                placeholder: "description" %>
    <div class="form-actions">
-    <%= f.submit %>
+    <%= f.submit "Confirm"%>
   <% end %>
 </div>
