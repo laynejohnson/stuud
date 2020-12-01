@@ -1,7 +1,6 @@
 class FinancesController < ApplicationController
 before_action :set_user
 
-
   def show
     @income = 0
 
@@ -25,6 +24,8 @@ before_action :set_user
 
     @paid_invoices = current_user.events
       .where(payment_status:true)
+
+    #  INVOICE DISPLAY LOGIC END -------------------
 
     @paid_invoices_total = 0
     @paid_invoices.each do |paid|
