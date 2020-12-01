@@ -1,1 +1,5 @@
-Hello!
+<p>Dear <%= @invoice.client.first_name.capitalize %> <%= @invoice.client.last_name.capitalize %>,</p>
+
+<p>You will find attached your invoice for the following lesson: <strong><%= @invoice.event.start_time.localtime.strftime("%b %e, %l:%M %p") %></strong></p>
+
+<p>Have a good day!</p>

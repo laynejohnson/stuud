@@ -8,5 +8,8 @@
     <%= link_to "Remove",
         invoice_path(invoice),
         method: :delete, data: { confirm: "Are you sure?" }%></li>
+    <% if invoice.event.payment_status == false %>
+      <%= link_to "Send invoice", invoice_send_email_path(invoice), method: :post %>
+    <% end %>
   <% end %>
 <% end %>
