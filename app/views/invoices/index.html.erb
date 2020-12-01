@@ -9,7 +9,7 @@
         <div class="card-left">
           <div class= "card-section"><h2><%= link_to invoice.client.fullname, client_path(invoice.client) %></h2></div>
       <%= link_to invoice_path(invoice, format: :pdf), target: "_blank" do %>
-          <div class= "card-section"><p>Invoice #<%= invoice.id %></p></div>
+          <div class= "card-section"><p>Invoice # 10148<%= invoice.id %></p></div>
       <% end %>
         </div>
         <div class="card-right">
