@@ -12,7 +12,6 @@
         </div>
       </div>
       <% end %>
-
     </div>
     <div class="tags">
       <div>
@@ -41,12 +40,12 @@
     <% @clients.each do |client| %>
       <div class="client-card">
         <div class="card-half">
-          <div class="card-section"><%= link_to client.first_name + " " + client.last_name, client_path(client), class: "client-name" %></div>
+          <div class="card-section"><%= link_to client.fullname, client_path(client), class: "client-name" %></div>
           <div class="card-section"><p><%= client.phone %></p></div>
         </div>
         <div class="card-half">
           <div class="card-section"><p><%= client.email %></p></div>
-          <div class="next-appt"><h3>Next appt:</h3><p>Wednesday 4:30pm</p></div>
+          <div class="next-appt"><h3>Next appt:</h3><p><%= client.events.first.start_time.localtime.strftime("%b %e, %l:%M %p") if client.events.length > 0 %></p></div>
         </div>
         <div class="card-end">
           <%= image_tag "noun_Vertical Dots_3560972 (1).png", alt: "alttext", height: 50 %>
@@ -66,6 +65,5 @@
   <div class="new-client-btn">
     <p class="btn-orange"><%= link_to 'New Client', new_client_path %></p>
   </div>
-
-
 </div>
+
