@@ -32,6 +32,16 @@
   .fc a[data-navlink]:hover {
     text-decoration: none;
   }
+
+  .fc-toolbar-title {
+    font-family: Playfair Display!important;
+    font-weight: 500!important;
+    font-size: 24px!important;
+  }
+
+  // .fc-day-today {
+  //   border: 2px solid $sorange;
+  // }
 /////// BUTTONS ////////////
 
   .fc .fc-button-primary {
