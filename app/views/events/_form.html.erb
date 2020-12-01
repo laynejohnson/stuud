@@ -17,10 +17,6 @@
                 as: :string,
                 input_html: {class: "datepicker"},
                 required: true%>
-    <%# <%= f.input :length,
-                collection: @lengths,
-                # label: false,
-                placeholder: "length" %>
     <%= f.input :price,
                 # label: false,
                 required: true%>
@@ -30,6 +26,6 @@
                 placeholder: "paid?",
                 as: :select %>
    <div class="form-actions">
-    <%= f.submit %>
+    <%= f.submit "Confirm"%>
   <% end %>
 </div>
