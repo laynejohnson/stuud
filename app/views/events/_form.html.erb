@@ -5,8 +5,9 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
 <%= f.association :client,
-                      :label_method => :fullname,
-                      required: true%>
+                  :collection => @user_clients,
+                  :label_method => :fullname,
+                   required: true%>
     <%= f.input :title,
                 required: true%>
    <%= f.input :start_time,

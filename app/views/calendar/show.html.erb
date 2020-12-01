@@ -12,11 +12,11 @@
           <%= form_with model: Event.new, local: true do |form| %>
           <%#= simple_form_for(Event.new) do |f| %>
             <div class="modal-body">
-              <div class="field">
+              <%# <div class="field">
                 <%#= f.input :all_day %>
-                <%= form.label :all_day %>
-                <%= form.check_box :all_day %>
-              </div>
+                <%# <%= form.label :all_day %>
+                <%# <%= form.check_box :all_day %>
+              <%# </div> %>
 
               <div class="field">
                 <%#= f.association :client, :label_method => :fullname %>
