@@ -2,6 +2,8 @@
   height: 100vh;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-gap: 0;
+  width: 100%;
 
   // Styles ––––––––––––––––––––––––––––––––––––––––––––––
 
@@ -20,7 +22,7 @@
   }
 
   .contain {
-    width: 370px;
+    width: 100%;
     height: 50px;
     border-radius: 5px;
   }
@@ -103,7 +105,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 673px;
+    width: 100%;
     height: 90px;
     background: #FFFFFF;
     box-shadow: 0px 4px 4px rgba(198, 198, 198, 0.25);
@@ -121,7 +123,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 448px;
+    width: 90%;
     height: 90px;
     background: #FFFFFF;
     box-shadow: 0px 4px 4px rgba(198, 198, 198, 0.25);
@@ -130,13 +132,13 @@
   }
 
   .card-weekly-report {
-    width: 448px;
+    width: 90%;
     background: #FFFFFF;
     box-shadow: 0px 4px 4px rgba(198, 198, 198, 0.25);
     border-radius: 3px;
     margin-top: 30px;
     margin-bottom: 49px;
-    padding: 20px 20px 35px 20px;
+    padding: 35px 30px 35px 30px;
   }
 
   .color-indicator-red {
@@ -180,6 +182,7 @@
 
   #invoice-info {
     text-align: right;
+    margin-left: 100px;
 
     p {
       font-size: 14px !important;
@@ -189,7 +192,7 @@
 
   #card-content-weekly {
     font-size: 18px;
-    width: 370px;
+    width: 75%;
     height: 200px;
     margin: 0 auto;
 
@@ -206,67 +209,32 @@
 
   @media (min-width:961px)  { /* tablet, landscape iPad, lo-res laptops ands desktops */
 
-    .container-right {
-      max-width: 500px;
+    #invoice-info {
+
+      margin-right: 20px;
 
     }
-
-    .today {
-      max-width: 500px;
-
-    }
-
-    .future {
-      max-width: 500px;
-
-    }
-
-    .card-dashboard {
-      max-width: 500px;
-
-    }
-
-    .container-left {
-      max-width: 500px;
-    }
-
   }
+
 
   @media (min-width:1025px) { /* big landscape tablets, laptops, and desktops */
 
-    .container-right {
-      max-width: 500px;
-
+    #invoice-info {
+      margin-right: 20px;
     }
-
-    .today {
-      max-width: 500px;
-
-    }
-
-    .future {
-      max-width: 500px;
-
-    }
-
-    .container-left {
-      max-width: 500px;
-    }
-
-  }
-
+}
 
   @media (min-width:1281px) { /* hi-res laptops and desktops */
 
     .container-right {
-      width: 80%;
+      width: 98%;
+      grid-column: 2;
 
     }
 
     .container-left {
       width: 100%;
+      grid-column: 1;
     }
-
   }
-
 }
