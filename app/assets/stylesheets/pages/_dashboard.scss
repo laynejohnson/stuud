@@ -2,6 +2,8 @@
   height: 100vh;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-gap: 0;
+  width: 100%;
 
   // Styles ––––––––––––––––––––––––––––––––––––––––––––––
 
@@ -103,7 +105,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 673px;
+    width: 100%;
     height: 90px;
     background: #FFFFFF;
     box-shadow: 0px 4px 4px rgba(198, 198, 198, 0.25);
@@ -208,27 +210,27 @@
   @media (min-width:961px)  { /* tablet, landscape iPad, lo-res laptops ands desktops */
 
     .container-right {
-      max-width: 500px;
+      // max-width: 500px;
 
     }
 
     .today {
-      max-width: 500px;
+      // max-width: 500px;
 
     }
 
     .future {
-      max-width: 500px;
+      // max-width: 500px;
 
     }
 
     .card-dashboard {
-      max-width: 500px;
+      // max-width: 500px;
 
     }
 
     .container-left {
-      max-width: 500px;
+      // max-width: 500px;
     }
 
   }
@@ -236,22 +238,22 @@
   @media (min-width:1025px) { /* big landscape tablets, laptops, and desktops */
 
     .container-right {
-      max-width: 500px;
+      // max-width: 500px;
 
     }
 
     .today {
-      max-width: 500px;
+      // max-width: 500px;
 
     }
 
     .future {
-      max-width: 500px;
+      // max-width: 500px;
 
     }
 
     .container-left {
-      max-width: 500px;
+      // max-width: 500px;
     }
 
   }
@@ -260,12 +262,14 @@
   @media (min-width:1281px) { /* hi-res laptops and desktops */
 
     .container-right {
-      width: 80%;
+      width: 100%;
+      grid-column: 2;
 
     }
 
     .container-left {
       width: 100%;
+      grid-column: 1;
     }
 
   }
