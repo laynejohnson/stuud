@@ -53,7 +53,6 @@ class InvoicesController < ApplicationController
     redirect_to invoices_path(@invoice)
   end
 
-
   private
 
   def set_invoice
@@ -62,5 +61,9 @@ class InvoicesController < ApplicationController
 
   def invoices_params
     params.require(:invoice).permit(:event, :client, :user)
+  end
+
+  def event_params
+    params.require(:event).permit(:event, :client, :user)
   end
 end

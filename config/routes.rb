@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  patch 'events/:event_id/paid', to: 'events#mark_as_paid', as: :paid
   resources :events
   devise_for :users
   root to: 'dashboard#show'

@@ -146,19 +146,11 @@
 
   // Modal ––––––––––––––––––––––––––––––––––––––––––––––
 
-  .modal {
-    height: 200px;
-  }
-
   .modal-body {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100px;
-  }
-
-  .update-status {
-    margin: 0 auto;
   }
 
   input[type=submit] {
@@ -370,4 +362,12 @@
     margin: 0 auto;
   }
 
+}
+
+.modal {
+  height:400px;
+
+  .modal-content, .modal-dialog, .fade, .show {
+    height:400px;
+  }
 }
