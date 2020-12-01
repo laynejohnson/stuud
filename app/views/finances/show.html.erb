@@ -16,17 +16,43 @@
       </div>
     </div>
 
-    <div class="graph">
+  <div class="graph">
 
-    <%= column_chart [{ name: "Income", data: @events_yearly.group_by_week(:start_time).sum(:price) },{ name: "Expenses", data: Expense.group_by_week(:date).sum(:amount)}],
+  <% if params[:my_finances] == "week" %>
+    <div class="graph-weekly">
+    <%= column_chart [{ name: "Income weekly", data: @events_yearly.group_by_week(:start_time).sum(:price) },{ name: "Expenses weekly", data: @expenses_yearly.group_by_week(:date).sum(:amount)}],
         suffix: "$",
-        width: "600px",
+        width: "650px",
         height: "400px",
-        title: "Expected Income #{@income_yearly} $ vs. Total Expenses #{@total_expenses_yearly} $  (#{DateTime.now.year}) ",
+        title: "Weekly Income vs. Expenses ( #{DateTime.now.day}-#{DateTime.now.month}-#{DateTime.now.year} ) ",
         legend: true,
         colors: ["#FB6C00", "#424D58"] %>
-
     </div>
+
+  <% elsif params[:my_finances] == "month" %>
+     <div class="graph-monthly">
+     <%= column_chart [{ name: "Income monthly", data: @events_yearly.group_by_month(:start_time).sum(:price) },{ name: "Expenses monthly", data: @expenses_yearly.group_by_month(:date).sum(:amount)}],
+        suffix: "$",
+        width: "650px",
+        height: "400px",
+        title: "Monthly Income vs. Expenses ( #{DateTime.now.month}-#{DateTime.now.year} ) ",
+        # legend: true,
+        colors: ["#FB6C00", "#424D58"] %>
+     </div>
+
+  <% else %>
+    <div class="graph-yearly">
+       <%= column_chart [{ name: "Income year", data: @events_yearly.group_by_year(:start_time).sum(:price) },{ name: "Expenses year", data: @expenses_yearly.group_by_year(:date).sum(:amount)}],
+        suffix: "$",
+        width: "650px",
+        height: "400px",
+        title: "Expected Income vs. Expenses ( #{DateTime.now.year} ) ",
+        # legend: true,
+        colors: ["#FB6C00", "#424D58"] %>
+     </div>
+  <% end %>
+  </div>
+
     <div class="data-graph">
       <div class="card-data income">
         <h3>Income</h3>
