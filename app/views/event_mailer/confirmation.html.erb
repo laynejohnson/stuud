@@ -1,6 +1,6 @@
 <p>Hello, <%= @event.client.first_name.capitalize  %> <%= @event.client.last_name.capitalize  %></p>
 
-<p>Your lesson is confirmed for the following date: <%=@event.start_time.localtime.strftime("%A, %b %d") %> </p>
+<p>Your lesson is confirmed for the following date: <%=@event.start_time.localtime.strftime("%b %e, %l:%M %p") %> </p>
 
 <% if @event.payment_status == false %>
   <p>Your amount due is: $<%=@event.price %></p>
