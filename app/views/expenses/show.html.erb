@@ -2,7 +2,7 @@
 
   <h1><%= @expense.name %></h1>
   <hr/>
-  <p><%= @expense.date.strftime("%b %e") %></p>
+  <p><%= @expense.date.localtime.strftime("%b %e") %></p>
   <p>$<%= @expense.amount %></p>
   <%#= link_to 'Edit', edit_expense_path %>
 
@@ -14,6 +14,7 @@
 
  <%= pie_chart Event.group(:title).sum(:price),
     donut: true,
+    defer: true,
     label: "Income",
     suffix: "$",
     title: "Total Income #{@income} $",
@@ -24,6 +25,7 @@
     <br>
   <%= column_chart Expense.group(:name).sum(:amount),
     # donut: true,
+    defer: true,
     label: "Expense",
     suffix: "$",
     title: "Total Expenses #{@total_expenses} $",

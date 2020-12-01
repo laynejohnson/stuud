@@ -17,8 +17,8 @@
     <% @events.each do |event| %>
       <tr>
         <td><%= event.all_day %></td>
-        <td><%= event.start_time %></td>
-        <td><%= event.end_time %></td>
+        <td><%= event.start_time.localtime.strftime("%l:%M %p") %></td>
+        <td><%= event.end_time.localtime.strftime("%l:%M %p") %></td>
         <td><%= event.title %></td>
         <td><%= link_to 'Show', event %></td>
         <td><%= link_to 'Edit', edit_event_path(event) %></td>

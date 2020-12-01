@@ -30,6 +30,32 @@
 
   }
 
+  // Components:
+
+  .btn-graph {
+    background-color: $sorange;
+    color: $soffwhite;
+    text-align: center;
+    border: none;
+    text-decoration: none;
+    font-weight: 500;
+    font-family: Montserrat;
+    font-size: 16px;
+    padding: 12px 70px;
+    border-radius: 3px;
+    transition: background .3s;
+
+    a {
+      color: $soffwhite;
+    }
+  }
+
+  .btn-graph:hover {
+      background-color: #FA4B00;
+      text-decoration: none;
+      color: $soffwhite;
+  }
+
   // Containers ––––––––––––––––––––––––––––––––––––––––––––––
 
   .container-right {
@@ -42,14 +68,30 @@
     max-height: 100vh;
   }
 
-  .invoices {
-    overflow: scroll;
-    max-height: 432px;
-    margin-top: 30px;
+  #graph-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 30px;
+    margin-top: 38px;
   }
 
-  .weekly-report {
-    margin-top: 38px;
+  .graph {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 673px;
+    height: 50%;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(198, 198, 198, 0.25);
+    border-radius: 3px;
+    margin-bottom: 24px;
+  }
+
+  .data-graph {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
   }
 
   // Dividers ––––––––––––––––––––––––––––––––––––––––––––––
@@ -85,6 +127,68 @@
   }
 
   // Cards ––––––––––––––––––––––––––––––––––––––––––––––
+
+  .card-data {
+    display: flex;
+    flex-direction: vertical;
+
+    width: 162px;
+    height: 94px;
+    left: 324px;
+    top: 674px;
+
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(198, 198, 198, 0.25);
+    border-radius: 3px;
+  }
+
+  .income {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    h3 {
+
+    }
+
+    p {
+      // color: #3db1c0 !important;
+      font-weight: bold;
+      font-size: 18px !important;
+      margin-bottom: 0px;
+    }
+  }
+
+  .expenses {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    p {
+      // color: #de2a63 !important;
+      font-weight: bold;
+      font-size: 18px !important;
+      margin-bottom: 0px;
+    }
+
+  }
+
+  .total {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    p {
+      color: #29316a !important;
+      font-weight: bold;
+      font-size: 18px !important;
+      margin-bottom: 0px;
+    }
+
+  }
 
   .card-dashboard {
     display: flex;
@@ -143,14 +247,29 @@
     height: 90px;
   }
 
+  .invoice-status-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90px;
+    width: 90px;
+    background-color: rgba(230, 232, 230, 0.5);
+    text-align: center;
+
+    img {
+      height: 60px;
+      width: 60px;
+    }
+  }
+
   .client-name {
     font-size: 16px !important;
     text-decoration: none;
-    width: 44%;
+    width: 48%;
     color: $sblue;
     font-weight: bold;
     line-height: 16px;
-    margin-left: 48px;
+    margin-left: 18px;
     margin-bottom: 0px;
 
     &:hover {
@@ -166,6 +285,8 @@
 
   #invoice-info {
     text-align: right;
+    margin-right: 10px;
+    width: 35%;
 
     p {
       font-size: 14px !important;
@@ -178,6 +299,6 @@
     width: 370px;
     height: 200px;
     margin: 0 auto;
-
   }
+
 }
