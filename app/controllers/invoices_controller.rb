@@ -3,7 +3,7 @@ class InvoicesController < ApplicationController
   layout 'invoice', only: :show
 
   def index
-    @invoices = Invoice.all
+    @invoices = Invoice.where(user: current_user)
   end
 
   def show
