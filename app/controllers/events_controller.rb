@@ -25,6 +25,17 @@ class EventsController < ApplicationController
   def edit
   end
 
+  def mark_as_paid
+    @event = Event.find(params[:event_id])
+    @event.payment_status = true
+    if @event.update(event_params)
+      redirect_to finances_path
+    else
+      flash[:notice] = "Could not update invoice"
+      redirect_to finances_path
+    end
+  end
+
   # POST /events
   # POST /events.json
   def create
