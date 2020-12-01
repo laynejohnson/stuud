@@ -1,5 +1,5 @@
 <div class="client-show">
-  <h1><%= @client.first_name.capitalize %> <%= @client.last_name.capitalize %></h1>
+  <h1><%= @client.fullname %></h1>
   <% if @client.color == "Red" %>
       <hr style="height:2px; border-width:0; color:rgb(222, 42, 99); background-color:rgb(222, 42, 99)">
   <% elsif @client.color == "Yellow" %>
@@ -33,7 +33,7 @@
       </div>
       <div class="btns">
         <p class="btn-orange"><%= link_to 'Edit', edit_client_path %></p>
-        <p class="btn-orange"><%= link_to 'Add a booking', new_event_path %></p>
+        <p class="btn-orange"><%= link_to 'Make an Appt.', new_event_path %></p>
       </div>
     </div>
 
