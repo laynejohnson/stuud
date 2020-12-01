@@ -1,29 +1,32 @@
-<p id="notice"><%= notice %></p>
+<div class="event-show">
+  <!-- <p id="notice"><%= notice %></p> -->
+  <h1>Appointment Created</h1>
+  <hr/>
+  <p>
+    <strong>Student:</strong>
+    <%= @event.client.first_name.capitalize %> <%= @event.client.last_name.capitalize %>
+  </p>
+  <p>
+    <strong>Title:</strong>
+    <%= @event.title %>
+  </p>
+  <p>
+    <strong>Start time:</strong>
+    <%= @event.start_time.localtime.strftime("%b %e, %l:%M %p") %>
+  </p>
+  <p>
+    <strong>End time:</strong>
+    <%= @event.end_time.localtime.strftime("%b %e, %l:%M %p") %>
+  </p>
+  <p>
+    <strong>Price:</strong>
+    $<%= @event.price %>
+  </p>
 
-<p>
-  <strong>All day:</strong>
-  <%= @event.all_day %>
-</p>
 
-<p>
-  <strong>Start time:</strong>
-  <%= @event.start_time %>
-</p>
+  <div class="btns">
+    <p class="btn-orange">  <%= link_to 'Edit', edit_event_path(@event) %></p>
+    <p class="btn-orange">  <%= link_to 'View Calendar', calendar_path %></p>
+  </div>
 
-<p>
-  <strong>End time:</strong>
-  <%= @event.end_time %>
-</p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @event.title %>
-</p>
-
-<p>
-  <strong>Client:</strong>
-  <%= @event.client.first_name %><%= @event.client.last_name %>
-</p>
-
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', calendar_path %>
+</div>
