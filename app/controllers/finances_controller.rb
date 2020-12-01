@@ -47,6 +47,8 @@ before_action :set_user
     expenses_monthly =  current_user.expenses
       .where(date: Time.zone.now.beginning_of_month..Time.zone.now.end_of_month)
 
+# GRAPH DISPLAY LOGIC
+
     if params[:my_finances] == "week"
       @total_expenses = 0
       expenses_weekly.each do |expense|

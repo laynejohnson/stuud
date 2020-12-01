@@ -73,7 +73,8 @@
         <div id="invoice-info">
           <p>Invoice #<%= invoice.id %></p>
           <p>$<%= invoice.price %></p>
-          <p class="bold"><%= invoice.start_time.localtime.strftime("%A, %b %d") %></p>
+          <p class="bold">OVERDUE </p>
+<!--           <%= invoice.start_time.localtime.strftime("%b %d") %> -->
         </div>
         <div class="invoice-status-indicator" data-toggle="modal" data-target="#invoice-id-<%=invoice.id%>">
           <%= image_tag "noun_Close_23269(1).png", alt: "overdue icon"%>
@@ -111,7 +112,7 @@
         <div id="invoice-info">
           <p>Invoice #<%= invoice.id %></p>
           <p>$<%= invoice.price %></p>
-          <p class="bold"><%= invoice.start_time.localtime.strftime("%A, %b %d") %></p>
+          <p class="bold"><%= invoice.start_time.localtime.strftime("%b %d") %></p>
         </div>
         <div class="invoice-status-indicator">
           <%= image_tag "noun_clock_23236.png", alt: "pending icon"%>
@@ -138,7 +139,8 @@
         <div id="invoice-info">
           <p>Invoice #<%= invoice.id %></p>
           <p>$<%= invoice.price %></p>
-          <p class="bold"><%= invoice.start_time.localtime.strftime("%A, %b %d") %></p>
+          <p class="bold">PAID </p>
+<!--           <%= invoice.start_time.localtime.strftime("%A, %b %d") %> -->
         </div>
         <div class="invoice-status-indicator">
           <%= image_tag "noun_Check Mark_23235.png", alt: "paid icon"%>
