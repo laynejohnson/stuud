@@ -20,7 +20,11 @@ export default class extends Controller {
       eventBackgroundColor: '#FA6C00',
       eventBorderColor: '#414D58',
       editable: true,
-      headerToolbar: { center: 'timeGridWeek,timeGridDay,dayGridMonth' },
+      headerToolbar: {
+                      start: 'prev,today,next',
+                      center: 'title',
+                      end: 'timeGridWeek,timeGridDay,dayGridMonth' },
+      // headerToolbar: { center: 'timeGridWeek,timeGridDay,dayGridMonth' },
       plugins: [dayGridPlugin,timeGridPlugin,interactionPlugin],
       navLinkDayClick: function(date, jsEvent) {
         _this.modalTarget.style.display = "block"
