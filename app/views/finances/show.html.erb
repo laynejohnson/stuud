@@ -96,7 +96,12 @@
   <!--------------------- CONTAINER RIGHT --------------------->
 
   <div class="container-right">
-    <h1>Invoices</h1>
+    <div class="invoices-header">
+      <h1>Invoices</h1>
+      <%= link_to "See all", invoices_path, class: "link"  %>
+
+    </div>
+    <hr/>
 
 <!--   <div class="invoice-buttons">
     <div>
@@ -110,7 +115,7 @@
     </div>
   </div> -->
 
-    <hr/>
+
 
     <div class="invoices">
       <div class="divider">
