@@ -18,6 +18,10 @@
       <strong>Price:</strong>
       $<%= @event.price %>
     </p>
+     <p>
+      <strong>Payment Status:</strong>
+        <%= @event.payment_status ? "Paid": "Due" %>
+    </p>
 
 
     <div class="btns">
