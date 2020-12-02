@@ -8,8 +8,28 @@
     box-shadow: none;
   }
 
+  .form-check-input.is-valid ~ .form-check-label {
+    color: $sblue;
+  }
+
+  .form-check {
+    padding-right: 1.25rem;
+  }
+
+  .form-group {
+    display: flex;
+  }
+
   ::placeholder {
     color: #4D526F;
+  }
+
+  label {
+    color: $sblue;
+  }
+
+  legend {
+    color: $sblue;
   }
 
   hr {

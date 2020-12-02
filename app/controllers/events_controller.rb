@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
   before_action :set_user
+  before_action :set_user_clients, only: [:new,:edit]
 
   def index
     # start_date = params[:start]
@@ -24,6 +25,17 @@ class EventsController < ApplicationController
   def edit
   end
 
+  def mark_as_paid
+    @event = Event.find(params[:event_id])
+    @event.payment_status = true
+    if @event.update(event_params)
+      redirect_to finances_path
+    else
+      flash[:notice] = "Could not update invoice"
+      redirect_to finances_path
+    end
+  end
+
   # POST /events
   # POST /events.json
   def create
@@ -34,13 +46,19 @@ class EventsController < ApplicationController
       if @event.save
         format.html { redirect_to @event, notice: 'Event was successfully created.' }
         format.json { render :show, status: :created, location: @event }
-        mail = EventMailer.with(event: @event).confirmation
-        mail.deliver_now
+
       else
         format.html { render :new }
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def confirmation_email
+    mail = EventMailer.with(event: @event).confirmation(params[:id])
+    mail.deliver_later
+    redirect_to request.referrer
+    flash[:notice] = "Email sent"
   end
 
   # PATCH/PUT /events/1
@@ -75,6 +93,10 @@ class EventsController < ApplicationController
 
     def set_client
       @client = Client.find(params[:event][:client_id])
+    end
+
+    def set_user_clients
+      @user_clients = Client.where(user_id:current_user)
     end
 
     def set_event

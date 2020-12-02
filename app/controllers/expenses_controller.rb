@@ -8,7 +8,7 @@ before_action :set_clients
       @income += booking.price unless booking.price.nil?
     end
 
-    @expenses = Expense.where(user_id: @user).order(:date)
+    @expenses = Expense.where(user_id: @user).order(:date).reverse_order
     @total_expenses = 0
     @expenses.each do |expense|
       @total_expenses += expense.amount

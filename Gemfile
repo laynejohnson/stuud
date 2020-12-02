@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.6'
 
+
 gem 'pg_search', '~> 2.3.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.4'
@@ -30,7 +31,6 @@ gem 'redis', '~> 4.0'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'letter_opener', group: :development
-gem 'dotenv-rails', groups: [:development, :test]
 
 gem 'devise'
 
@@ -40,8 +40,10 @@ gem 'simple_form'
 gem 'simple-form-datepicker'
 gem "chartkick"
 gem 'groupdate'
+gem 'faker'
 
-group :development, :test do  gem 'pry-byebug'
+group :development, :test do
+  gem 'pry-byebug'
   gem 'pry-rails'
   gem 'dotenv-rails'
 
@@ -68,3 +70,7 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# PDF invoices
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'

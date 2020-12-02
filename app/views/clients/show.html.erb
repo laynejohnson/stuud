@@ -1,5 +1,5 @@
 <div class="client-show">
-  <h1><%= @client.first_name.capitalize %> <%= @client.last_name.capitalize %></h1>
+  <h1><%= @client.fullname %></h1>
   <% if @client.color == "Red" %>
       <hr style="height:2px; border-width:0; color:rgb(222, 42, 99); background-color:rgb(222, 42, 99)">
   <% elsif @client.color == "Yellow" %>
@@ -33,7 +33,7 @@
       </div>
       <div class="btns">
         <p class="btn-orange"><%= link_to 'Edit', edit_client_path %></p>
-        <p class="btn-orange"><%= link_to 'Add a booking', new_event_path %></p>
+        <p class="btn-orange"><%= link_to 'Make an Appt.', new_event_path %></p>
       </div>
     </div>
 
@@ -42,15 +42,22 @@
 
     <% @client.events.each do |event|%>
     <div class="appt-card">
+
       <div><h2><%= link_to event.start_time.strftime("%b %e"), event_path(event)%></h2></div>
       <div><p><%= link_to event.start_time.strftime("%l:%M %p"), event_path(event)%></p></div>
       <!-- <p>Payment status: <%= event.payment_status %></p> -->
       <div><h2><%= event.status %>Confirmed</h2></div>
-      <!-- <div><%= link_to 'Edit', edit_booking_path(event) %></div>
-      <div><%= link_to "Delete",
-        event_path(event),
-        method: :delete,
-        data: { confirm: 'Are you sure?'} %></div> -->
+      <div class="card-end">
+          <% if event.client.color == "Red" %>
+                <div class="color-indicator-red"></div>
+              <% elsif event.client.color == "Yellow" %>
+                <div class="color-indicator-yellow"></div>
+              <% elsif event.client.color == "Blue" %>
+                <div class="color-indicator-blue"></div>
+              <% else %>
+                <div></div>
+              <% end %>
+        </div>
     </div>
     <% end %>
 

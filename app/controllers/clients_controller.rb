@@ -5,11 +5,10 @@ class ClientsController < ApplicationController
   def index
     # raise
     if params[:query].present?
-     @clients = Client.all.search_by_color(params[:query])
+      @clients = Client.all.search_by_color(params[:query])
     else
-      @clients = Client.where(user_id: @user)
+      @clients = Client.where(user_id: @user).order(:first_name)
     end
-
   end
 
   def show

@@ -28,7 +28,9 @@
                 label: false,
                 placeholder: "notes"  %>
     <div class="form-actions">
-      <div><%= f.input :color, as: :radio_buttons, collection: %w[Yellow Blue Red] %></div>
+      <div><%= f.input :color,
+                        as: :radio_buttons,
+                        collection: %w[Yellow Blue Red]%></div>
       <div><%= f.submit %></div>
     <% end %>
 

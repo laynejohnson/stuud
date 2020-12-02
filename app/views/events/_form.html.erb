@@ -5,37 +5,31 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
 <%= f.association :client,
-                      :label_method => :fullname,
-                      required: true,
-                      # label: false,
-                      placeholder: "client"  %>
+                  :collection => @user_clients,
+                  :label_method => :fullname,
+                   required: true%>
+    <%= f.input :title,
+                required: true%>
    <%= f.input :start_time,
                 as: :string,
-                input_html: {class: "datepicker"},
-                #required: true,
-                # label: false,
-                placeholder: "start" %>
+                required: true,
+                input_html: {class: "datepicker"}%>
     <%= f.input :end_time,
                 as: :string,
                 input_html: {class: "datepicker"},
-                required: true,
-                # label: false,
-                placeholder: "end" %>
-    <%# <%= f.input :length,
-                collection: @lengths,
-                # label: false,
-                placeholder: "length" %>
+                required: true%>
     <%= f.input :price,
                 # label: false,
-                placeholder: "price" %>
+                required: true%>
     <%= f.input :payment_status,
+                required: true,
                 label: "paid?",
                 placeholder: "paid?",
                 as: :select %>
-    <%= f.input :title,
-                # label: false,
-                placeholder: "description" %>
+    <%= f.input :color,
+                :collection => [['Yellow','rgb(255, 230, 110)'], ['Blue','rgb(38, 149, 223)'], ['Red','rgb(223, 42, 100)']],
+                label: "Pick event color" %>
    <div class="form-actions">
-    <%= f.submit %>
+    <%= f.submit "Confirm"%>
   <% end %>
 </div>

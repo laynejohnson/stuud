@@ -31,7 +31,9 @@
         <%= image_tag "19_Cello-1-960x600.jpg", alt: "alttext", class: "avatar" %>
       <div id="user-info">
 
-      <% if current_user.last_name.length > 10 %>
+      <% if current_user.first_name == nil || current_user.last_name == nil %>
+        <p><%= current_user.email %></p>
+      <% elsif current_user.last_name.length > 10 %>
         <p><%= current_user.first_name%> <%= current_user.last_name[0] %>.</p>
       <% else %>
         <p><%= current_user.first_name%> <%= current_user.last_name %></p>
@@ -39,7 +41,7 @@
 
       <div class="d-flex justify-content-space-between">
 
-       <%= link_to "Account", dashboard_path, class: "mr-2" %>
+       <%= link_to "Account", edit_user_registration_path, class: "mr-2" %>
        <p>|</p>
        <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "ml-2" %>
 

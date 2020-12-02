@@ -1,6 +1,11 @@
 class Event < ApplicationRecord
   belongs_to :user
   belongs_to :client
+  has_one :invoice
+
+  def event_time
+    start_time.localtime.strftime("%b %e, %l:%M %p")
+  end
   # has_one :booking, dependent: :destroy
   # after_commit :sync_booking, on: [:create, :update]
 

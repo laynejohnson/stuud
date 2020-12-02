@@ -1,0 +1,137 @@
+.calendar {
+  hr {
+    border-top: 1px solid $sblue;
+  }
+//   .fc .fc-daygrid-day.fc-day-today {
+// background-color: red;
+//   }
+/////// LABELS ////////////
+
+  a {
+    color: $sblue;
+    font-weight: normal;
+  }
+
+  .fc-v-event .fc-event-main {
+    color: $sblue;
+  }
+
+  .fc-h-event .fc-event-main {
+    color: $sblue;
+  }
+
+
+  .fc-timegrid-slot-label-cushion {
+    color: $sblue;
+  }
+
+  .fc-timegrid-axis-cushion {
+  color: $sblue;
+  }
+
+  .fc a[data-navlink]:hover {
+    text-decoration: none;
+  }
+
+  .fc-toolbar-title {
+    font-family: Playfair Display!important;
+    font-weight: 500!important;
+    font-size: 24px!important;
+  }
+
+  // .fc-day-today {
+  //   border: 2px solid $sorange;
+  // }
+/////// BUTTONS ////////////
+
+  .fc .fc-button-primary {
+    background-color: $sorange;
+    opacity: 1;
+    border: none;
+    border-color: $sorange;
+  }
+
+  .fc-button-primary:focus {
+    border: none;
+  }
+
+  .fc .fc-button-primary:not(:disabled).fc-button-active {
+    background-color: #FA4B00;
+    opacity: 1;
+    border: none;
+  }
+
+  .fc .fc-button-primary:not(:disabled):active {
+    background-color: #FA4B00;
+
+  }
+
+  .fc .fc-button-primary:hover {
+    background-color: #FA4B00;
+  }
+
+  .fc .fc-button-primary:disabled {
+    background-color: $sorange;
+    opacity: 1;
+    border: none;
+  }
+
+  .fc .fc-button-primary:disabled:hover {
+    background-color: #FA4B00;
+  }
+
+  .fc .fc-button-primary:not(:disabled):active:focus, .fc .fc-button-primary:not(:disabled).fc-button-active:focus {
+    box-shadow: none;
+  }
+
+  .fc .fc-button-primary:focus {
+    box-shadow: none;
+  }
+
+  .btn-orange {
+    color: $soffwhite;
+  }
+
+///////// MODAL ///////////
+  .modal-content {
+    background-color: #F6F5F6;
+  }
+
+  label {
+    color: $sblue;
+  }
+
+  .form-control {
+    border: none;
+    background-color: white;
+  }
+
+  .form-control:focus {
+    border: 2px solid $sorange;
+    box-shadow: none;
+  }
+
+  #event_title {
+    border: none;
+    background-color: white;
+  }
+
+  #event_price {
+    border: none;
+    background-color: white;
+  }
+
+  #event_title:focus {
+    border: 2px solid $sorange!important;
+    outline: none;
+    box-shadow: none;
+  }
+
+  #event_price:focus {
+    border: 2px solid $sorange;
+    outline: none;
+    box-shadow: none;
+  }
+
+
+}
