@@ -17,7 +17,7 @@ before_action :set_user
 
     @profit = @income - @total_expenses
 
-    @invoices = current_user.invoices
+    @invoices = current_user.invoices.sort_by { |a| a.invoice_status }
 
     @overdue_invoices = current_user.events.where("end_time <= ?", Date.today - 7)
 
