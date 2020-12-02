@@ -1,29 +1,26 @@
-<p id="notice"><%= notice %></p>
+<div class="event-show">
+  <h1> <%= @event.client.fullname %> </h1>
+  <hr/>
 
-<p>
-  <strong>All day:</strong>
-  <%= @event.all_day %>
-</p>
+  <p>
+    <strong>Start time:</strong>
+    <%= @event.start_time %>
+  </p>
 
-<p>
-  <strong>Start time:</strong>
-  <%= @event.start_time %>
-</p>
+  <p>
+    <strong>End time:</strong>
+    <%= @event.end_time %>
+  </p>
 
-<p>
-  <strong>End time:</strong>
-  <%= @event.end_time %>
-</p>
+  <p>
+    <strong>Title:</strong>
+    <%= @event.title %>
+  </p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @event.title %>
-</p>
+  <div class="btns">
+    <div class= "btn-orange"><%= link_to 'Edit', edit_event_path(@event) %></div>
+    <div class= "btn-orange"><%= link_to 'Destroy', @event, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+    <div class= "btn-orange"><%= link_to 'Back', calendar_path %></div>
+  </div>
 
-<p>
-  <strong>Client:</strong>
-  <%= @event.client.first_name %><%= @event.client.last_name %>
-</p>
-
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', calendar_path %>
+</div>

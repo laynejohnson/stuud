@@ -42,10 +42,8 @@
 
     <% @client.events.each do |event|%>
     <div class="appt-card">
-      <div><h2><%= event.start_time.strftime("%b %e")%></h2></div>
-      <div><p><%= event.start_time.strftime("%l:%M %p")%></p></div>
-      <!-- <p>Length: <%= event.length %></p> -->
-    <!--   <p>Price: <%= event.price %>$</p> -->
+      <div><h2><%= link_to event.start_time.strftime("%b %e"), event_path(event)%></h2></div>
+      <div><p><%= link_to event.start_time.strftime("%l:%M %p"), event_path(event)%></p></div>
       <!-- <p>Payment status: <%= event.payment_status %></p> -->
       <div><h2><%= event.status %>Confirmed</h2></div>
       <!-- <div><%= link_to 'Edit', edit_booking_path(event) %></div>
