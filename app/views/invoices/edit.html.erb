@@ -1,4 +1,4 @@
-<div class="new-booking">
+<div class="edit-invoice">
 <%= simple_form_for(@invoice) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
