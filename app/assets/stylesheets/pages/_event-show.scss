@@ -3,9 +3,23 @@
     border-top: 1px solid $sblue;
   }
 
-  .btns {
+  .header{
     display: flex;
     justify-content: space-between;
-    width: 50%;
   }
+
+  .header-btns {
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 8px;
+  }
+
+
+
+  // .btns {
+  //   display: flex;
+  //   justify-content: space-between;
+  //   width: 50%;
+  // }
 }

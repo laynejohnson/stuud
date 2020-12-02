@@ -1,5 +1,9 @@
 <div class="expenses-index">
-  <h1> Expenses </h1>
+  <div class="header">
+    <h1> Expenses </h1>
+    <p class="btn-orange"><%= link_to 'Add Expense', new_expense_path %></p>
+
+  </div>
   <hr/>
 
   <div class="expense-cards">
@@ -14,9 +18,9 @@
       <% end %>
 </div>
    <div class="total-container">
-    <div class="new-client-btn">
+   <!--  <div class="new-client-btn">
     <p class="btn-orange"><%= link_to 'Add Expense', new_expense_path %></p>
-  </div>
+  </div> -->
     <div class="total">
       <p>Total:</p>
       <h2>$<%= @total_expenses %></h2>

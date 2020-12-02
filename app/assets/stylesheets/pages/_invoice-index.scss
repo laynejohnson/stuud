@@ -12,6 +12,11 @@
     color: $sorange;
   }
 
+  .header {
+    display: flex;
+    justify-content: space-between;
+  }
+
   .top-bar {
     display: flex;
     justify-content: space-between;
@@ -120,12 +125,12 @@
     height: 90px;
   }
 
-  .new-invoice-btn {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 16px;
-    a {
-      color: $soffwhite;
-    }
-  }
+  // .new-invoice-btn {
+  //   display: flex;
+  //   justify-content: flex-end;
+  //   margin-top: 16px;
+  //   a {
+  //     color: $soffwhite;
+  //   }
+  // }
 }

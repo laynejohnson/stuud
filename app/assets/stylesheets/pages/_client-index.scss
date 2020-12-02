@@ -3,6 +3,12 @@
     border-top: 1px solid $sblue;
   }
 
+  .header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+
   .top-bar {
     display: flex;
     justify-content: space-between;
@@ -46,7 +52,7 @@
 
   .client-cards {
     overflow: scroll;
-    height: 67vh;
+    height: 75vh;
 
   }
 
@@ -128,10 +134,10 @@
     height: 90px;
   }
 
-  .new-client-btn {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 16px;
-  }
+  // .new-client-btn {
+  //   display: flex;
+  //   justify-content: flex-end;
+  //   margin-top: 16px;
+  // }
 
 }

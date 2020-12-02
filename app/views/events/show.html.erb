@@ -1,6 +1,13 @@
 <!-- <p id="notice"><%= notice %></p> -->
   <div class="event-show">
-    <h1>Appointment with <%= @event.client.fullname %></h1>
+    <div class="header">
+      <h1>Appointment with <%= @event.client.fullname %></h1>
+      <div class="header-btns">
+        <p class="btn-orange">  <%= link_to 'Edit', edit_event_path(@event) %></p>
+        <p class="btn-orange">  <%= link_to 'Email Confirm', events_confirmation_email_path(@event), method: :post %></p>
+
+      </div>
+    </div>
     <hr/>
     <p>
       <strong>Title:</strong>
@@ -24,12 +31,12 @@
     </p>
 
 
-    <div class="btns">
-      <p class="btn-orange">  <%= link_to 'Edit', edit_event_path(@event) %></p>
-      <p class="btn-orange">  <%= link_to 'Confirmation', events_confirmation_email_path(@event), method: :post %></p>
+    <!-- <div class="btns"> -->
+      <!-- <p class="btn-orange">  <%= link_to 'Edit', edit_event_path(@event) %></p> -->
+      <!-- <p class="btn-orange">  <%= link_to 'Confirmation', events_confirmation_email_path(@event), method: :post %></p> -->
       <!-- <p class="btn-orange">  <%= link_to 'View Calendar', calendar_path %></p> -->
   <!--     <p class="btn-orange">  <%= link_to 'Destroy', @event, method: :delete, data: { confirm: 'Are you sure?' } %></p> -->
-    </div>
+   <!--  </div> -->
 
   </div>
 

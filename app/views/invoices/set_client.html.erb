@@ -1,7 +1,6 @@
 <div class="client-index">
   <div class="header">
-    <h1>My Clients</h1>
-    <p class="btn-orange"><%= link_to 'New Client', new_client_path %></p>
+    <h1>Select Client</h1>
   </div>
     <hr/>
   <div class="top-bar">
@@ -41,7 +40,7 @@
     <% @clients.each do |client| %>
       <div class="client-card">
         <div class="card-half">
-          <div class="card-section"><%= link_to client.fullname, client_path(client), class: "client-name" %></div>
+          <div class="card-section"><%= link_to client.fullname, new_invoice_path(client: client.id), class: "client-name" %></div>
           <div class="card-section"><p><%= client.phone %></p></div>
         </div>
         <div class="card-half">
@@ -63,8 +62,7 @@
       </div>
     <% end %>
   </div>
-  <!-- <div class="new-client-btn">
+  <!-- div class="new-client-btn">
     <p class="btn-orange"><%= link_to 'New Client', new_client_path %></p>
   </div> -->
 </div>
-

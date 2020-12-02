@@ -1,8 +1,9 @@
 <div class="invoice-index">
   <div class="header">
     <h1>My Invoices</h1>
-    <hr/>
+    <p class="btn-orange"><%= link_to "New Invoice", invoice_set_client_path %></p>
   </div>
+    <hr/>
   <div class="top-bar">
     <div class="search-bar">
       <%= simple_form_for :search, url: invoices_path, method: :get do |f| %>
@@ -70,10 +71,5 @@
 
     <% end %>
     </div>
-
-
-  <div class="new-invoice-btn">
-    <p class="btn-orange"><%= link_to "New Invoice", new_invoice_path %></p>
-  </div>
 </div>
 
