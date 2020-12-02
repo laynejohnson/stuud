@@ -91,12 +91,22 @@
         <% end %>
       </div>
     </div>
+
+  <div class="section-expenses">
+    <div class="section-header">
+      <h1> Expenses </h1>
+      <%= link_to "See all", invoices_path, class: "link"  %>
+    </div>
+    <hr/>
+  </div>
+
+
   </div>
 
   <!--------------------- CONTAINER RIGHT --------------------->
 
   <div class="container-right">
-    <div class="invoices-header">
+    <div class="section-header">
       <h1>Invoices</h1>
       <%= link_to "See all", invoices_path, class: "link"  %>
 
