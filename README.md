@@ -1,4 +1,4 @@
-                                                     StüuD
+                                                     <bold>StüuD</bold>
 
 Lean CRM for self-employed entrepreneurs and professionals.
 
