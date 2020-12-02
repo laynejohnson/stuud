@@ -28,10 +28,10 @@ class EventsController < ApplicationController
   def mark_as_paid
     @event = Event.find(params[:event_id])
     @event.payment_status = true
-    if @event.update(event_params)
+    if @event.update!(event_params)
       redirect_to finances_path
     else
-      flash[:notice] = "Could not update invoice"
+      flash[:notice] = "Sorry, there was a problem updating that invoice."
       redirect_to finances_path
     end
   end
@@ -99,7 +99,7 @@ class EventsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def event_params
-      params.require(:event).permit(:all_day, :start_time, :end_time, :title, :color, :user, :client, :description, :price, :length, :date, :status, :payment_status)
+      params.require(:invoice).permit(:all_day, :start_time, :end_time, :title, :color, :user, :client, :description, :price, :length, :date, :status, :payment_status)
     end
 end
 
