@@ -111,7 +111,7 @@ starttime.each do |time|
   start_time: time,
   end_time: time + 90.minutes,
   title: %w[practice lesson consulting].sample,
-  color: %w[yellow blue red].sample,
+  color: ['rgb(255, 230, 110)', 'rgb(38, 149, 223)', 'rgb(223, 42, 100)'].sample,
   price: %w[100 200 250].sample,
   payment_status: %w[true false].sample,
   user: alex,
