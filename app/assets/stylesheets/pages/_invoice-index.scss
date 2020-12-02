@@ -8,6 +8,10 @@
     color: $sblue;
   }
 
+  a:hover {
+    color: $sorange;
+  }
+
   .top-bar {
     display: flex;
     justify-content: space-between;
@@ -69,16 +73,16 @@
    .card-left {
     display: flex;
     justify-content: space-between;
-    width: 50%;
-    margin-right: 64px;
+    width: 40%;
+    margin-right: 16px;
 
   }
 
   .card-right {
     display: flex;
     justify-content: space-between;
-    width: 50%;
-    margin-left: 64px;
+    width: 60%;
+    margin-left: 16px;
 
   }
 
