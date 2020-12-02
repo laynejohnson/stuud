@@ -40,6 +40,7 @@ gem 'simple_form'
 gem 'simple-form-datepicker'
 gem "chartkick"
 gem 'groupdate'
+gem 'faker'
 
 group :development, :test do
   gem 'pry-byebug'

@@ -1,0 +1,20 @@
+      <div class="modal fade" id="invoice-id-<%=@invoice.id%>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Update Invoice Status</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="update-status">
+                <%=simple_form_for invoice do |f|%>
+                  <%= f.input :status, as: :hidden, input_html: {value: true} %>
+                  <%= f.submit "Mark as Paid" %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
