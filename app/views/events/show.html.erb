@@ -1,11 +1,7 @@
 <!-- <p id="notice"><%= notice %></p> -->
   <div class="event-show">
-    <h1>Appointment Created</h1>
+    <h1>Appointment with <%= @event.client.fullname %></h1>
     <hr/>
-    <p>
-      <strong>Student:</strong>
-      <%= @event.client.first_name.capitalize %> <%= @event.client.last_name.capitalize %>
-    </p>
     <p>
       <strong>Title:</strong>
       <%= @event.title %>
