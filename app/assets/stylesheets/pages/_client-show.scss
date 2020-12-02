@@ -19,6 +19,10 @@
   .btns {
     display: flex;
     justify-content: space-between;
+
+    p {
+      color: $soffwhite;
+    }
   }
   .client-container {
     display: grid;
@@ -36,7 +40,15 @@
     margin-bottom: 16px;
     padding-top: 32px;
     padding-left: 32px;
-    padding-right:32px;
+    // padding-right:32px;
+
+    a {
+    color: $sblue;
+    }
+
+    a:hover {
+    color: $sorange;
+    }
 
 
   }
@@ -65,12 +77,4 @@
     width: 14px;
     height: 90px;
   }
-
-    a {
-    color: $sblue;
-    }
-
-    a:hover {
-    color: $sorange;
-    }
-  }
+}
