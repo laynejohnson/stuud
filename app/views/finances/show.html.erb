@@ -95,9 +95,20 @@
   <div class="section-expenses">
     <div class="section-header">
       <h1> Expenses </h1>
-      <%= link_to "See all", invoices_path, class: "link"  %>
+      <%= link_to "See all", expenses_path, class: "link"  %>
     </div>
     <hr/>
+
+    <div id="add-expense" class="highlight">
+      <div>
+        <%= link_to "Add an expense", new_expense_path, class: "ml-3 p-3 text-align-center link"  %>
+      </div>
+        <%= link_to new_expense_path do %>
+      <div>
+        <%= image_tag 'noun_add_8394.png', width: 60, height: 60, alt: 'add an appointment'%>
+      </div>
+        <% end %>
+    </div>
   </div>
 
 

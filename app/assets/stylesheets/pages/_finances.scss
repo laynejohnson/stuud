@@ -87,6 +87,14 @@
     margin-top: 38px;
   }
 
+  #add-expense {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    width: 98%;
+  }
+
   .section-header {
     display: flex;
     align-items: center;
