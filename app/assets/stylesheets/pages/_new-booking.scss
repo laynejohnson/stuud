@@ -55,9 +55,9 @@
     padding: 8px 16px;
     border-radius: 3px;
     transition: background .3s;
-    position: relative;
-    top: -670px;
-    left: 807px;
+    position: absolute;
+    top: 28px;
+    right: 32px;
 
     p {
       color: $soffwhite;
