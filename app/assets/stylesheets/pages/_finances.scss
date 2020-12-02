@@ -70,13 +70,17 @@
   // Containers ––––––––––––––––––––––––––––––––––––––––––––––
 
   .container-right {
-    overflow: scroll;
+    // overflow: scroll;
     margin-left: 32px;
     max-height: 100vh;
   }
 
   .container-left {
     max-height: 100vh;
+  }
+
+  .invoices {
+    overflow: scroll;
   }
 
   .graph-buttons {
@@ -309,6 +313,11 @@
     img {
       height: 60px;
       width: 60px;
+
+      &:hover {
+        height: 60px;
+        width: 60px;
+      }
     }
 
     &:hover {
