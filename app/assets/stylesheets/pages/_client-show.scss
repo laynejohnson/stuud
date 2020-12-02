@@ -36,6 +36,8 @@
     margin-bottom: 16px;
     padding-top: 32px;
     padding-left: 32px;
+    padding-right:32px;
+
 
   }
 
@@ -63,6 +65,14 @@
     width: 14px;
     height: 90px;
   }
+>>>>>>> master
 
+    a {
+    color: $sblue;
+    }
 
+    a:hover {
+    color: $sorange;
+    }
+  }
 }
