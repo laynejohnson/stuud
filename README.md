@@ -1,4 +1,6 @@
-                                                     StüuD
+![stuudlogo](https://user-images.githubusercontent.com/71734708/100818468-36e88680-3418-11eb-9585-9de6f38757c1.png)
+
+# StüuD
 
 Lean CRM for self-employed entrepreneurs and professionals.
 
@@ -13,7 +15,7 @@ Clean and slick interface with concise uncluttered information.
 - Precise Financial controller with graphical charts to stay ontop of your business.
 
 
-Created by :
+# Created by :
 - Alejandro Calzadilla ( https://github.com/alej37 )
 - Layne Johnson ( https://github.com/laynejohnson )
 - Brett Barmby ( https://github.com/brettbarmby )
