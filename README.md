@@ -1,4 +1,4 @@
-                                          StüuD
+                                                            StüuD
 
 Lean CRM for self-employed entrepreneurs and professionals.
 
@@ -21,4 +21,5 @@ Created by :
 
 Final project @ LeWagon Montreal Batch #482
 
-Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
+Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates)
+created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
