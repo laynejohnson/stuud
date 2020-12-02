@@ -3,7 +3,12 @@ class InvoicesController < ApplicationController
   layout 'invoice', only: :show
 
   def index
-    @invoices = Invoice.where(user: current_user)
+    # @invoices = Invoice.where(user: current_user)
+    if params[:query].present?
+      @invoices = Invoice.all.search_by_color(params[:query])
+    else
+      @invoices = Invoice.where(user: current_user)
+    end
   end
 
   def show

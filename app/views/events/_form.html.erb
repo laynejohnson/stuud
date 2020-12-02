@@ -26,7 +26,12 @@
                 label: "paid?",
                 placeholder: "paid?",
                 as: :select %>
+    <%= f.input :color,
+                :collection => [['Yellow','rgb(255, 230, 110)'], ['Blue','rgb(38, 149, 223)'], ['Red','rgb(223, 42, 100)']],
+                label: "Pick event color" %>
    <div class="form-actions">
     <%= f.submit "Confirm"%>
+    <p class="btn-orange">  <%= link_to 'Destroy', @event, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+
   <% end %>
 </div>

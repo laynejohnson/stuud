@@ -8,6 +8,50 @@
     color: $sblue;
   }
 
+  a:hover {
+    color: $sorange;
+  }
+
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+
+  .search-bar {
+    width: 66%;
+    height: 55px;
+  }
+
+  .form-control {
+    border: none;
+    height: 55px;
+  }
+
+  .form-control:focus {
+    border: 2px solid $sorange;
+    box-shadow: none;
+  }
+
+  .tags {
+    display: flex;
+    justify-content: space-between;
+    width: 33%;
+    height: 55px;
+    padding-top: 16px;
+  }
+
+  .tag-icons {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .tag-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 16px;
+    margin-left: 16px;
+  }
   .invoice-cards {
     overflow: scroll;
     height: 67vh;
@@ -29,16 +73,16 @@
    .card-left {
     display: flex;
     justify-content: space-between;
-    width: 50%;
-    margin-right: 64px;
+    width: 40%;
+    margin-right: 16px;
 
   }
 
   .card-right {
     display: flex;
     justify-content: space-between;
-    width: 50%;
-    margin-left: 64px;
+    width: 60%;
+    margin-left: 16px;
 
   }
 

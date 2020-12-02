@@ -8,7 +8,7 @@
     <%= content_tag :div, class: 'modal', data: { target: 'calendar.modal' } do %>
       <div class="modal-dialog" role="document">
         <div class="modal-content">
-        <div id="closeModal" data-action="click->calendar#closeModal" style="margin-left: 465px;font-size: 30px;height: 600px" >&#x2BBE</div>
+        <div id="closeModal" data-action="click->calendar#closeModal" style="margin-left: 465px;font-size: 30px" >&#x2BBE</div>
           <%= form_with model: Event.new, local: true do |form| %>
           <%#= simple_form_for(Event.new) do |f| %>
             <div class="modal-body">

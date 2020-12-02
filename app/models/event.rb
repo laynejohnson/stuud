@@ -1,7 +1,7 @@
 class Event < ApplicationRecord
   belongs_to :user
   belongs_to :client
-  has_one :invoice
+  has_many :invoice, dependent: :destroy
 
   def event_time
     start_time.localtime.strftime("%b %e, %l:%M %p")

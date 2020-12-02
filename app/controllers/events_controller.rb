@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
   before_action :set_user
-  before_action :set_user_clients, only: [:new]
+  before_action :set_user_clients, only: [:new,:edit]
 
   def index
     # start_date = params[:start]
@@ -46,13 +46,19 @@ class EventsController < ApplicationController
       if @event.save
         format.html { redirect_to @event, notice: 'Event was successfully created.' }
         format.json { render :show, status: :created, location: @event }
-        mail = EventMailer.with(event: @event).confirmation
-        mail.deliver_later
+
       else
         format.html { render :new }
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def confirmation_email
+    mail = EventMailer.with(event: @event).confirmation(params[:id])
+    mail.deliver_later
+    redirect_to request.referrer
+    flash[:notice] = "Email sent"
   end
 
   # PATCH/PUT /events/1

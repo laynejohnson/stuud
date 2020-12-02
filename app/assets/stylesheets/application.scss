@@ -29,6 +29,10 @@ a:hover {
   text-decoration: none;
 }
 
+hr {
+    border-top: 1px solid $sblue;
+  }
+
 :root {
   --fc-today-bg-color: rgba(251, 108, 0, 0.35);
 
