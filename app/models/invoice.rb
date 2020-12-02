@@ -12,4 +12,15 @@ class Invoice < ApplicationRecord
     using: {
       tsearch: { prefix: true }
     }
+
+  def invoice_status
+    if self.event.payment_status == false && self.event.end_time <= Date.today - 7
+      return 1
+    elsif self.event.payment_status == false && self.event.end_time >= Date.today - 7
+      return 2
+    else
+      return 3
+    end
+  end
+
 end
