@@ -81,10 +81,12 @@
 
   .container-left {
     max-height: 100vh;
+    overflow: scroll;
   }
 
   .section-expenses {
     margin-top: 38px;
+    margin-bottom: 100px;
   }
 
   #add-expense {
@@ -404,6 +406,10 @@
     margin: 0 auto;
   }
 
+}
+
+.highcharts-root {
+  width: 90%
 }
 
 // .modal {
