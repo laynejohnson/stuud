@@ -1,19 +1,6 @@
 <h1> New Invoice</h1>
 <hr/>
 <div class="new-invoice">
-  <%= simple_form_for(@invoice) do |f| %>
-    <%= f.error_notification %>
-    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-
-  <%= f.input :client_id, input_html: { value: @client.id }, as: :hidden  %>
-  <%= f.input :event_id, collection: @events,
-                        :label_method => :event_time,
-                        required: true,
-                        # label: false,
-                        placeholder: "lesson"  %>
-
-     <div class="form-actions">
-      <%= f.submit %>
-    <% end %>
+  <%= render "form" %>
   </div>
 </div>
