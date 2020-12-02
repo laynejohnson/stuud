@@ -2,13 +2,15 @@
   <%= simple_form_for(@invoice) do |f| %>
     <%= f.error_notification %>
     <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+    <%= f.input :client_id, collection: current_user.clients, label_method: :fullname  %>
+    <% current_user.clients.each do |client| %>
+      <%= f.input :event_id, collection: client.events,
+                          :label_method => :event_time,
+                          required: true,
+                          wrapper_html: {data: {client_id: client.id}, hidden: true},
+                          placeholder: "lesson"  %>
 
-  <%= f.input :client_id, input_html: { value: @client.id }, as: :hidden  %>
-  <%= f.input :event_id, collection: @events,
-                        :label_method => :event_time,
-                        required: true,
-                        # label: false,
-                        placeholder: "lesson"  %>
+    <% end %>
 
      <div class="form-actions">
       <%= f.submit %>
