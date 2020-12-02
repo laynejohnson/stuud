@@ -113,14 +113,14 @@
     <hr/>
 
     <div class="invoices">
+      <div class="divider">
+        <h2 class="divider">Overdue</h2>
+      </div>
 
     <% @invoices.each do |invoice| %>
+
       <% if invoice.event.payment_status == false && invoice.event.end_time < Date.today - 7  %>
       <!------------------ OVERDUE INVOICES ------------------>
-        <!-- <div class="invoices"> -->
-<!--           <div class="divider">
-            <h2 class="divider">Overdue</h2>
-          </div> -->
             <div class="card-invoice">
               <div class="client-name">
                 <% if invoice.client.last_name.length > 10 %>
@@ -130,7 +130,6 @@
                 <% end %>
               </div>
               <div id="invoice-info">
-                <p><%= invoice.event.payment_status %> </p>
                 <p>Invoice #<%= invoice.id %></p>
                 <p>$<%= invoice.event.price %></p>
                 <p class="bold">OVERDUE </p>
@@ -161,7 +160,7 @@
               </div>
             </div>
           </div>
-        <% elsif invoice.event.payment_status == true %>
+        <% elsif invoice.event.payment_status == true && invoice.event.end_time >= Date.today - 10 %>
         <!------------------ PAID INVOICES ------------------>
             <div class="card-invoice">
               <div class="client-name">
@@ -172,7 +171,6 @@
                 <% end %>
               </div>
               <div id="invoice-info">
-                <p><%= invoice.event.payment_status %> </p>
                 <p>Invoice #<%= invoice.id %></p>
                 <p>$<%= invoice.event.price %></p>
                 <p class="bold">PAID </p>
@@ -181,7 +179,6 @@
                 <%= image_tag "noun_Check Mark_23235.png", alt: "paid icon"%>
               </div>
             </div>
-
 
         <% elsif invoice.event.payment_status == false %>
           <!------------------ PENDING INVOICES ------------------>
