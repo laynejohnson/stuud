@@ -28,7 +28,7 @@ class EventsController < ApplicationController
   def mark_as_paid
     @event = Event.find(params[:event_id])
     @event.payment_status = true
-    if @event.update!(event_params)
+    if @event.save
       redirect_to finances_path
     else
       flash[:notice] = "Sorry, there was a problem updating that invoice."

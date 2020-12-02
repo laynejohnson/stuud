@@ -130,6 +130,7 @@
                 <% end %>
               </div>
               <div id="invoice-info">
+                <p><%= invoice.event.payment_status %> </p>
                 <p>Invoice #<%= invoice.id %></p>
                 <p>$<%= invoice.event.price %></p>
                 <p class="bold">OVERDUE </p>
@@ -150,7 +151,7 @@
                   </div>
                   <div class="modal-body">
                     <div class="update-status">
-                      <%=simple_form_for(invoice, method: :patch, url: paid_path(invoice)) do |f|%>
+                      <%=simple_form_for(invoice, method: :patch, url: paid_path(invoice.event)) do |f|%>
                         <%= f.input :payment_status, as: :hidden, input_html: {value: true} %>
                         <%= f.submit "Mark as Paid" %>
                       <% end %>
@@ -165,9 +166,7 @@
 
         <% elsif invoice.event.payment_status == true %>
         <!------------------ PAID INVOICES ------------------>
-<!--           <div class="divider">
-            <h2 class="divider">Paid</h2>
-          </div> -->
+
             <div class="card-invoice">
               <div class="client-name">
                 <% if invoice.client.last_name.length > 10 %>
@@ -177,6 +176,7 @@
                 <% end %>
               </div>
               <div id="invoice-info">
+                <p><%= invoice.event.payment_status %> </p>
                 <p>Invoice #<%= invoice.id %></p>
                 <p>$<%= invoice.event.price %></p>
                 <p class="bold">PAID </p>
@@ -187,7 +187,7 @@
             </div>
 
 
-        <% elsif invoice.event.payment_status == false && invoice.event.end_time > Date.today - 7  %>
+        <% elsif invoice.event.payment_status == false %>
           <!------------------ PENDING INVOICES ------------------>
 <!--             <div class="divider">
               <h2 class="divider">Pending</h2>
@@ -201,6 +201,7 @@
                   <% end %>
                 </div>
                 <div id="invoice-info">
+                  <p><%= invoice.event.payment_status %> </p>
                   <p>Invoice #<%= invoice.id %></p>
                   <p>$<%= invoice.event.price %></p>
                   <p class="bold"><%= invoice.created_at.localtime.strftime("%b %d") %></p>
@@ -221,7 +222,7 @@
                     </div>
                     <div class="modal-body">
                       <div class="update-status">
-                        <%=simple_form_for(invoice, method: :patch, url: paid_path(invoice)) do |f|%>
+                        <%=simple_form_for(invoice, method: :patch, url: paid_path(invoice.event)) do |f|%>
                           <%= f.input :payment_status, as: :hidden, input_html: {value: true} %>
                           <%= f.submit "Mark as Paid" %>
                         <% end %>

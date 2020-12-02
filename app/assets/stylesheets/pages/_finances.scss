@@ -313,6 +313,11 @@
     img {
       height: 60px;
       width: 60px;
+
+      &:hover {
+        height: 60px;
+        width: 60px;
+      }
     }
 
     &:hover {

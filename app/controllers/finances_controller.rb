@@ -21,6 +21,7 @@ before_action :set_user
 
     @overdue_invoices = current_user.events.where("end_time <= ?", Date.today - 7)
 
+
     @pending_invoices = current_user.events
       .where(payment_status:false)
 
