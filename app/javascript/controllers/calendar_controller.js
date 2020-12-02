@@ -34,7 +34,7 @@ export default class extends Controller {
       eventContent: function(arg) {
         console.log(arg.event)
         return {
-          html: arg.event.start.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', hour12: true}) + ' - ' + arg.event.end.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', hour12: true}) + '</br>' + arg.event.extendedProps.client.first_name + ' ' +  arg.event.extendedProps.client.last_name + '</br>' + arg.event.title
+          html: arg.event.start.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', hour12: true}) + ' - ' + arg.event.end.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', hour12: true}) + '</br>' + arg.event.extendedProps.client.first_name + ' ' +  arg.event.extendedProps.client.last_name
         }
       },
       eventClick: function (info) {
