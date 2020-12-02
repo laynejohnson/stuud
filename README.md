@@ -1,4 +1,4 @@
-                                StüuD
+                                          StüuD
 
 Lean CRM for self-employed entrepreneurs and professionals.
 
@@ -14,10 +14,10 @@ Clean and slick interface with concise uncluttered information.
 
 
 Created by :
-Alejandro Calzadilla ( https://github.com/alej37 )
-Layne Johnson ( https://github.com/laynejohnson )
-Brett Barmby ( https://github.com/brettbarmby )
-Alain Rusnov ( https://github.com/AlainRusnov )
+- Alejandro Calzadilla ( https://github.com/alej37 )
+- Layne Johnson ( https://github.com/laynejohnson )
+- Brett Barmby ( https://github.com/brettbarmby )
+- Alain Rusnov ( https://github.com/AlainRusnov )
 
 Final project @ LeWagon Montreal Batch #482
 
