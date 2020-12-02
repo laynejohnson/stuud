@@ -1,6 +1,6 @@
 class EventMailer < ApplicationMailer
-  def confirmation
-    @event = params[:event]
+  def confirmation(event_id)
+    @event = Event.find(event_id)
     mail(to: @event.client.email, subject: 'Lesson confirmed!')
   end
 

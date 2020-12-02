@@ -26,6 +26,7 @@
 
   <div class="btns">
     <p class="btn-orange">  <%= link_to 'Edit', edit_event_path(@event) %></p>
+    <p class="btn-orange">  <%= link_to 'Confirmation', events_confirmation_email_path(@event), method: :post %></p>
     <p class="btn-orange">  <%= link_to 'View Calendar', calendar_path %></p>
   </div>
 
