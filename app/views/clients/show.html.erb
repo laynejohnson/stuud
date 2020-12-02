@@ -1,5 +1,10 @@
 <div class="client-show">
-  <h1><%= @client.fullname %></h1>
+  <div class="header">
+    <h1><%= @client.fullname %></h1>
+    <div class="header-btns">
+      <p class="btn-orange"><%= link_to 'Edit', edit_client_path %></p>
+    </div>
+  </div>
   <% if @client.color == "Red" %>
       <hr style="height:2px; border-width:0; color:rgb(222, 42, 99); background-color:rgb(222, 42, 99)">
   <% elsif @client.color == "Yellow" %>
@@ -32,15 +37,18 @@
         </div>
       </div>
       <div class="btns">
-        <p class="btn-orange"><%= link_to 'Edit', edit_client_path %></p>
-        <p class="btn-orange"><%= link_to 'Make an Appt.', new_event_path %></p>
+
       </div>
     </div>
 
   <div class="client-right">
-    <h2>Upcoming Appointments:</h2>
+    <div class="header">
+      <h2>Upcoming Appointments:</h2>
+      <p><%= link_to 'New Appt', new_event_path %></p>
 
-    <% @client.events.each do |event|%>
+    </div>
+      <% @client.events.each do |event|%>
+
     <div class="appt-card">
 
       <div><h2><%= link_to event.start_time.strftime("%b %e"), event_path(event)%></h2></div>

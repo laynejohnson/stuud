@@ -1,5 +1,29 @@
 .client-show {
 
+  .header {
+    display: flex;
+    justify-content: space-between;
+
+    a {
+      color: $sblue;
+    }
+
+    a:hover {
+      color: $sorange;
+    }
+  }
+
+  .header-btns {
+    width: 35%;
+    display: flex;
+    justify-content: flex-end;
+
+    .btn-orange {
+      margin-left: 8px;
+      // margin-right: 8px;
+    }
+  }
+
   img {
     margin-right: 16px;
   }

@@ -1,8 +1,9 @@
 <div class="client-index">
   <div class="header">
     <h1>My Clients</h1>
-    <hr/>
+    <p class="btn-orange"><%= link_to 'New Client', new_client_path %></p>
   </div>
+    <hr/>
   <div class="top-bar">
     <div class="search-bar">
       <%= simple_form_for :search, url: clients_path, method: :get do |f| %>
@@ -62,8 +63,8 @@
       </div>
     <% end %>
   </div>
-  <div class="new-client-btn">
+  <!-- <div class="new-client-btn">
     <p class="btn-orange"><%= link_to 'New Client', new_client_path %></p>
-  </div>
+  </div> -->
 </div>
 
