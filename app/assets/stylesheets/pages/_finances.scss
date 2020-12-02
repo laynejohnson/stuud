@@ -73,10 +73,42 @@
     overflow: scroll;
     margin-left: 32px;
     max-height: 100vh;
+
+    hr {
+      margin-top: 8px;
+    }
   }
 
   .container-left {
     max-height: 100vh;
+  }
+
+  .section-expenses {
+    margin-top: 38px;
+  }
+
+  #add-expense {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    width: 98%;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    a {
+      padding-right: 10px;
+      padding-top: 4px;
+
+      &:hover {
+      text-decoration-line: underline;
+
+      }
+    }
   }
 
   .invoices {
