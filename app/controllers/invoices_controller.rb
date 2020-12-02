@@ -14,13 +14,7 @@ class InvoicesController < ApplicationController
   def show
   end
 
-  def set_client
-    @clients = Client.all
-  end
-
   def new
-    @client = Client.find(params[:client])
-    @events = @client.events
     @invoice = Invoice.new
   end
 
