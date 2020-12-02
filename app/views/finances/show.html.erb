@@ -161,7 +161,7 @@
               </div>
             </div>
           </div>
-        <% elsif invoice.event.payment_status == true %>
+        <% elsif invoice.event.payment_status == true && invoice.event.end_time >= Date.today - 10 %>
         <!------------------ PAID INVOICES ------------------>
             <div class="card-invoice">
               <div class="client-name">
@@ -182,12 +182,11 @@
               </div>
             </div>
 
-
         <% elsif invoice.event.payment_status == false %>
           <!------------------ PENDING INVOICES ------------------>
-            <div class="divider">
+<!--             <div class="divider">
               <h2 class="divider">Pending</h2>
-            </div>
+            </div> -->
               <div class="card-invoice">
                 <div class="client-name">
                   <% if invoice.client.last_name.length > 10 %>
