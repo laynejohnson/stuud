@@ -18,8 +18,8 @@ before_action :set_user
     @profit = @income - @total_expenses
 
     @invoices = current_user.invoices.sort_by { |a| a.invoice_status }
-    @overdue = @invoices.select { |invoice| invoice.event.payment_status == false && invoice.event.end_time <= Date.today - 7  }.sort_by { |invoice| invoice.created_at }
-    @pending = @invoices.select { |invoice| invoice.event.payment_status == false && invoice.event.end_time >= Date.today - 7  }.sort_by { |invoice| invoice.created_at  }
+    @overdue = @invoices.select { |invoice| invoice.event.payment_status == false && invoice.event.end_time <= Date.today - 7  }.first(4).sort_by { |invoice| invoice.created_at }
+    @pending = @invoices.select { |invoice| invoice.event.payment_status == false && invoice.event.end_time >= Date.today - 7  }.first(4).sort_by { |invoice| invoice.created_at  }
     @paid = @invoices.select { |invoice| invoice.event.payment_status == true}.last(4).sort_by { |invoice| invoice.created_at }
 
     @overdue_invoices = current_user.events.where("end_time <= ?", Date.today - 7)
