@@ -16,4 +16,6 @@ Rails.application.routes.draw do
   resources :bookings, only: [:new, :show, :create, :edit, :update, :destroy]
 
   resources :expenses, only: [:index, :show, :new, :create]
+
+  get 'finances/summary', to: "finances#summary", as: :finance_summary
 end
