@@ -1,6 +1,7 @@
 ![stuudlogo](https://user-images.githubusercontent.com/71734708/100818468-36e88680-3418-11eb-9585-9de6f38757c1.png)
 
-# https://stuud.herokuapp.com
+# https://www.stuud.app 
+( demo account : alex@mail.com pwd: 123456 )
 
 Lean CRM for self-employed entrepreneurs and professionals.
 
