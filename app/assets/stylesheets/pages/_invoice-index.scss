@@ -169,10 +169,25 @@
 
   // INVOICE STYLING
 
+  .highlight {
+    display: flex;
+    align-items: center;
+    height: 90px;
+    border-radius: 3px;
+    margin-top: 20px;
+    text-align: center;
+    background-color: rgba(230, 232, 230, 0.3);
+
+    p {
+      margin-left: 18px;
+      font-size: 19px !important;
+    }
+  }
+
   .invoices {
     overflow: scroll;
     padding-bottom: 50px;
-    height: calc(100vh - 230px);
+    height: calc(100vh - 200px);
   }
 
   .invoice-buttons {
