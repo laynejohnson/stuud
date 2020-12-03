@@ -44,6 +44,12 @@
     width: 33%;
     height: 55px;
     padding-top: 16px;
+
+    h3 {
+      margin-left: 245px;
+      margin-top: 3px;
+    }
+
   }
 
   .tag-icons {
@@ -159,6 +165,171 @@
       background-color: #FA4B00;
       text-decoration: none;
       color: $soffwhite;
+  }
+
+  // INVOICE STYLING
+
+  .invoices {
+    overflow: scroll;
+    padding-bottom: 50px;
+  }
+
+  .invoice-buttons {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  // Dividers ––––––––––––––––––––––––––––––––––––––––––––––
+
+  hr {
+    border-top: 1px solid $sblue;
+
+  }
+
+  .divider {
+
+    margin-top: 23px;
+    margin-bottom: 17px;
+
+     h2 {
+      position: relative !important;
+      color: rgba(41, 50, 102, 0.56)!important;
+      overflow: hidden;
+      text-align:left;
+
+     }
+
+      h2:after {
+        display: inline-block;
+        content: "";
+        height: 1.5px;
+        background: rgba(41, 50, 102, 0.40);
+        position: absolute;
+        width: 68%;
+        top: 50%;
+        margin-left: 10px;
+      }
+  }
+
+  // Modal ––––––––––––––––––––––––––––––––––––––––––––––
+
+  .modal-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+  }
+
+  input[type=submit] {
+    background-color: $sorange;
+    color: $soffwhite;
+    width: 175px;
+    height: 40px;
+    text-align: center;
+    border: none;
+    text-decoration: none;
+    font-weight: 400;
+    font-family: Montserrat;
+    font-size: 16px;
+    padding: 8px 16px;
+    border-radius: 3px;
+    transition: background .3s;
+  }
+
+  input[type=submit]:hover {
+    background-color: #FA4B00;
+    text-decoration: none;
+    color: $soffwhite;
+  }
+
+
+  // Cards ––––––––––––––––––––––––––––––––––––––––––––––
+
+  .card-dashboard {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 90px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(198, 198, 198, 0.25);
+    border-radius: 3px;
+    margin-bottom: 24px;
+
+    img {
+      // position: relative;
+      // left: 80px;
+
+    }
+  }
+
+  .card-invoice {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 90px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(198, 198, 198, 0.25);
+    border-radius: 3px;
+    margin-bottom: 18px;
+  }
+
+  .invoice-status-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90px;
+    width: 90px;
+    background-color: rgba(230, 232, 230, 0.5);
+    text-align: center;
+
+    img {
+      height: 60px;
+      width: 60px;
+
+      &:hover {
+        height: 60px;
+        width: 60px;
+      }
+    }
+
+    &:hover {
+      box-shadow: 0px 4px 4px rgba(198, 198, 198, 0.25);
+
+    }
+  }
+
+  .client-name {
+    font-size: 16px !important;
+    text-decoration: none;
+    width: 48%;
+    color: $sblue;
+    font-weight: bold;
+    line-height: 16px;
+    margin-left: 18px;
+    margin-bottom: 0px;
+
+    &:hover {
+      color: $sorange;
+    }
+  }
+
+  .event-date {
+    font-size: 16px !important;
+    margin-bottom: 0px;
+    width: 30%;
+  }
+
+  #invoice-info {
+    text-align: right;
+    margin-right: 10px;
+    width: 35%;
+
+    p {
+      font-size: 14px !important;
+      margin-bottom: 0px;
+    }
   }
 
 

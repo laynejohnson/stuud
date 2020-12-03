@@ -9,6 +9,12 @@ class InvoicesController < ApplicationController
     else
       @invoices = Invoice.where(user: current_user)
     end
+
+
+    @invoices = current_user.invoices.sort_by { |a| a.invoice_status }
+    @overdue = @invoices.select { |invoice| invoice.event.payment_status == false && invoice.event.end_time <= Date.today - 7  }.sort_by { |invoice| invoice.created_at }
+    @pending = @invoices.select { |invoice| invoice.event.payment_status == false && invoice.event.end_time >= Date.today - 7  }.sort_by { |invoice| invoice.created_at  }
+    @paid = @invoices.select { |invoice| invoice.event.payment_status == true}.sort_by { |invoice| invoice.created_at }
   end
 
   def show
