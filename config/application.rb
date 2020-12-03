@@ -22,5 +22,6 @@ module Stuud
     # the framework and any gems in your application.
     require 'wicked_pdf'
     config.middleware.use WickedPdf::Middleware
+    config.time_zone = 'Eastern Time (US & Canada)'
   end
 end
