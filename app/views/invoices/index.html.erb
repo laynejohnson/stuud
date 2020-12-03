@@ -2,11 +2,8 @@
 <div class="invoice-index">
   <div class="header">
     <h1>My Invoices</h1>
-
     <div class="btn-container">
-      <button class="btn-download"><%= link_to "Download Reports", finance_summary_path(format: :pdf), target: :_blank %></button>
-
-    <p class="btn-orange"><%= link_to "New Invoice", new_invoice_path %></p>
+      <p class="btn-orange"><%= link_to "New Invoice", new_invoice_path %></p>
     </div>
   </div>
     <hr/>
@@ -65,7 +62,10 @@
 
           <div class="invoice-controls">
             <div>
-             <%= link_to "View Invoice", invoice_path(invoice, format: :pdf), target: "_blank" %>
+             <%= link_to "View", invoice_path(invoice, format: :pdf), target: "_blank" %>
+            </div>
+            <div>
+              <%= link_to "Send", invoice_send_email_path(invoice), method: :post %>
             </div>
             <div>
               <%= link_to "Edit", edit_invoice_path(invoice) %>
@@ -117,7 +117,7 @@
         <% end %>
         <% if @pending == [] && @overdue == [] && @invoices != [] %>
           <div class="highlight">
-             <p class="">All invoices have been paid 🎉</p>
+             <p class="">All invoices have been paid! 🎉</p>
           </div>
         <% elsif @pending == []  %>
           <div class="highlight">
@@ -133,17 +133,20 @@
                     <%= link_to invoice.client.first_name + " " + invoice.client.last_name, client_path(invoice.client), class: "client-name" %>
                   <% end %>
                 </div>
-                  <div class="invoice-controls">
-                    <div>
-                     <%= link_to "View Invoice", invoice_path(invoice, format: :pdf), target: "_blank" %>
-                    </div>
-                    <div>
-                      <%= link_to "Edit", edit_invoice_path(invoice) %>
-                    </div>
-                    <div>
-                      <%= link_to "Delete", invoice_path(invoice), method: :delete, data: { confirm: "Are you sure?" }%>
-                    </div>
-                  </div>
+              <div class="invoice-controls">
+                <div>
+                 <%= link_to "View", invoice_path(invoice, format: :pdf), target: "_blank" %>
+                </div>
+                <div>
+                  <%= link_to "Send", invoice_send_email_path(invoice), method: :post %>
+                </div>
+                <div>
+                  <%= link_to "Edit", edit_invoice_path(invoice) %>
+                </div>
+                <div>
+                  <%= link_to "Delete", invoice_path(invoice), method: :delete, data: { confirm: "Are you sure?" }%>
+                </div>
+              </div>
                 <div id="invoice-info">
                   <p>Invoice #<%= invoice.id %></p>
                   <p>$<%= invoice.event.price %></p>
@@ -204,7 +207,10 @@
 
               <div class="invoice-controls">
                 <div>
-                 <%= link_to "View Invoice", invoice_path(invoice, format: :pdf), target: "_blank" %>
+                 <%= link_to "View", invoice_path(invoice, format: :pdf), target: "_blank" %>
+                </div>
+                <div>
+                  <%= link_to "Send", invoice_send_email_path(invoice), method: :post %>
                 </div>
                 <div>
                   <%= link_to "Edit", edit_invoice_path(invoice) %>
