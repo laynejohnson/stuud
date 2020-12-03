@@ -172,6 +172,7 @@
   .invoices {
     overflow: scroll;
     padding-bottom: 50px;
+    height: calc(100vh - 230px);
   }
 
   .invoice-buttons {
