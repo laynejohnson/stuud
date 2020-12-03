@@ -1,7 +1,7 @@
 class EventMailer < ApplicationMailer
   def confirmation(event_id)
     @event = Event.find(event_id)
-    mail(to: @event.client.email, subject: 'Lesson confirmed!')
+    mail(to: [@event.client.email, @event.user.email ], subject: 'Lesson confirmed!')
   end
 
   def invoice_pdf(invoice_id)
@@ -9,6 +9,6 @@ class EventMailer < ApplicationMailer
     attachments["invoice_#{@invoice.id}.pdf"] = WickedPdf.new.pdf_from_string(
       render_to_string(pdf: 'invoice', template: 'invoices/show.html.erb', layout: 'invoice.html')
     )
-    mail(to: @invoice.client.email, subject: 'Your invoice PDF is attached', invoice: @invoice)
+    mail(to: [@invoice.client.email, @invoice.user.email], subject: 'Your invoice PDF is attached', invoice: @invoice)
   end
 end

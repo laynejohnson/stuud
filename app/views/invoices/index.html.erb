@@ -1,6 +1,10 @@
+<!-- INVOICE INDEX -->
 <div class="invoice-index">
   <div class="header">
     <h1>My Invoices</h1>
+    <div class="btn-container">
+      <button class="btn-download"><%= link_to "Download Reports", finance_summary_path(format: :pdf), target: :_blank %></button>
+    </div>
     <p class="btn-orange"><%= link_to "New Invoice", new_invoice_path %></p>
   </div>
     <hr/>
@@ -37,39 +41,151 @@
       </div>
     </div>
   </div>
-  <div class="invoice-cards">
-    <% @invoices.each do |invoice| %>
-    <div class="invoice-card">
-        <div class="card-left">
-          <div class= "card-section"><h2><%= link_to invoice.client.fullname, client_path(invoice.client) %></h2></div>
-      <%= link_to invoice_path(invoice, format: :pdf), target: "_blank" do %>
-          <div class= "card-section"><p>Invoice # 10148<%= invoice.id %></p></div>
-      <% end %>
-        </div>
-        <div class="card-right">
-          <div class= "card-section"><h3><%= invoice.event.start_time.localtime.strftime("%b %e") %></h3></div>
-          <div class= "card-section"><p><%= link_to "Edit", edit_invoice_path(invoice) %></p></div>
-          <div class= "card-section"><p><%= link_to "Remove", invoice_path(invoice), method: :delete, data: { confirm: "Are you sure?" }%></p></div>
-              <% if invoice.event.payment_status == false %>
-               <div class= "card-section"><h3><%= link_to "Send invoice", invoice_send_email_path(invoice), method: :post %></h3></div>
-              <% end %>
+  <div class="invoices">
+
+      <% if @overdue == [] %>
+      <div></div>
+      <% else %>
+      <div class="divider">
+        <h2 class="divider">Overdue</h2>
+      </div>
+
+      <% @overdue.each do |invoice| %>
+      <!------------------ OVERDUE INVOICES ------------------>
+        <div class="card-invoice">
+          <div class="client-name">
+            <% if invoice.client.last_name.length > 10 %>
+              <%= content_tag :p, invoice.client.first_name + " " + invoice.client.last_name[0] + ".", class: "client-name" %>
+            <% else %>
+              <%= content_tag :p, invoice.client.first_name + " " + invoice.client.last_name, class: "client-name" %>
+            <% end %>
+          </div>
+          <div id="invoice-info">
+            <p>Invoice #<%= invoice.id %></p>
+            <p>$<%= invoice.event.price %></p>
+            <p class="bold">OVERDUE </p>
+          </div>
+          <div class="invoice-status-indicator" data-toggle="modal" data-target="#invoice-id-<%=invoice.id%>">
+            <%= image_tag "noun_Close_23269(1).png", alt: "overdue icon"%>
+          </div>
+            <!-- Invoice Status Modal -->
+            <div class="modal fade" id="invoice-id-<%=invoice.id%>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Update Invoice Status</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="update-status">
+                      <%=simple_form_for(invoice, method: :patch, url: paid_path(invoice.event)) do |f|%>
+                        <%= f.input :payment_status, as: :hidden, input_html: {value: true} %>
+                        <%= f.submit "Mark as Paid" %>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
+          </div>
+        <% end %>
+      <% end %>
 
-           <div class="card-end">
-          <%= image_tag "noun_Vertical Dots_3560972 (1).png", alt: "alttext", height: 50 %>
-          <% if invoice.client.color == "Red" %>
-                <div class="color-indicator-red"></div>
-              <% elsif invoice.client.color == "Yellow" %>
-                <div class="color-indicator-yellow"></div>
-              <% elsif invoice.client.color == "Blue" %>
-                <div class="color-indicator-blue"></div>
-              <% else %>
-                <div></div>
-              <% end %>
-        </div>
+  <!------------------ PENDING INVOICES ------------------>
+        <% if @pending == [] && @overdue != [] %>
+          <div></div>
+        <% else %>
+          <div class="divider">
+            <h2 class="divider">Pending</h2>
+          </div>
+        <% end %>
+        <% if @pending == [] && @overdue == [] && @invoices != [] %>
+          <div class="highlight">
+             <p class="">All invoices have been paid 🎉</p>
+          </div>
+        <% elsif @pending == []  %>
+          <div class="highlight">
+            <p class="">No pending invoices</p>
+          </div>
+        <% else %>
+          <% @pending.each do |invoice| %>
+              <div class="card-invoice">
+                <div class="client-name">
+                  <% if invoice.client.last_name.length > 10 %>
+                    <%= link_to invoice.client.first_name + " " + invoice.client.last_name[0] + ".", client_path(invoice.client), class: "client-name" %>
+                  <% else %>
+                    <%= link_to invoice.client.first_name + " " + invoice.client.last_name, client_path(invoice.client), class: "client-name" %>
+                  <% end %>
+                </div>
+                <div id="invoice-info">
+                  <p>Invoice #<%= invoice.id %></p>
+                  <p>$<%= invoice.event.price %></p>
+                  <p class="bold"><%= invoice.created_at.localtime.strftime("%b %d") %></p>
+                </div>
+                <div class="invoice-status-indicator" data-toggle="modal" data-target="#invoice-id-<%=invoice.id%>">
+                  <%= image_tag "noun_clock_23236.png", alt: "pending icon"%>
+                </div>
+              <!-- Invoice Status Modal -->
+              <div class="modal fade" id="invoice-id-<%=invoice.id%>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Update Invoice Status</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="update-status">
+                        <%=simple_form_for(invoice, method: :patch, url: paid_path(invoice.event)) do |f|%>
+                          <%= f.input :payment_status, as: :hidden, input_html: {value: true} %>
+                          <%= f.submit "Mark as Paid" %>
+                        <% end %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              </div>
+            <% end %>
+          <% end %>
+
+<!------------------ PAID INVOICES ------------------>
+
+        <div class="divider">
+          <h2 class="divider">Paid</h2>
         </div>
 
-    <% end %>
-    </div>
+        <% if @paid == [] %>
+        <div class="highlight">
+          <p class="">Paid invoices will appear here</p>
+        </div>
+        <% end %>
+
+          <% @paid.each do |invoice| %>
+
+            <div class="card-invoice">
+              <div class="client-name">
+                <% if invoice.client.last_name.length > 10 %>
+                  <%= link_to invoice.client.first_name + " " + invoice.client.last_name[0] + ".", client_path(invoice.client), class: "client-name" %>
+                <% else %>
+                  <%= link_to invoice.client.first_name + " " + invoice.client.last_name, client_path(invoice.client), class: "client-name" %>
+                <% end %>
+              </div>
+              <div id="invoice-info">
+                <p>Invoice #<%= invoice.id %></p>
+                <p>$<%= invoice.event.price %></p>
+                <p class="bold">PAID </p>
+              </div>
+              <div class="invoice-status-indicator">
+                <%= image_tag "noun_Check Mark_23235.png", alt: "paid icon"%>
+              </div>
+            </div>
+          <% end %>
+  </div>
+
+  </div>
 </div>
 
