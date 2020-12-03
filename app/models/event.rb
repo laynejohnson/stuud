@@ -1,3 +1,5 @@
+require 'csv'
+
 class Event < ApplicationRecord
   belongs_to :user
   belongs_to :client
@@ -6,21 +8,29 @@ class Event < ApplicationRecord
   def event_time
     start_time.localtime.strftime("%b %e, %l:%M %p")
   end
-  # has_one :booking, dependent: :destroy
-  # after_commit :sync_booking, on: [:create, :update]
+end
 
-  # def sync_booking
-  #   originalbooking = Booking.find_by(event_id: self.id)
-  #   if originalbooking.present?
-  #     booking = Booking.new(self.attributes)
-  #     booking.id = originalbooking.id
-  #     booking.event_id = self.id
-  #     booking.save
-  #   else
-  #     booking = Booking.new(self.attributes)
-  #     booking.event_id = self.id
-  #     booking.save
-  #   end
+  # def self.all_with_details
+  #   Event.select("events.*, users.first_name, users.last_name, clients.first_name as first_name, clients.last_name as last_name")
   # end
 
-end
+#   def self.to_csv(options = {})
+#     CSV.generate(options) do
+#  end
+
+  # user = current_user
+  # query = SQL<<-
+  #   select distinct
+  #   events.id as event_id,
+  #   events.start_time,
+  #   users.first_name || ' ' || users.last_name as userfullname,
+  #   clients.first_name || ' ' || clients.last_name as clientfullname,
+  #   events.price
+  #   from events
+  #   join users on users.id = events.user_id
+  #   join clients on clients.id = events.client_id
+  #   where users.id = #{user}
+  #   order by events.id desc
+  # >>
+  # result = ActiveRecord::Base.connection.execute(query)
+

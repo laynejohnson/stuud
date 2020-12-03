@@ -16,10 +16,11 @@
       <% if current_user %>
 
       <%#= render 'dashboard/show' %>
-
+    <% unless action_name == "summary" %>
     <div class="stuud-navbar">
       <%= render 'shared/navbar' %>
     </div>
+    <% end %>
 
 
     <div class="page-body">
