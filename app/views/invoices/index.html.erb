@@ -2,9 +2,6 @@
 <div class="invoice-index">
   <div class="header">
     <h1>My Invoices</h1>
-    <div class="btn-container">
-      <button class="btn-download"><%= link_to "Download Reports", finance_summary_path(format: :pdf), target: :_blank %></button>
-    </div>
     <p class="btn-orange"><%= link_to "New Invoice", new_invoice_path %></p>
   </div>
     <hr/>
@@ -18,7 +15,7 @@
       </div>
       <% end %>
     </div>
-    <div class="tags">
+<!--     <div class="tags">
       <div>
         <h3>Tags:</h3>
       </div>
@@ -39,7 +36,7 @@
           <% end %>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
   <div class="invoices">
 
