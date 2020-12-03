@@ -41,12 +41,12 @@
   .tags {
     display: flex;
     justify-content: space-between;
-    width: 33%;
+    // width: 33%;
     height: 55px;
     padding-top: 16px;
 
     h3 {
-      margin-left: 245px;
+      margin-left: 240px;
       margin-top: 3px;
     }
 
@@ -60,8 +60,8 @@
   .tag-icon {
     width: 24px;
     height: 24px;
-    margin-right: 16px;
-    margin-left: 16px;
+    // margin-right: 16px;
+    margin-left: 32px;
   }
   .invoice-cards {
     overflow: scroll;
@@ -132,8 +132,8 @@
 
   .btn-container {
     display: flex;
-    justify-content: flex-end;
-    margin-top: 8px;
+    justify-content: space-between;
+    width: 41%;
   }
 
   .btn-download {
