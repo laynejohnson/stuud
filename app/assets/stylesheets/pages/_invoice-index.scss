@@ -337,6 +337,13 @@
     width: 30%;
   }
 
+  .invoice-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 30%;
+  }
+
   #invoice-info {
     text-align: right;
     margin-right: 10px;
@@ -346,6 +353,10 @@
       font-size: 14px !important;
       margin-bottom: 0px;
     }
+  }
+
+  .bold {
+    font-weight: bold;
   }
 
 
