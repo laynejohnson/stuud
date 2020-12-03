@@ -2,7 +2,12 @@
 <div class="invoice-index">
   <div class="header">
     <h1>My Invoices</h1>
+
+    <div class="btn-container">
+      <button class="btn-download"><%= link_to "Download Reports", finance_summary_path(format: :pdf), target: :_blank %></button>
+
     <p class="btn-orange"><%= link_to "New Invoice", new_invoice_path %></p>
+    </div>
   </div>
     <hr/>
   <div class="top-bar">
