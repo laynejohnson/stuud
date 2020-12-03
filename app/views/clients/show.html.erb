@@ -20,15 +20,21 @@
     <div class="client-left">
       <div class="client-info">
         <div class="info-section">
-          <%= image_tag "email.svg", height: 40, width: 40 %>
+          <div class="icon">
+            <%= image_tag "email.svg", height: 40, width: 40 %>
+          </div>
           <h2><%= @client.email %></h2>
         </div>
         <div class="info-section">
-          <%= image_tag "phone.svg", height: 40, width: 40 %>
+          <div class="icon">
+            <%= image_tag "phone.svg", height: 40, width: 40 %>
+          </div>
           <h2><%= @client.phone %></h2>
         </div>
         <div class="info-section">
-          <%= image_tag "address.svg", height: 40, width: 40 %>
+          <div class="icon">
+            <%= image_tag "address.svg", height: 40, width: 40 %>
+          </div>
           <h2><%= @client.address %></h2>
          </div>
         <div class="notes">
@@ -44,7 +50,12 @@
   <div class="client-right">
     <div class="header">
       <h2>Upcoming Appointments:</h2>
-      <p><%= link_to 'New Appt', new_event_path %></p>
+      <!-- <p><%= link_to 'New Appt', new_event_path %></p> -->
+      <%= link_to new_event_path do %>
+      <div id="add">
+        <%= image_tag 'noun_add_8394.png', width: 40, height: 40, alt: 'add an appointment' %>
+      </div>
+        <% end %>
 
     </div>
       <% @client.events.each do |event|%>

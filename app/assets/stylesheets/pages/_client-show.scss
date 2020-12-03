@@ -3,6 +3,7 @@
   .header {
     display: flex;
     justify-content: space-between;
+    align-items: flex-end;
 
     a {
       color: $sblue;
@@ -24,15 +25,19 @@
     }
   }
 
-  img {
-    margin-right: 16px;
-  }
+  // img {
+  //   margin-right: 16px;
+  // }
 
   .info-section {
     display: flex;
     align-items: center;
     margin-top: 16px;
     margin-bottom: 16px;
+  }
+
+  .icon {
+    margin-right: 16px;
   }
 
   .notes {
