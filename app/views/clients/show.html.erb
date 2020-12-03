@@ -58,7 +58,7 @@
         <% end %>
 
     </div>
-      <% @client.events.each do |event|%>
+      <% @client.events.where("start_time > ?", DateTime.now).order(:start_time).each do |event|%>
 
     <div class="appt-card">
 

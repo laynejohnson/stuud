@@ -46,7 +46,10 @@
         </div>
         <div class="card-half">
           <div class="card-section"><p><%= client.email %></p></div>
-          <div class="next-appt"><h3>Next appt:</h3><p><%= client.events.first.start_time.localtime.strftime("%b %e, %l:%M %p") if client.events.length > 0 %></p></div>
+          <% next_event = client.events.where("start_time > ?", DateTime.now).order(:start_time).first %>
+          <% if next_event %>
+            <div class="next-appt"><h3>Next appt:</h3><p><%= link_to next_event.start_time.localtime.strftime("%b %e, %l:%M %p"), event_path(next_event) %></p></div>
+          <% end %>
         </div>
         <div class="card-end">
           <%= image_tag "noun_Vertical Dots_3560972 (1).png", alt: "alttext", height: 50 %>

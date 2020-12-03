@@ -71,6 +71,14 @@
     text-align: center;
     padding-left: 32px;
 
+    a {
+      color: $sblue;
+    }
+
+    a:hover {
+      color: #FA4B00;
+    }
+
   }
 
   .card-half {
