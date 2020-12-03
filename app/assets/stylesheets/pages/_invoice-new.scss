@@ -1,6 +1,6 @@
-.new-client {
+.new-invoice {
 
-  .form-control {
+.form-control {
     border: none;
   }
 
@@ -9,16 +9,24 @@
     box-shadow: none;
   }
 
-  .form-check-input.is-valid ~ .form-check-label {
-    color: $sblue;
+  #booking_date {
+    border: none;
+    background-color: white;
   }
 
-  .form-check {
-    padding-right: 1.25rem;
+  #booking_date:focus {
+    border: 2px solid $sorange;
+    box-shadow: none;
   }
 
-  .form-group {
-    display: flex;
+  .form-control[readonly] {
+    border: none;
+    background-color: white;
+  }
+
+  .form-control[readonly]:focus {
+    border: 2px solid $sorange;
+    box-shadow: none;
   }
 
   ::placeholder {
@@ -26,10 +34,6 @@
   }
 
   label {
-    color: $sblue;
-  }
-
-  legend {
     color: $sblue;
   }
 
@@ -54,6 +58,10 @@
     position: absolute;
     top: 28px;
     right: 32px;
+
+    p {
+      color: $soffwhite;
+    }
   }
 
   input[type=submit]:hover {

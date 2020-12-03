@@ -17,8 +17,9 @@
 # Faker::Internet.email
 require 'faker'
 
-
+puts ''
 puts "Destroying database.."
+puts ''
 
 Booking.destroy_all
 User.destroy_all
@@ -28,12 +29,13 @@ Invoice.destroy_all
 Expense.destroy_all
 
 puts "Populating StüuD database.."
-
+puts '---------------------------'
+puts '---------------------------'
 
 
 
 alex = User.create(
-  email: "alex@email.com",
+  email: "alex@mail.com",
   password: "123456",
   first_name: "Alex",
   last_name: "Calvadillos"
@@ -46,7 +48,7 @@ alex = User.create(
     last_name: Faker::Name.last_name,
     address: Faker::Address.full_address,
     phone: Faker::PhoneNumber.cell_phone,
-    color: %w[red yellow blue].sample,
+    color: %w[Red Yellow Blue].sample,
     notes: Faker::TvShows::MichaelScott.quote,
     user: alex
   )
@@ -61,16 +63,25 @@ end
 )
 end
 
-3.times do
+2.times do
   expense = Expense.create(
    date: Faker::Time.between_dates(from: Date.today - 60, to: Date.today + 20, period: :day),
-   amount: 500,
+   amount: 400,
    name: "Utilities",
    user: alex
  )
  end
 
- 3.times do
+ 2.times do
+  expense = Expense.create(
+   date: Faker::Time.between_dates(from: Date.today - 60, to: Date.today + 20, period: :day),
+   amount: 300,
+   name: "Credit card",
+   user: alex
+ )
+ end
+
+ 2.times do
   expense = Expense.create(
    date: Faker::Time.between_dates(from: Date.today - 60, to: Date.today + 20, period: :day),
    amount: 250,
@@ -79,7 +90,7 @@ end
  )
  end
 
- 3.times do
+ 2.times do
   expense = Expense.create(
    date: Faker::Time.between_dates(from: Date.today - 60, to: Date.today + 20, period: :day),
    amount: 200,
@@ -89,23 +100,31 @@ end
  end
 
  starttime = []
- 40.times do
+ 60.times do
   starttime << Faker::Time.between_dates(from: Date.today - 60, to: Date.today + 20, period: :day)
- end
+  #puts starttime
+end
+
 
 starttime.each do |time|
  event = Event.create!(
   start_time: time,
-  end_time: time + 1.hour,
-  title: %w[practice lesson consultancy].sample,
-  color: %w[yellow blue red orange].sample,
-  price: %w[50 100 200 250].sample,
+  end_time: time + 90.minutes,
+  title: %w[practice lesson consulting].sample,
+  color: ['rgb(255, 230, 110)', 'rgb(38, 149, 223)', 'rgb(223, 42, 100)'].sample,
+  price: %w[100 200 250].sample,
   payment_status: %w[true false].sample,
   user: alex,
-  client: Client.ids[rand]
+  client_id: Client.ids.sample
  )
 end
 
+puts ''
 puts " Done ! Enjoy Stüud "
-puts " Default user alex@email.com pwd : 123456 "
+puts ''
+puts '---------------------------'
+puts '---------------------------'
+puts ''
+puts " Default user: alex@mail.com   password: 123456 "
+puts ''
 

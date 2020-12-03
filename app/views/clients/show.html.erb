@@ -1,5 +1,10 @@
 <div class="client-show">
-  <h1><%= @client.fullname %></h1>
+  <div class="header">
+    <h1><%= @client.fullname %></h1>
+    <div class="header-btns">
+      <p class="btn-orange"><%= link_to 'Edit', edit_client_path %></p>
+    </div>
+  </div>
   <% if @client.color == "Red" %>
       <hr style="height:2px; border-width:0; color:rgb(222, 42, 99); background-color:rgb(222, 42, 99)">
   <% elsif @client.color == "Yellow" %>
@@ -32,18 +37,23 @@
         </div>
       </div>
       <div class="btns">
-        <p class="btn-orange"><%= link_to 'Edit', edit_client_path %></p>
-        <p class="btn-orange"><%= link_to 'Make an Appt.', new_event_path %></p>
+
       </div>
     </div>
 
   <div class="client-right">
-    <h2>Upcoming Appointments:</h2>
+    <div class="header">
+      <h2>Upcoming Appointments:</h2>
+      <p><%= link_to 'New Appt', new_event_path %></p>
 
-    <% @client.events.each do |event|%>
+    </div>
+      <% @client.events.each do |event|%>
+
     <div class="appt-card">
-      <div><h2><%= event.start_time.localtime.strftime("%b %e")%></h2></div>
-      <div><p><%= event.start_time.localtime.strftime("%l:%M %p")%></p></div>
+
+      <div><h2><%= link_to event.start_time.strftime("%b %e"), event_path(event)%></h2></div>
+      <div><p><%= link_to event.start_time.strftime("%l:%M %p"), event_path(event)%></p></div>
+      <!-- <p>Payment status: <%= event.payment_status %></p> -->
       <div><h2><%= event.status %>Confirmed</h2></div>
       <div class="card-end">
           <% if event.client.color == "Red" %>

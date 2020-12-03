@@ -51,6 +51,12 @@
 
   .container-left {
     max-height: 100vh;
+    overflow: scroll;
+    padding-right: 15px;
+  }
+
+  .future {
+    padding-bottom: 30px;
   }
 
   .pending-invoices {

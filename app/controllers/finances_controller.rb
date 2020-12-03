@@ -17,14 +17,19 @@ before_action :set_user
 
     @profit = @income - @total_expenses
 
+    @invoices = current_user.invoices.sort_by { |a| a.invoice_status }
+    @overdue = @invoices.select { |invoice| invoice.event.payment_status == false && invoice.event.end_time <= Date.today - 7  }.first(4).sort_by { |invoice| invoice.created_at }
+    @pending = @invoices.select { |invoice| invoice.event.payment_status == false && invoice.event.end_time >= Date.today - 7  }.first(4).sort_by { |invoice| invoice.created_at  }
+    @paid = @invoices.select { |invoice| invoice.event.payment_status == true}.last(4).sort_by { |invoice| invoice.created_at }
+
     @overdue_invoices = current_user.events.where("end_time <= ?", Date.today - 7)
+
 
     @pending_invoices = current_user.events
       .where(payment_status:false)
 
     @paid_invoices = current_user.events
       .where(payment_status:true)
-
 
     @paid_invoices_total = 0
     @paid_invoices.each do |paid|
@@ -50,8 +55,7 @@ before_action :set_user
     @expenses_yearly = current_user.expenses
       .where(date: Time.zone.now.beginning_of_year..Time.zone.now.end_of_year)
 
-
-# GRAPH DISPLAY LOGIC
+# GRAPH DISPLAY LOGIC------------------------
 
     if params[:my_finances] == "week"
 
@@ -103,6 +107,7 @@ before_action :set_user
 
     end
   end
+
 
   def summary
     @income_report = current_user.generate_inc_report

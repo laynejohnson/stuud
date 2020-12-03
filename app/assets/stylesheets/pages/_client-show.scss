@@ -1,5 +1,29 @@
 .client-show {
 
+  .header {
+    display: flex;
+    justify-content: space-between;
+
+    a {
+      color: $sblue;
+    }
+
+    a:hover {
+      color: $sorange;
+    }
+  }
+
+  .header-btns {
+    width: 35%;
+    display: flex;
+    justify-content: flex-end;
+
+    .btn-orange {
+      margin-left: 8px;
+      // margin-right: 8px;
+    }
+  }
+
   img {
     margin-right: 16px;
   }
@@ -19,6 +43,10 @@
   .btns {
     display: flex;
     justify-content: space-between;
+
+    p {
+      color: $soffwhite;
+    }
   }
   .client-container {
     display: grid;
@@ -36,6 +64,16 @@
     margin-bottom: 16px;
     padding-top: 32px;
     padding-left: 32px;
+    // padding-right:32px;
+
+    a {
+    color: $sblue;
+    }
+
+    a:hover {
+    color: $sorange;
+    }
+
 
   }
 
@@ -63,6 +101,4 @@
     width: 14px;
     height: 90px;
   }
-
-
 }

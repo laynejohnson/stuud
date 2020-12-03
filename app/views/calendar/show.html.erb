@@ -1,6 +1,8 @@
 <div class="calendar">
-
+<div class="header">
   <h1> MyCalendar </h1>
+   <p class="btn-orange"><%= link_to 'New Appt.', new_event_path %></p>
+</div>
   <hr/>
 
 
@@ -55,11 +57,15 @@
                 <%= form.label :color %>
                 <%= form.select :color, collection: [['Yellow','rgb(255, 230, 110)'], ['Blue','rgb(38, 149, 223)'], ['Red','rgb(223, 42, 100)']] %>
               </div>
+
               <div class="field">
                 <%#= f.input :payment_status %>
                 <%= form.label :paid? %>
                 <%= form.check_box :payment_status %>
                </div>
+               <%# <div class="field">
+               <%= form.submit class: 'btn-orange' %>
+               <%# </div> %>
               <div class="modal-footer">
                 <%#= f.submit %>
                 <%= form.submit class: 'btn-orange' %>

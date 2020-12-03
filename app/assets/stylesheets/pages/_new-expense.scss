@@ -9,6 +9,15 @@
     box-shadow: none;
   }
 
+  .form-control[readonly] {
+    border: none;
+    background-color: white;
+  }
+
+  .form-control[readonly]:focus {
+    border: 1px solid $sorange;
+  }
+
   #expense_date {
     border: none;
     background-color: white;
@@ -45,6 +54,9 @@
     padding: 8px 16px;
     border-radius: 3px;
     transition: background .3s;
+    position: absolute;
+    top: 28px;
+    right: 32px;
   }
 
   input[type=submit]:hover {

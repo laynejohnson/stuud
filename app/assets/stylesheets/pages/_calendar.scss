@@ -12,6 +12,11 @@
     font-weight: normal;
   }
 
+  .header {
+    display: flex;
+    justify-content: space-between;
+  }
+
   .fc-v-event .fc-event-main {
     color: $sblue;
   }

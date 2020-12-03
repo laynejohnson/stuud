@@ -3,12 +3,20 @@ require 'csv'
 class Event < ApplicationRecord
   belongs_to :user
   belongs_to :client
-  has_one :invoice
+  has_many :invoice, dependent: :destroy
 
   def event_time
     start_time.localtime.strftime("%b %e, %l:%M %p")
   end
+
 end
+
+
+
+
+  # has_one :booking, dependent: :destroy
+  # after_commit :sync_booking, on: [:create, :update]
+
 
   # def self.all_with_details
   #   Event.select("events.*, users.first_name, users.last_name, clients.first_name as first_name, clients.last_name as last_name")

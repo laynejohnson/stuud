@@ -1,9 +1,10 @@
-<!-- STUUD Finances -->
+  <!--------------------- STUUD FINANCES --------------------->
 <div class="finances">
+  <!--------------------- CONTAINER LEFT --------------------->
+
   <div class="container-left">
     <h1>My Finances</h1>
     <hr/>
-
     <div class="graph-buttons">
       <div>
         <a href="?my_finances=week" class="btn-graph">Week</a>
@@ -15,62 +16,57 @@
         <a href="?my_finances=year" class="btn-graph">Year</a>
       </div>
     </div>
-
-  <div class="graph-container">
-
-  <% if params[:my_finances] == "week" %>
-    <div class=" graph graph-weekly">
-    <%= column_chart [{ name: "Income weekly", data: @events_yearly.group_by_week(:start_time).sum(:price) },{ name: "Expenses weekly", data: @expenses_yearly.group_by_week(:date).sum(:amount)}],
-        suffix: "$",
-        width: "100%",
-        height: "100%",
-        title: "Weekly Income vs. Expenses ( #{DateTime.now.day}-#{DateTime.now.month}-#{DateTime.now.year} ) ",
-        legend: true,
-        colors: ["#FB6C00", "#424D58"],
-        library: { chart: {
-          style: {
-            fontFamily: "'Montserrat', sans-serif"
-            }
-            }
-          } %>
+    <div class="graph-container">
+      <% if params[:my_finances] == "week" %>
+        <div class=" graph graph-weekly">
+        <%= column_chart [{ name: "Income weekly", data: @events_yearly.group_by_week(:start_time).sum(:price) },{ name: "Expenses weekly", data: @expenses_yearly.group_by_week(:date).sum(:amount)}],
+            suffix: "$",
+            width: "100%",
+            height: "100%",
+            title: "Weekly Income vs. Expenses ( #{DateTime.now.day}-#{DateTime.now.month}-#{DateTime.now.year} ) ",
+            legend: true,
+            colors: ["#FB6C00", "#424D58"],
+            library: { chart: {
+              style: {
+                fontFamily: "'Montserrat', sans-serif"
+                }
+                }
+              } %>
+        </div>
+      <% elsif params[:my_finances] == "month" %>
+         <div class="graph graph-monthly">
+         <%= column_chart [{ name: "Income monthly", data: @events_yearly.group_by_month(:start_time).sum(:price) },{ name: "Expenses monthly", data: @expenses_yearly.group_by_month(:date).sum(:amount)}],
+            suffix: "$",
+            width: "100%",
+            height: "100%",
+            title: "Monthly Income vs. Expenses ( #{DateTime.now.month}-#{DateTime.now.year} ) ",
+            # legend: true,
+            colors: ["#FB6C00", "#424D58"],
+            library: { chart: {
+              style: {
+                fontFamily: "'Montserrat', sans-serif"
+                }
+                }
+              } %>
+         </div>
+      <% else %>
+        <div class="graph graph-yearly">
+           <%= column_chart [{ name: "Income year", data: @events_yearly.group_by_year(:start_time).sum(:price) },{ name: "Expenses year", data: @expenses_yearly.group_by_year(:date).sum(:amount)}],
+            suffix: "$",
+            width: "100%",
+            height: "100%",
+            title: "Expected Income vs. Expenses ( #{DateTime.now.year} ) ",
+            # legend: true,
+            colors: ["#FB6C00", "#424D58"],
+            library: { chart: {
+              style: {
+                fontFamily: "'Montserrat', sans-serif"
+                }
+                }
+              } %>
+         </div>
+      <% end %>
     </div>
-
-  <% elsif params[:my_finances] == "month" %>
-     <div class="graph graph-monthly">
-     <%= column_chart [{ name: "Income monthly", data: @events_yearly.group_by_month(:start_time).sum(:price) },{ name: "Expenses monthly", data: @expenses_yearly.group_by_month(:date).sum(:amount)}],
-        suffix: "$",
-        width: "100%",
-        height: "100%",
-        title: "Monthly Income vs. Expenses ( #{DateTime.now.month}-#{DateTime.now.year} ) ",
-        # legend: true,
-        colors: ["#FB6C00", "#424D58"],
-        library: { chart: {
-          style: {
-            fontFamily: "'Montserrat', sans-serif"
-            }
-            }
-          } %>
-     </div>
-
-  <% else %>
-    <div class="graph graph-yearly">
-       <%= column_chart [{ name: "Income year", data: @events_yearly.group_by_year(:start_time).sum(:price) },{ name: "Expenses year", data: @expenses_yearly.group_by_year(:date).sum(:amount)}],
-        suffix: "$",
-        width: "100%",
-        height: "100%",
-        title: "Expected Income vs. Expenses ( #{DateTime.now.year} ) ",
-        # legend: true,
-        colors: ["#FB6C00", "#424D58"],
-        library: { chart: {
-          style: {
-            fontFamily: "'Montserrat', sans-serif"
-            }
-            }
-          } %>
-     </div>
-  <% end %>
-  </div>
-
     <div class="data-graph">
       <div class="card-data income">
         <h3>Income</h3>
@@ -91,151 +87,162 @@
         <% if @profit == nil %>
           <p>$0</p>
         <% else %>
-          <p><%= @profit %></p>
+          <p>$<%= @profit %></p>
         <% end %>
       </div>
     </div>
-  </div>
-  <div class="container-right">
-  <h1>Invoices</h1>
 
-<!--   <div class="invoice-buttons">
-    <div>
-      <a href="?invoices=overdue" class="link">Overdue</a>
+  <div class="section-expenses">
+    <div class="section-header">
+      <h1> Expenses </h1>
+      <%= link_to "See all", expenses_path, class: "link"  %>
     </div>
-    <div>
-      <a href="?invoices=pending" class="link">Pending</a>
-    </div>
-    <div>
-      <a href="?invoices=paid" class="link">Paid</a>
-    </div>
-  </div> -->
-
     <hr/>
+
+    <div id="add-expense" class="highlight">
+      <div>
+        <%= link_to "Add an expense", new_expense_path, class: "ml-3 p-3 text-align-center link"  %>
+      </div>
+        <%= link_to new_expense_path do %>
+      <div>
+        <%= image_tag 'noun_add_8394.png', width: 60, height: 60, alt: 'add an appointment'%>
+      </div>
+        <% end %>
+    </div>
+  </div>
+
+
+  </div>
+
+  <!--------------------- CONTAINER RIGHT --------------------->
+
+  <div class="container-right">
+    <div class="section-header">
+      <h1>Invoices</h1>
+      <%= link_to "See all", invoices_path, class: "link"  %>
+
+    </div>
+    <hr/>
+
     <div class="invoices">
-  <!------------------ OVERDUE INVOICES ------------------>
-  <div class="overdue">
-    <div class="divider">
-      <h2 class="divider">Overdue</h2>
-    </div>
-    <% @overdue_invoices.each do |invoice| %>
-<!--     <%= link_to event_path(invoice.client) do  %> -->
-      <div class="card-invoice">
-        <div class="client-name">
-          <% if invoice.client.last_name.length > 10 %>
-            <%= content_tag :p, invoice.client.first_name + " " + invoice.client.last_name[0] + ".", class: "client-name" %>
-          <% else %>
-            <%= content_tag :p, invoice.client.first_name + " " + invoice.client.last_name, class: "client-name" %>
-          <% end %>
-        </div>
-        <div id="invoice-info">
-          <p>Invoice #<%= invoice.id %></p>
-          <p>$<%= invoice.price %></p>
-          <p class="bold">OVERDUE </p>
-<!--           <%= invoice.start_time.localtime.strftime("%b %d") %> -->
-        </div>
-        <div class="invoice-status-indicator" data-toggle="modal" data-target="#invoice-id-<%=invoice.id%>">
-          <%= image_tag "noun_Close_23269(1).png", alt: "overdue icon"%>
-        </div>
+      <div class="divider">
+        <h2 class="divider">Overdue</h2>
       </div>
-      <!-- Invoice Status Modal -->
-      <div class="modal fade" id="invoice-id-<%=invoice.id%>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Update Invoice Status</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <div class="update-status">
-                <%=simple_form_for(invoice, method: :patch, url: paid_path(invoice)) do |f|%>
-                  <%= f.input :payment_status, as: :hidden, input_html: {value: true} %>
-                  <%= f.submit "Mark as Paid" %>
+
+    <% @overdue.each do |invoice| %>
+      <!------------------ OVERDUE INVOICES ------------------>
+            <div class="card-invoice">
+              <div class="client-name">
+                <% if invoice.client.last_name.length > 10 %>
+                  <%= content_tag :p, invoice.client.first_name + " " + invoice.client.last_name[0] + ".", class: "client-name" %>
+                <% else %>
+                  <%= content_tag :p, invoice.client.first_name + " " + invoice.client.last_name, class: "client-name" %>
                 <% end %>
+              </div>
+              <div id="invoice-info">
+                <p>Invoice #<%= invoice.id %></p>
+                <p>$<%= invoice.event.price %></p>
+                <p class="bold">OVERDUE </p>
+              </div>
+              <div class="invoice-status-indicator" data-toggle="modal" data-target="#invoice-id-<%=invoice.id%>">
+                <%= image_tag "noun_Close_23269(1).png", alt: "overdue icon"%>
+              </div>
+
+            <!-- Invoice Status Modal -->
+            <div class="modal fade" id="invoice-id-<%=invoice.id%>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Update Invoice Status</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="update-status">
+                      <%=simple_form_for(invoice, method: :patch, url: paid_path(invoice.event)) do |f|%>
+                        <%= f.input :payment_status, as: :hidden, input_html: {value: true} %>
+                        <%= f.submit "Mark as Paid" %>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-      <% end %>
- <!--    <% end %> -->
-  </div>
+        <% end %>
 
-  <!------------------ PENDING INVOICES ------------------>
+        <div class="divider">
+          <h2 class="divider">Pending</h2>
+        </div>
 
-  <div class="pending">
-    <div class="divider">
-      <h2 class="divider">Pending</h2>
-    </div>
-    <% @pending_invoices.each do |invoice| %>
-      <div class="card-invoice">
-        <div class="client-name">
-          <% if invoice.client.last_name.length > 10 %>
-            <%= link_to invoice.client.first_name + " " + invoice.client.last_name[0] + ".", client_path(invoice.client), class: "client-name" %>
-          <% else %>
-            <%= link_to invoice.client.first_name + " " + invoice.client.last_name, client_path(invoice.client), class: "client-name" %>
-          <% end %>
+          <% @pending.each do |invoice| %>
+          <!------------------ PENDING INVOICES ------------------>
+
+              <div class="card-invoice">
+                <div class="client-name">
+                  <% if invoice.client.last_name.length > 10 %>
+                    <%= link_to invoice.client.first_name + " " + invoice.client.last_name[0] + ".", client_path(invoice.client), class: "client-name" %>
+                  <% else %>
+                    <%= link_to invoice.client.first_name + " " + invoice.client.last_name, client_path(invoice.client), class: "client-name" %>
+                  <% end %>
+                </div>
+                <div id="invoice-info">
+                  <p>Invoice #<%= invoice.id %></p>
+                  <p>$<%= invoice.event.price %></p>
+                  <p class="bold"><%= invoice.created_at.localtime.strftime("%b %d") %></p>
+                </div>
+                <div class="invoice-status-indicator" data-toggle="modal" data-target="#invoice-id-<%=invoice.id%>">
+                  <%= image_tag "noun_clock_23236.png", alt: "pending icon"%>
+                </div>
+
+              <!-- Invoice Status Modal -->
+              <div class="modal fade" id="invoice-id-<%=invoice.id%>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Update Invoice Status</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="update-status">
+                        <%=simple_form_for(invoice, method: :patch, url: paid_path(invoice.event)) do |f|%>
+                          <%= f.input :payment_status, as: :hidden, input_html: {value: true} %>
+                          <%= f.submit "Mark as Paid" %>
+                        <% end %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              </div>
+            <% end %>
+
+        <div class="divider">
+          <h2 class="divider">Paid</h2>
         </div>
-        <div id="invoice-info">
-          <p>Invoice #<%= invoice.id %></p>
-          <p>$<%= invoice.price %></p>
-          <p class="bold"><%= invoice.start_time.localtime.strftime("%b %d") %></p>
-        </div>
-        <div class="invoice-status-indicator" data-toggle="modal" data-target="#invoice-id-<%=invoice.id%>">
-          <%= image_tag "noun_clock_23236.png", alt: "pending icon"%>
-        </div>
-      </div>
-      <!-- Invoice Status Modal -->
-      <div class="modal fade" id="invoice-id-<%=invoice.id%>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Update Invoice Status</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <div class="update-status">
-                <%=simple_form_for invoice do |f|%>
-                  <%= f.input :status, as: :hidden, input_html: {value: true} %>
-                  <%= f.submit "Mark as Paid" %>
+
+          <% @paid.each do |invoice| %>
+        <!------------------ PAID INVOICES ------------------>
+            <div class="card-invoice">
+              <div class="client-name">
+                <% if invoice.client.last_name.length > 10 %>
+                  <%= link_to invoice.client.first_name + " " + invoice.client.last_name[0] + ".", client_path(invoice.client), class: "client-name" %>
+                <% else %>
+                  <%= link_to invoice.client.first_name + " " + invoice.client.last_name, client_path(invoice.client), class: "client-name" %>
                 <% end %>
               </div>
+              <div id="invoice-info">
+                <p>Invoice #<%= invoice.id %></p>
+                <p>$<%= invoice.event.price %></p>
+                <p class="bold">PAID </p>
+              </div>
+              <div class="invoice-status-indicator">
+                <%= image_tag "noun_Check Mark_23235.png", alt: "paid icon"%>
+              </div>
             </div>
-          </div>
-        </div>
-      </div>
-    <% end %>
-  </div>
-
-  <!------------------ PAID INVOICES ------------------>
-
-  <div class="paid">
-    <div class="divider">
-      <h2 class="divider">Paid</h2>
-    </div>
-    <% @paid_invoices.each do |invoice| %>
-      <div class="card-invoice">
-        <div class="client-name">
-          <% if invoice.client.last_name.length > 10 %>
-            <%= link_to invoice.client.first_name + " " + invoice.client.last_name[0] + ".", client_path(invoice.client), class: "client-name" %>
-          <% else %>
-            <%= link_to invoice.client.first_name + " " + invoice.client.last_name, client_path(invoice.client), class: "client-name" %>
           <% end %>
-        </div>
-        <div id="invoice-info">
-          <p>Invoice #<%= invoice.id %></p>
-          <p>$<%= invoice.price %></p>
-          <p class="bold">PAID </p>
-<!--           <%= invoice.start_time.localtime.strftime("%A, %b %d") %> -->
-        </div>
-        <div class="invoice-status-indicator">
-          <%= image_tag "noun_Check Mark_23235.png", alt: "paid icon"%>
-        </div>
-      </div>
-    <% end %>
   </div>
 </div>
