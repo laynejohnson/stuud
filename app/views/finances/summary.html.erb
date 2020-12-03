@@ -127,7 +127,7 @@
       </tr>
     <tr><% @income_report.each do |row| %>
       <td><%= row["event_id"] %></td>
-      <td><%= row["start_time"].strftime("%b %e %Y") %></td>
+      <td><%= row["start_time"].localtime.strftime("%b %e %Y") %></td>
       <td><%= row["clientfullname"] %></td>
       <td><%= row["price"] %>$</td></tr>
     <% end %>
@@ -148,7 +148,7 @@
       </tr>
   <tr><% @expense_report.each do |row| %>
       <td><%= row["id"] %></td>
-      <td><%= row["date"].strftime("%b %e %Y") %></td>
+      <td><%= row["date"].localtime.strftime("%b %e %Y") %></td>
       <td><%= row["name"] %></td>
       <td><%= row["amount"] %>$</td></tr>
     <% end %>
