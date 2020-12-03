@@ -1,5 +1,11 @@
 class DashboardController < ApplicationController
   def show
+
+    @invoices = current_user.invoices.sort_by { |a| a.invoice_status }
+    @overdue = @invoices.select { |invoice| invoice.event.payment_status == false && invoice.event.end_time <= Date.today - 7  }.sort_by { |invoice| invoice.created_at }
+    @pending = @invoices.select { |invoice| invoice.event.payment_status == false && invoice.event.end_time >= Date.today - 7  }.sort_by { |invoice| invoice.created_at  }
+    @paid = @invoices.select { |invoice| invoice.event.payment_status == true}.sort_by { |invoice| invoice.created_at }
+
     @todays_events = current_user.events
       .where(start_time: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day).order(:start_time)
 
@@ -30,5 +36,7 @@ class DashboardController < ApplicationController
     @events_weekly.each do |event|
       @income += event.price unless event.price.nil?
     end
+
+    @profit = @income - @total_expenses_weekly
   end
 end
