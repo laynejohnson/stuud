@@ -8,7 +8,6 @@
     justify-content: space-between;
   }
 
-
   .top-bar {
     display: flex;
     justify-content: space-between;
@@ -36,6 +35,11 @@
     width: 33%;
     height: 55px;
     padding-top: 16px;
+
+    h3 {
+      margin-left: 200px;
+      margin-top: 3px;
+    }
   }
 
   .tag-icons {
@@ -52,9 +56,9 @@
 
   .client-cards {
     overflow: scroll;
-    height: 75vh;
-
+    height: 82vh;
   }
+
 
   .client-card {
     display: flex;
@@ -63,8 +67,7 @@
     background-color: white;
     box-shadow: 0px 4px 4px rgba(198, 198, 198, 0.25);
     border-radius: 3px;
-    margin-top: 24px;
-    margin-bottom: 24px;
+    margin-top: 18px;
     text-align: center;
     padding-left: 32px;
 
@@ -74,6 +77,14 @@
     display: flex;
     justify-content: space-between;
     width: 44%;
+  }
+
+  .phone {
+    width: 30%;
+
+    p {
+    text-align: left;
+    }
   }
 
   .card-section {
@@ -133,11 +144,5 @@
     width: 14px;
     height: 90px;
   }
-
-  // .new-client-btn {
-  //   display: flex;
-  //   justify-content: flex-end;
-  //   margin-top: 16px;
-  // }
 
 }
