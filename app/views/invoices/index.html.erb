@@ -93,29 +93,24 @@
         <% end %>
       <% end %>
 
+  <!------------------ PENDING INVOICES ------------------>
         <% if @pending == [] && @overdue != [] %>
-        <div></div>
+          <div></div>
         <% else %>
-
-        <div class="divider">
-          <h2 class="divider">Pending</h2>
-        </div>
+          <div class="divider">
+            <h2 class="divider">Pending</h2>
+          </div>
         <% end %>
-
-          <% if @pending == [] && @overdue == [] && @invoices != [] %>
-            <div class="highlight">
-              <p class="">All invoices have been paid 🎉</p>
-            </div>
-            <% elsif @pending == []  %>
-            <div class="highlight">
-              <p class="">No pending invoices</p>
-            </div>
-          <% else %>
-
-
+        <% if @pending == [] && @overdue == [] && @invoices != [] %>
+          <div class="highlight">
+             <p class="">All invoices have been paid 🎉</p>
+          </div>
+        <% elsif @pending == []  %>
+          <div class="highlight">
+            <p class="">No pending invoices</p>
+          </div>
+        <% else %>
           <% @pending.each do |invoice| %>
-          <!------------------ PENDING INVOICES ------------------>
-
               <div class="card-invoice">
                 <div class="client-name">
                   <% if invoice.client.last_name.length > 10 %>
@@ -132,7 +127,6 @@
                 <div class="invoice-status-indicator" data-toggle="modal" data-target="#invoice-id-<%=invoice.id%>">
                   <%= image_tag "noun_clock_23236.png", alt: "pending icon"%>
                 </div>
-
               <!-- Invoice Status Modal -->
               <div class="modal fade" id="invoice-id-<%=invoice.id%>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
@@ -156,8 +150,10 @@
               </div>
               </div>
             <% end %>
-            <% end %>
-        <% end %>
+          <% end %>
+
+<!------------------ PAID INVOICES ------------------>
+
         <div class="divider">
           <h2 class="divider">Paid</h2>
         </div>
@@ -169,7 +165,7 @@
         <% end %>
 
           <% @paid.each do |invoice| %>
-        <!------------------ PAID INVOICES ------------------>
+
             <div class="card-invoice">
               <div class="client-name">
                 <% if invoice.client.last_name.length > 10 %>
