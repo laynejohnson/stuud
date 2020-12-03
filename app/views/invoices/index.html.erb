@@ -2,6 +2,7 @@
   <div class="header">
     <h1>My Invoices</h1>
     <p class="btn-orange"><%= link_to "New Invoice", new_invoice_path %></p>
+    <button class="btn-graph"><%= link_to "Download Reports", finance_summary_path(format: :pdf) %></button>
   </div>
     <hr/>
   <div class="top-bar">
