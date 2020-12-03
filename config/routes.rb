@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   root to: 'dashboard#show'
 
   resources :events
-  resource :dashboard, only: [:show], :controller => :dashboard
+  # resource :dashboard, only: [:show], :controller => :dashboard
+  get "dashboard/show", to: "dashboard#show", as: :dashboard
   resource :calendar, only: [:show], :controller => :calendar
   resource :finances, only: [:show], :controller => :finances
   post 'invoices/:id/send_email', to: "invoices#send_email", as: :invoice_send_email

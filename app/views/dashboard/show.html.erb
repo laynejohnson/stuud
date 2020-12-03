@@ -1,3 +1,13 @@
+<% unless current_user %>
+<h1 class="home-logo">STÜUD</h1>
+<hr/>
+<div class="home-btns">
+  <p class="btn-orange"><%= link_to "Login", new_user_session_path  %></p>
+  <p class="btn-orange"><%= link_to "Signup", user_session_path  %></p>
+</div>
+<% else %>
+
+
 <!-- STUUD Dashboard -->
 <div class="dashboard">
   <div class="container-left">
@@ -142,3 +152,4 @@
   </div>
   </div>
 </div>
+<% end %>
