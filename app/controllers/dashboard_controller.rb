@@ -36,5 +36,7 @@ class DashboardController < ApplicationController
     @events_weekly.each do |event|
       @income += event.price unless event.price.nil?
     end
+
+    @profit = @income - @total_expenses_weekly
   end
 end
