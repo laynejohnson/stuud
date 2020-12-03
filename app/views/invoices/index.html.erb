@@ -2,7 +2,6 @@
   <div class="header">
     <h1>My Invoices</h1>
     <p class="btn-orange"><%= link_to "New Invoice", new_invoice_path %></p>
-    <button class="btn-orange"><%= link_to "Download Reports", finance_summary_path(format: :pdf), target: :_blank %></button>
   </div>
     <hr/>
   <div class="top-bar">
@@ -71,6 +70,9 @@
         </div>
 
     <% end %>
+    </div>
+    <div class="btn-container">
+      <button class="btn-download"><%= link_to "Download Reports", finance_summary_path(format: :pdf), target: :_blank %></button>
     </div>
 </div>
 
