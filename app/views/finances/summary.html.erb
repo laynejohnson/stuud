@@ -1,0 +1,159 @@
+<style>
+
+  h1 {
+  font-family: 'Playfair Display', serif!important;
+  font-size: 26px!important;
+  font-weight: bold!important;
+  color: #2a3266!important;
+  }
+
+  h2 {
+  font-family: 'Montserrat', sans-serif!important;
+  font-size: 16px!important;
+  font-weight: bold!important;
+  color: #fb6c00!important;
+  }
+
+  h3 {
+  font-family: 'Montserrat', sans-serif!important;
+  font-size: 16px!important;
+  font-weight: 500!important;
+  color: #2a3266!important;
+  }
+
+  h5 {
+  font-family: 'Montserrat', sans-serif!important;
+  font-size: 16px!important;
+  font-weight: 500!important;
+  color: black!important;
+  }
+
+  p {
+  font-family: 'Montserrat', sans-serif!important;
+  font-size: 16px!important;
+  color: #2a3266!important;
+  }
+
+  table, tr, td {
+    border: 1.5px solid grey;
+  }
+
+  th {
+    text-align: center;
+  }
+
+  .page-body {
+      border-top: 1px solid $sblue;
+      margin-left: 0px!important;
+    }
+    .container {
+      margin-top: 48px;
+    }
+
+    .header {
+      display: flex;
+      justify-content: center;
+    }
+
+    .user-info {
+      text-align: right;
+    }
+
+    .invoice-section {
+      margin-top: 16px;
+    }
+
+    .total {
+      text-align: left;
+    }
+</style>
+
+<div class="page-body">
+
+  <div class="total">
+  <h2>www.Stuud.app</h2>
+  <h6>Financial report<h6>
+  <h6><%= DateTime.now.strftime("%b %e %Y") %></h6>
+  </div>
+  <div class="user-info">
+  <p><%= current_user.first_name %> <%= current_user.last_name %><br>
+  <%= current_user.email %>  </p>
+  </div>
+
+
+
+<%# <div class=" graph graph-weekly">
+    <%= column_chart [{ name: "Income weekly", data: @events_yearly.group_by_week(:start_time).sum(:price) },{ name: "Expenses weekly", data: @expenses_yearly.group_by_week(:date).sum(:amount)}],
+        suffix: "$",
+        width: "400px",
+        height: "300px",
+        title: "Weekly Income vs. Expenses ( #{DateTime.now.day}-#{DateTime.now.month}-#{DateTime.now.year} ) ",
+        legend: true,
+        colors: ["#FB6C00", "#424D58"],
+        library: { chart: {
+          style: {
+            fontFamily: "'Montserrat', sans-serif"
+            }
+            }
+          } %>
+<%# </div> %>
+
+<hr>
+
+<h1>Report summary</h1>
+<h6><%= @income_report.last["start_time"].strftime("%b %e %Y") %> - <%= @income_report.first["start_time"].strftime("%b %e %Y") %></h6>
+<br>
+<h6> Total expected income for this period :</h6><h2>    <%= @income %> $</h2>
+<h6> Total expenses for this period :</h6><h2>    <%= @total_expenses %> $</h2>
+
+<hr>
+
+<div class="header">
+<h1>Income details</h1>
+
+<br>
+<h3>
+<table>
+    <tr>
+      <th>#id</th>
+      <th>Date</th>
+      <th>Client</th>
+      <th>Price</th>
+    </tr>
+  <tr><% @income_report.each do |row| %>
+    <td>#<%= row["event_id"] %></td>
+    <td><%= row["start_time"].strftime("%b %e %Y") %></td>
+    <td><%= row["clientfullname"] %></td>
+    <td><%= row["price"] %>$</td></tr>
+  <% end %>
+</table></h3>
+<div>
+
+
+
+<hr>
+<div class="header">
+<h1>Expense details</h1>
+
+<br>
+<h3>
+<table>
+    <tr>
+      <th>#id</th>
+      <th>Date</th>
+      <th>Name</th>
+      <th>Amount</th>
+    </tr>
+<tr><% @expense_report.each do |row| %>
+    <td><%= row["id"] %></td>
+    <td><%= row["date"].strftime("%b %e %Y") %></td>
+    <td><%= row["name"] %></td>
+    <td><%= row["amount"] %>$</td></tr>
+  <% end %>
+  </table>
+  </h3>
+<hr>
+</div>
+</div>
+
+</div>
