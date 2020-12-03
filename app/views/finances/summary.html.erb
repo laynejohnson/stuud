@@ -89,9 +89,19 @@
       height: 16px;
      }
 
+      .logo {
+      margin-bottom: 16px;
+      margin-top: 16px;
+     }
+
 </style>
 
 <div class="container">
+  <div>
+    <%= link_to root_path do %>
+      <%= image_tag "logo.svg", alt: "", class: "logo" %>
+    <% end %>
+   </div>
   <div class="header">
     <div class="header-left">
       <h1>Financial report</h1>
