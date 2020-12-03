@@ -184,6 +184,14 @@
     font-size: 16px !important;
     margin-bottom: 0px;
     width: 30%;
+
+    a {
+      color: $sblue;
+    }
+
+    a:hover {
+      color: #FA4B00;
+    }
   }
 
   #invoice-info {

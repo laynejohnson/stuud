@@ -26,7 +26,7 @@
       <% @todays_events.each do |event| %>
         <div class="card-dashboard">
           <%= link_to event.client.fullname, client_path(event.client), class: "client-name" %>
-          <p class="event-date"><%= event.start_time.localtime.strftime("%b %e, %l:%M %p") %></p>
+          <p class="event-date"><%= link_to event.start_time.localtime.strftime("%b %e, %l:%M %p"), event_path(event) %></p>
           <%= image_tag "noun_Vertical Dots_3560972 (1).svg", alt: "alttext" %>
             <% if event.client.color == "Red" %>
               <div class="color-indicator-red"></div>
@@ -65,7 +65,7 @@
       <% @future_events_limit_week.each do |event| %>
       <div class="card-dashboard">
         <%= link_to event.client.first_name + " " + event.client.last_name, client_path(event.client), class: "client-name" %>
-        <p class="event-date"><%= event.start_time.localtime.strftime("%b %e, %l:%M %p") %></p>
+        <p class="event-date"><%= link_to event.start_time.localtime.strftime("%b %e, %l:%M %p"), event_path(event) %></p>
         <%= image_tag "noun_Vertical Dots_3560972 (1).svg", alt: "alttext" %>
           <% if event.client.color == "Red" %>
             <div class="color-indicator-red"></div>
