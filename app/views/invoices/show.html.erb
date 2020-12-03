@@ -50,6 +50,15 @@
     .total {
       text-align: right;
     }
+
+    .footer {
+      text-align: right;
+    }
+
+    .symbol {
+      width: 16px;
+      height: 16px;
+     }
 </style>
 
 <div class="invoice-show">
@@ -81,6 +90,13 @@
     <h1>Amount due:</h1>
     <h1> $<%= @invoice.event.price %></h1>
 
+  </div>
+  <br>
+  <br>
+  <br>
+  <div class="footer">
+    <div><%= image_tag "copyright.svg", alt: "", class: "symbol" %> Stuud 2020</div>
+    <h3> www.stuud.app</h3>
   </div>
   </div>
 
