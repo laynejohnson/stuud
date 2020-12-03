@@ -27,6 +27,21 @@
   color: #2a3266!important;
   }
 
+   h5 {
+    color: #FA6C00!important;
+    font-family: Playfair Display;
+    font-weight: 900;
+    font-size: 40px;
+   }
+
+   a {
+    color: #FA6C00;
+   }
+
+   a:hover {
+    color: #FA4B00;
+   }
+
   hr {
       border-top: 1px solid $sblue;
     }
@@ -59,10 +74,19 @@
       width: 16px;
       height: 16px;
      }
-</style>
 
-<div class="invoice-show">
+     .logo {
+      margin-bottom: 16px;
+      margin-top: 16px;
+     }
+
+</style>
   <div class="container">
+    <div>
+      <%= link_to root_path do %>
+        <%= image_tag "logo.svg", alt: "", class: "logo" %>
+      <% end %>
+     </div>
     <div class="header">
       <h1>Invoice # 10148<%= @invoice.id %></h1>
       <div class= "user-info">
@@ -98,6 +122,5 @@
     <div><%= image_tag "copyright.svg", alt: "", class: "symbol" %> Stuud 2020</div>
     <h3> www.stuud.app</h3>
   </div>
-  </div>
-
 </div>
+
