@@ -1,0 +1,6 @@
+meta_product_name: "Stuud"
+meta_title: "Stuud -- your app for freelancers -"
+meta_description: "Lean CRM for self-employed entrepreneurs and professionals.
+Key in hand solution with no learning curve for keeping track of your clientele and finances."
+meta_image: "cover.png" # should exist in `app/assets/images/`
+twitter_account: "@product_twitter_account"   # required for Twitter Cards
