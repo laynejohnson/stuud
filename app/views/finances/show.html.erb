@@ -3,7 +3,15 @@
   <!--------------------- CONTAINER LEFT --------------------->
 
   <div class="container-left">
-    <h1>My Finances</h1>
+
+<!--     <div class="btn-container">
+      <button class="btn-download"><%= link_to "Download Reports", finance_summary_path(format: :pdf), target: :_blank %></button>
+    </div> -->
+
+    <div class="section-header">
+      <h1> My Finances </h1>
+      <%= link_to "Download Report", finance_summary_path(format: :pdf), target: :_blank, class: "link"  %>
+    </div>
     <hr/>
     <div class="graph-buttons">
       <div>
@@ -108,10 +116,6 @@
         <%= image_tag 'noun_add_8394.png', width: 60, height: 60, alt: 'add an appointment'%>
       </div>
         <% end %>
-    </div>
-
-    <div class="btn-container">
-      <button class="btn-download"><%= link_to "Download Reports", finance_summary_path(format: :pdf), target: :_blank %></button>
     </div>
   </div>
   </div>
