@@ -28,11 +28,12 @@ class EventsController < ApplicationController
   def mark_as_paid
     @event = Event.find(params[:event_id])
     @event.payment_status = true
+    path = URI(request.referer).path == "/finances" ? finances_path : invoices_path
     if @event.save
-      redirect_to finances_path
+      redirect_to path
     else
       flash[:notice] = "Sorry, there was a problem updating that invoice."
-      redirect_to finances_path
+      redirect_to path
     end
   end
 

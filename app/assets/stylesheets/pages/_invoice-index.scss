@@ -132,7 +132,7 @@
 
   .btn-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     width: 41%;
   }
 
@@ -296,7 +296,7 @@
     align-items: center;
     justify-content: center;
     height: 90px;
-    width: 90px;
+    width: 115px;
     background-color: rgba(230, 232, 230, 0.5);
     text-align: center;
 
@@ -337,15 +337,27 @@
     width: 30%;
   }
 
+  .invoice-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 22%;
+    margin-right: 40px;
+  }
+
   #invoice-info {
     text-align: right;
-    margin-right: 10px;
+    margin-right: 15px;
     width: 35%;
 
     p {
       font-size: 14px !important;
       margin-bottom: 0px;
     }
+  }
+
+  .bold {
+    font-weight: bold;
   }
 
 

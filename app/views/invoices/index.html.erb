@@ -3,8 +3,7 @@
   <div class="header">
     <h1>My Invoices</h1>
     <div class="btn-container">
-      <button class="btn-download"><%= link_to "Download Reports", finance_summary_path(format: :pdf), target: :_blank %></button>
-    <p class="btn-orange"><%= link_to "New Invoice", new_invoice_path %></p>
+      <p class="btn-orange"><%= link_to "New Invoice", new_invoice_path %></p>
     </div>
   </div>
     <hr/>
@@ -18,7 +17,7 @@
       </div>
       <% end %>
     </div>
-    <div class="tags">
+<!--     <div class="tags">
       <div>
         <h3>Tags:</h3>
       </div>
@@ -39,7 +38,7 @@
           <% end %>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
   <div class="invoices">
 
@@ -59,6 +58,21 @@
             <% else %>
               <%= content_tag :p, invoice.client.first_name + " " + invoice.client.last_name, class: "client-name" %>
             <% end %>
+          </div>
+
+          <div class="invoice-controls">
+            <div>
+             <%= link_to "View", invoice_path(invoice, format: :pdf), target: "_blank" %>
+            </div>
+            <div>
+              <%= link_to "Send", invoice_send_email_path(invoice), method: :post %>
+            </div>
+            <div>
+              <%= link_to "Edit", edit_invoice_path(invoice) %>
+            </div>
+            <div>
+              <%= link_to "Delete", invoice_path(invoice), method: :delete, data: { confirm: "Are you sure?" }%>
+            </div>
           </div>
           <div id="invoice-info">
             <p>Invoice #<%= invoice.id %></p>
@@ -103,7 +117,7 @@
         <% end %>
         <% if @pending == [] && @overdue == [] && @invoices != [] %>
           <div class="highlight">
-             <p class="">All invoices have been paid 🎉</p>
+             <p class="">All invoices have been paid! 🎉</p>
           </div>
         <% elsif @pending == []  %>
           <div class="highlight">
@@ -119,6 +133,20 @@
                     <%= link_to invoice.client.first_name + " " + invoice.client.last_name, client_path(invoice.client), class: "client-name" %>
                   <% end %>
                 </div>
+              <div class="invoice-controls">
+                <div>
+                 <%= link_to "View", invoice_path(invoice, format: :pdf), target: "_blank" %>
+                </div>
+                <div>
+                  <%= link_to "Send", invoice_send_email_path(invoice), method: :post %>
+                </div>
+                <div>
+                  <%= link_to "Edit", edit_invoice_path(invoice) %>
+                </div>
+                <div>
+                  <%= link_to "Delete", invoice_path(invoice), method: :delete, data: { confirm: "Are you sure?" }%>
+                </div>
+              </div>
                 <div id="invoice-info">
                   <p>Invoice #<%= invoice.id %></p>
                   <p>$<%= invoice.event.price %></p>
@@ -169,18 +197,37 @@
             <div class="card-invoice">
               <div class="client-name">
                 <% if invoice.client.last_name.length > 10 %>
+
                   <%= link_to invoice.client.first_name + " " + invoice.client.last_name[0] + ".", client_path(invoice.client), class: "client-name" %>
                 <% else %>
                   <%= link_to invoice.client.first_name + " " + invoice.client.last_name, client_path(invoice.client), class: "client-name" %>
                 <% end %>
               </div>
+
+
+              <div class="invoice-controls">
+                <div>
+                 <%= link_to "View", invoice_path(invoice, format: :pdf), target: "_blank" %>
+                </div>
+                <div>
+                  <%= link_to "Send", invoice_send_email_path(invoice), method: :post %>
+                </div>
+                <div>
+                  <%= link_to "Edit", edit_invoice_path(invoice) %>
+                </div>
+                <div>
+                  <%= link_to "Delete", invoice_path(invoice), method: :delete, data: { confirm: "Are you sure?" }%>
+                </div>
+              </div>
+
+
               <div id="invoice-info">
                 <p>Invoice #<%= invoice.id %></p>
                 <p>$<%= invoice.event.price %></p>
                 <p class="bold">PAID </p>
               </div>
               <div class="invoice-status-indicator">
-                <%= image_tag "noun_Check Mark_23235.png", alt: "paid icon"%>
+                <%= link_to image_tag "noun_Check Mark_23235.png", alt: "paid icon"%>
               </div>
             </div>
           <% end %>
