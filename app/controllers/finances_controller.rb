@@ -2,7 +2,6 @@ class FinancesController < ApplicationController
 before_action :set_user
 
   def show
-    raise
     @income = 0
 
     @user.events.each do |booking|
