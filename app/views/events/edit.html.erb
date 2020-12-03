@@ -1,6 +1,38 @@
 <h1>Edit Appointment</h1>
+<hr/>
+<div class="new-booking">
+<%= simple_form_for(@event) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-<%= render 'form', event: @event %>
-
-<%#= link_to 'Show', @event %>
-<!-- <p class="btn-orange"><%= link_to 'Back', events_path %></p> -->
+<%= f.association :client,
+                  :collection => @user_clients,
+                  :label_method => :fullname,
+                   required: true%>
+    <%= f.input :title,
+                required: true%>
+   <%= f.input :start_time,
+                as: :string,
+                required: true,
+                input_html: {class: "datepicker"}%>
+    <%= f.input :end_time,
+                as: :string,
+                input_html: {class: "datepicker"},
+                required: true%>
+    <%= f.input :price,
+                # label: false,
+                required: true%>
+    <%= f.input :payment_status,
+                required: true,
+                label: "paid?",
+                placeholder: "paid?",
+                as: :select %>
+    <%= f.input :color,
+                :collection => [['Yellow','rgb(255, 230, 110)'], ['Blue','rgb(38, 149, 223)'], ['Red','rgb(223, 42, 100)']],
+                label: "Pick event color" %>
+   <div class="form-actions">
+    <%= f.submit "Confirm"%>
+      <p class="btn-orange" style=" position: absolute; top: 28px; right: 250px;">
+        <%= link_to 'Delete', @event, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+      <% end %>
+</div>
