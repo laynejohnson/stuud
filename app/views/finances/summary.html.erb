@@ -34,6 +34,14 @@
   color: #2a3266!important;
   }
 
+  table, tr, td {
+    border: 1.5px solid grey;
+  }
+
+  th {
+    text-align: center;
+  }
+
   .page-body {
       border-top: 1px solid $sblue;
       margin-left: 0px!important;
@@ -44,7 +52,7 @@
 
     .header {
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
     }
 
     .user-info {
@@ -102,16 +110,23 @@
 
 <div class="header">
 <h1>Income details</h1>
-<h3>#id - Date - Client - Price</h3>
+
 <br>
-<h3><ul>
-  <% @income_report.each do |row| %>
-    <li>#<%= row["event_id"] %> -
-       <%=   row["start_time"].strftime("%b %e %Y") %>,
-    <%=      row["clientfullname"] %>,
-             price: <%=     row["price"] %>$</li>
+<h3>
+<table>
+    <tr>
+      <th>#id</th>
+      <th>Date</th>
+      <th>Client</th>
+      <th>Price</th>
+    </tr>
+  <tr><% @income_report.each do |row| %>
+    <td>#<%= row["event_id"] %></td>
+    <td><%= row["start_time"].strftime("%b %e %Y") %></td>
+    <td><%= row["clientfullname"] %></td>
+    <td><%= row["price"] %>$</td></tr>
   <% end %>
-</ul></h3>
+</table></h3>
 <div>
 
 
@@ -119,16 +134,25 @@
 <hr>
 <div class="header">
 <h1>Expense details</h1>
-<h3>#id - Date - Client - Price</h3>
+
 <br>
-<h3><ul>
-  <% @expense_report.each do |row| %>
-    <li>#<%= row["id"] %> -
-    <%= row["date"].strftime("%b %e %Y") %>,
-    <%= row["name"] %>
-    <%= row["amount"] %>$</li>
+<h3>
+<table>
+    <tr>
+      <th>#id</th>
+      <th>Date</th>
+      <th>Name</th>
+      <th>Amount</th>
+    </tr>
+<tr><% @expense_report.each do |row| %>
+    <td><%= row["id"] %></td>
+    <td><%= row["date"].strftime("%b %e %Y") %></td>
+    <td><%= row["name"] %></td>
+    <td><%= row["amount"] %>$</td></tr>
   <% end %>
-</ul></h3>
+  </table>
+  </h3>
+<hr>
 </div>
 </div>
 
