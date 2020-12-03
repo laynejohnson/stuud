@@ -23,5 +23,7 @@ module Stuud
     require 'wicked_pdf'
     config.middleware.use WickedPdf::Middleware
     # config.time_zone = 'Eastern Time (US & Canada)'
+
+    # config.active_record.default_timezone = :local
   end
 end
