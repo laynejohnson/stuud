@@ -11,7 +11,7 @@
    <div class="expense-card">
     <div class="card-left">
      <div class="card-section"><h2><%= expense.name %></h2></div>
-     <div class="card-section"><p><%= expense.date.strftime("%b %e")%></p></div>
+     <div class="card-section date"><p><%= expense.date.strftime("%b %e")%></p></div>
     </div>
      <div class="card-section"><h2>$<%= expense.amount %></h2></div>
    </div>
@@ -21,7 +21,7 @@
    <!--  <div class="new-client-btn">
     <p class="btn-orange"><%= link_to 'Add Expense', new_expense_path %></p>
   </div> -->
-    <div class="total">
+    <div class="total bold">
       <p>Total:</p>
       <h2>$<%= @total_expenses %></h2>
    </div>
