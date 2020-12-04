@@ -9,6 +9,15 @@
     justify-content: flex-end;
   }
 
+  .new-appt {
+    width: 185px !important;
+  }
+
+  .link-to {
+    position: absolute;
+    right: 25px;
+  }
+
   .no-appointment {
     height: 90px;
     width: 95%;
@@ -81,7 +90,7 @@
   .btns {
     display: flex;
     justify-content: flex-end;
-    margin-top: 45px;
+    margin-top: 53px;
 
     p {
       color: $soffwhite;
