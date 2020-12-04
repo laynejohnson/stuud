@@ -403,6 +403,14 @@
       font-size: 14px !important;
       margin-bottom: 0px;
     }
+
+    a {
+      color: $sblue;
+    }
+
+    a:hover {
+      color: #FA4B00;
+    }
   }
 
   #card-content-weekly {
