@@ -3,14 +3,15 @@
     <div class="header">
       <h1>Appointment with <%= @event.client.fullname %></h1>
       <div class="header-btns">
-        <p class="btn-orange">  <%= link_to 'Edit', edit_event_path(@event) %></p>
+
+        <p class="btn-orange">  <%= link_to 'Create Invoice', new_invoice_path %></p>
         <p class="btn-orange">  <%= link_to 'Email Confirm', events_confirmation_email_path(@event), method: :post %></p>
 
       </div>
     </div>
     <hr/>
     <p>
-      <strong>Title:</strong>
+      <strong>Event Title:</strong>
       <%= @event.title %>
     </p>
     <p>
@@ -29,7 +30,9 @@
       <strong>Payment Status:</strong>
         <%= @event.payment_status ? "Paid": "Due" %>
     </p>
-
+    <div>
+      <p class="btn-orange">  <%= link_to 'Edit', edit_event_path(@event) %></p>
+    </div>
 
     <!-- <div class="btns"> -->
       <!-- <p class="btn-orange">  <%= link_to 'Edit', edit_event_path(@event) %></p> -->
