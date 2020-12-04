@@ -34,7 +34,7 @@
       <strong>Payment Status:</strong>
         <%= @event.payment_status ? "Paid": "Due" %>
     </p>
-    <div>
+    <div class= "btns">
       <p class="btn-orange">  <%= link_to 'Edit', edit_event_path(@event) %></p>
     </div>
 
