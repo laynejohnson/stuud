@@ -50,21 +50,13 @@
   <div class="client-right">
     <div class="header">
       <h2>Upcoming Appointments:</h2>
-
-      <!-- <p><%= link_to 'New Appt', new_event_path %></p> -->
-
-
     </div>
-
-    <% if @client.events == [] %>
-      <div class="no-appointment">
-      </div>
-    <% end %>
-
       <%= link_to new_event_path({client_id: @client.id}) do %>
-        <div class="no-appointment">
-          <div><h2>Add an appointment</h2></div>
-          <%= image_tag "noun_add_8394.png", height: 50, width: 50, alt: "alttext" %>
+        <div>
+          <div class="no-appointment">
+            <div><h2>Add an appointment</h2></div>
+            <%= image_tag "noun_add_8394.png", height: 50, width: 50, alt: "alttext" %>
+          </div>
         </div>
       <% end %>
 

@@ -6,7 +6,7 @@
 
   .no-appointment {
     height: 90px;
-    width: 100%;
+    width: 90%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -86,10 +86,11 @@
     display: grid;
     grid-column-gap: 16px;
     grid-template-columns: 50% 50%;
+    width: 100%;
   }
 
   .client-right {
-
+    width: 100%;
   }
 
   .appt-card {
