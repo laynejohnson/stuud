@@ -1,9 +1,14 @@
 <div class="client-show">
   <div class="header">
     <h1><%= @client.fullname %></h1>
-<!--     <div class="header-btns">
-      <p class="link"><%= link_to 'Back to Clients', clients_path %></p>
-    </div> -->
+
+    <% if  @client.events == [] || @client.events.where("start_time > ?", DateTime.now) != [] %>
+      <div class="header-btns">
+        <p class="btn-orange new-appt"><%= link_to 'New Appointment', new_event_path({client_id: @client.id}) %></p>
+      </div>
+      <% else %>
+        <div></div>
+    <% end %>
   </div>
   <% if @client.color == "Red" %>
       <hr style="height:2px; border-width:0; color:rgb(222, 42, 99); background-color:rgb(222, 42, 99)">
@@ -63,17 +68,15 @@
           </div>
         </div>
       <% end %>
-
       <% else %>
-
-    <% @client.events.where("start_time > ?", DateTime.now).order(:start_time).each do |event|%>
-    <div class="appt-card">
-      <div><h2><%= link_to event.start_time.localtime.strftime("%b %e"), event_path(event)%></h2></div>
-      <div><p><%= link_to event.start_time.localtime.strftime("%l:%M %p"), event_path(event)%></p></div>
-      <!-- <p>Payment status: <%= event.payment_status %></p> -->
-      <div><h2><%= event.status %>Confirmed</h2></div>
-      <div class="card-end">
-          <% if event.client.color == "Red" %>
+        <% @client.events.where("start_time > ?", DateTime.now).order(:start_time).each do |event|%>
+        <div class="appt-card">
+          <div><h2><%= link_to event.start_time.localtime.strftime("%b %e"), event_path(event)%></h2></div>
+          <div><p><%= link_to event.start_time.localtime.strftime("%l:%M %p"), event_path(event)%></p></div>
+          <!-- <p>Payment status: <%= event.payment_status %></p> -->
+          <div><h2><%= event.status %>Confirmed</h2></div>
+          <div class="card-end">
+            <% if event.client.color == "Red" %>
                 <div class="color-indicator-red"></div>
               <% elsif event.client.color == "Yellow" %>
                 <div class="color-indicator-yellow"></div>
@@ -82,9 +85,10 @@
               <% else %>
                 <div></div>
               <% end %>
+          </div>
         </div>
-    </div>
     <% end %>
+<!--         <%= link_to image_tag "noun_add_8394.png", height: 50, width: 50, alt: "alttext", class: "link-to" %> -->
   <% end %>
 
   </div>
