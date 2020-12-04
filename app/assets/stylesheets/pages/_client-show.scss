@@ -27,8 +27,7 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    margin-bottom: 13px;
-    margin-
+    margin-bottom: 10px;
 
     a {
       color: $sblue;
@@ -40,8 +39,11 @@
 
     h2 {
       font-size: 18px !important;
+      margin-top: 12px;
     }
-  }
+
+    }
+
 
   .header-btns {
     width: 35%;
