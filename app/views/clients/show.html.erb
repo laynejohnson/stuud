@@ -50,18 +50,22 @@
   <div class="client-right">
     <div class="header">
       <h2>Upcoming Appointments:</h2>
-      <!-- <p><%= link_to 'New Appt', new_event_path %></p> -->
-      <%= link_to new_event_path do %>
-      <div id="add">
-        <%= image_tag 'noun_add_8394.png', width: 40, height: 40, alt: 'add an appointment' %>
-      </div>
-        <% end %>
-
     </div>
-      <% @client.events.where("start_time > ?", DateTime.now).order(:start_time).each do |event|%>
 
+    <% if @client.events.where("start_time > ?", DateTime.now) == [] %>
+      <%= link_to new_event_path({client_id: @client.id}) do %>
+        <div>
+          <div class="no-appointment">
+            <div><h2>Add an appointment</h2></div>
+            <%= image_tag "noun_add_8394.png", height: 50, width: 50, alt: "alttext" %>
+          </div>
+        </div>
+      <% end %>
+
+      <% else %>
+
+    <% @client.events.where("start_time > ?", DateTime.now).order(:start_time).each do |event|%>
     <div class="appt-card">
-
       <div><h2><%= link_to event.start_time.localtime.strftime("%b %e"), event_path(event)%></h2></div>
       <div><p><%= link_to event.start_time.localtime.strftime("%l:%M %p"), event_path(event)%></p></div>
       <!-- <p>Payment status: <%= event.payment_status %></p> -->
@@ -79,6 +83,7 @@
         </div>
     </div>
     <% end %>
+  <% end %>
 
   </div>
 </div>

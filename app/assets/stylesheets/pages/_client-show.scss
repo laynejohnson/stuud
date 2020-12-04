@@ -1,9 +1,33 @@
 .client-show {
 
+  .highlight {
+    background: rgba(230, 232, 230, 0.3);
+  }
+
+  .no-appointment {
+    height: 90px;
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(198, 198, 198, 0.25);
+    border-radius: 3px;
+
+    h2 {
+      margin-left: 25px;
+    }
+
+    img {
+      margin-right: 20px;
+    }
+  }
+
   .header {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
+    margin-bottom: 10px;
 
     a {
       color: $sblue;
@@ -12,7 +36,14 @@
     a:hover {
       color: $sorange;
     }
-  }
+
+    h2 {
+      font-size: 18px !important;
+      margin-top: 12px;
+    }
+
+    }
+
 
   .header-btns {
     width: 35%;
@@ -57,10 +88,16 @@
     display: grid;
     grid-column-gap: 16px;
     grid-template-columns: 50% 50%;
+    width: 100%;
+  }
+
+  .client-right {
+    width: 100%;
   }
 
   .appt-card {
     height: 90px;
+    width: 95%;
     display: flex;
     justify-content: space-between;
     background: #FFFFFF;
@@ -69,7 +106,6 @@
     margin-bottom: 16px;
     padding-top: 32px;
     padding-left: 32px;
-    // padding-right:32px;
 
     a {
     color: $sblue;
