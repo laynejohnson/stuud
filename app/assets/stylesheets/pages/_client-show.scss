@@ -4,6 +4,11 @@
     background: rgba(230, 232, 230, 0.3);
   }
 
+  .header-btns {
+    display: flex;
+    justify-content: flex-end;
+  }
+
   .no-appointment {
     height: 90px;
     width: 95%;
@@ -38,33 +43,19 @@
     }
 
     h2 {
-      font-size: 18px !important;
-      margin-top: 12px;
+      font-size: 17px !important;
     }
 
     }
-
-
-  .header-btns {
-    width: 35%;
-    display: flex;
-    justify-content: flex-end;
-
-    .btn-orange {
-      margin-left: 8px;
-      // margin-right: 8px;
-    }
-  }
-
-  // img {
-  //   margin-right: 16px;
-  // }
 
   .info-section {
     display: flex;
     align-items: center;
-    margin-top: 16px;
-    margin-bottom: 16px;
+    margin-bottom: 17px;
+
+    h2 {
+      margin-top: 9px;
+    }
   }
 
   .icon {
@@ -73,12 +64,24 @@
 
   .notes {
     height: 300px;
+    margin-top: 30px;
 
+    h2 {
+      font-size: 17px !important;
+      margin-bottom: 15px;
+    }
+  }
+
+  .note-body {
+    background-color: white;
+    height: 300px;
+    padding: 13px;
   }
 
   .btns {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
+    margin-top: 45px;
 
     p {
       color: $soffwhite;

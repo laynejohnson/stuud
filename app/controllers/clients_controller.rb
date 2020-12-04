@@ -22,7 +22,7 @@ class ClientsController < ApplicationController
     @client = Client.new(clients_params)
     @client.user = current_user
     if @client.save
-      redirect_to clients_path
+      redirect_to client_path(@client)
     else
       render :new
     end
