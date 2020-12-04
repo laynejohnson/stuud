@@ -41,7 +41,30 @@ alex = User.create(
   last_name: "Calvadillos"
 )
 
-20.times do
+lewagon = Client.create!(
+  email: "montreal@wagon.org",
+  first_name: "le",
+  last_name: "Wagon",
+  address: "5333 casgrain, Montreal",
+  phone: "514-555-5555",
+  color: %w[Red Yellow Blue].sample,
+  notes: "Change your life learn to code - https://www.lewagon.com/montreal",
+  user: alex
+)
+
+dawg = Client.create!(
+  email: "dawg@mail.com",
+  first_name: "Dawg",
+  last_name: "rentals",
+  address: Faker::Address.full_address,
+  phone: Faker::PhoneNumber.cell_phone,
+  color: %w[Red Yellow Blue].sample,
+  notes: "http://dawg-lewagon.herokuapp.com",
+  user: alex
+)
+
+
+3.times do
   client = Client.create!(
     email: Faker::Internet.email,
     first_name: Faker::Name.first_name,
