@@ -135,6 +135,14 @@
     box-shadow: 0px 4px 4px rgba(198, 198, 198, 0.25);
     border-radius: 3px;
     margin-bottom: 18px;
+
+    a {
+      color: $sblue;
+    }
+
+    a:hover {
+      color: #FA4B00;
+    }
   }
 
   .card-weekly-report {
