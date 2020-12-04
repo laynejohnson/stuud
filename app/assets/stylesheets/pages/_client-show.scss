@@ -1,9 +1,33 @@
 .client-show {
 
+  .highlight {
+    background: rgba(230, 232, 230, 0.3);
+  }
+
+  .no-appointment {
+    height: 90px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(198, 198, 198, 0.25);
+    border-radius: 5px;
+
+    h2 {
+      margin-left: 25px;
+    }
+
+    img {
+      margin-right: 20px;
+    }
+  }
+
   .header {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
+    margin-bottom: 13px;
 
     a {
       color: $sblue;
@@ -11,6 +35,10 @@
 
     a:hover {
       color: $sorange;
+    }
+
+    h2 {
+      font-size: 18px !important;
     }
   }
 
@@ -59,8 +87,13 @@
     grid-template-columns: 50% 50%;
   }
 
+  .client-right {
+
+  }
+
   .appt-card {
     height: 90px;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     background: #FFFFFF;
