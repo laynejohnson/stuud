@@ -5,12 +5,12 @@ class InvoicesController < ApplicationController
   def index
     # @invoices = Invoice.where(user: current_user)
     if params[:query].present?
-      @invoices = Invoice.all.search_by_color(params[:query])
+      @invoices = Invoice.where(user: current_user).search_by_color(params[:query])
     else
       @invoices = Invoice.where(user: current_user)
     end
 
-    @invoices = current_user.invoices.sort_by { |a| a.invoice_status }
+    @invoices = @invoices.sort_by { |a| a.invoice_status }
     @overdue = @invoices.select { |invoice| invoice.event.payment_status == false && invoice.event.end_time <= Date.today - 7  }.sort_by { |invoice| invoice.created_at }
     @pending = @invoices.select { |invoice| invoice.event.payment_status == false && invoice.event.end_time >= Date.today - 7  }.sort_by { |invoice| invoice.created_at  }
     @paid = @invoices.select { |invoice| invoice.event.payment_status == true}.sort_by { |invoice| invoice.created_at }
