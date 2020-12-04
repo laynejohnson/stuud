@@ -14,18 +14,22 @@
       <strong>Event Title:</strong>
       <%= @event.title %>
     </p>
+    <br>
     <p>
       <strong>Start time:</strong>
       <%= @event.start_time.localtime.strftime("%b %e, %l:%M %p") %>
     </p>
+    <br>
     <p>
       <strong>End time:</strong>
       <%= @event.end_time.localtime.strftime("%b %e, %l:%M %p") %>
     </p>
+    <br>
     <p>
       <strong>Price:</strong>
       $<%= @event.price %>
     </p>
+    <br>
      <p>
       <strong>Payment Status:</strong>
         <%= @event.payment_status ? "Paid": "Due" %>
