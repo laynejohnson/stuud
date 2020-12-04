@@ -2,7 +2,7 @@
   <div class="header">
     <h1><%= @client.fullname %></h1>
 
-    <% if @client.events.where("start_time > ?", DateTime.now) == [] %>
+    <% if  @client.events == [] || @client.events.where("start_time > ?", DateTime.now) != [] %>
       <div class="header-btns">
         <p class="btn-orange new-appt"><%= link_to 'New Appointment', new_event_path({client_id: @client.id}) %></p>
       </div>
