@@ -51,6 +51,8 @@
     <div class="header">
       <h2>Upcoming Appointments:</h2>
     </div>
+
+    <% if @client.events.where("start_time > ?", DateTime.now) == [] %>
       <%= link_to new_event_path({client_id: @client.id}) do %>
         <div>
           <div class="no-appointment">
@@ -60,14 +62,10 @@
         </div>
       <% end %>
 
-
-
-
-
+      <% else %>
 
     <% @client.events.where("start_time > ?", DateTime.now).order(:start_time).each do |event|%>
     <div class="appt-card">
-
       <div><h2><%= link_to event.start_time.localtime.strftime("%b %e"), event_path(event)%></h2></div>
       <div><p><%= link_to event.start_time.localtime.strftime("%l:%M %p"), event_path(event)%></p></div>
       <!-- <p>Payment status: <%= event.payment_status %></p> -->
@@ -85,6 +83,7 @@
         </div>
     </div>
     <% end %>
+  <% end %>
 
   </div>
 </div>

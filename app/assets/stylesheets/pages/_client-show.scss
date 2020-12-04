@@ -6,13 +6,13 @@
 
   .no-appointment {
     height: 90px;
-    width: 90%;
+    width: 95%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background: #FFFFFF;
     box-shadow: 0px 4px 4px rgba(198, 198, 198, 0.25);
-    border-radius: 5px;
+    border-radius: 3px;
 
     h2 {
       margin-left: 25px;
@@ -95,7 +95,7 @@
 
   .appt-card {
     height: 90px;
-    width: 100%;
+    width: 95%;
     display: flex;
     justify-content: space-between;
     background: #FFFFFF;
@@ -104,7 +104,6 @@
     margin-bottom: 16px;
     padding-top: 32px;
     padding-left: 32px;
-    // padding-right:32px;
 
     a {
     color: $sblue;
