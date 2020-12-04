@@ -43,7 +43,7 @@
     }
 
     h2 {
-      font-size: 18px !important;
+      font-size: 17px !important;
     }
 
     }
@@ -52,6 +52,10 @@
     display: flex;
     align-items: center;
     margin-bottom: 17px;
+
+    h2 {
+      margin-top: 9px;
+    }
   }
 
   .icon {
@@ -61,12 +65,17 @@
   .notes {
     height: 300px;
     margin-top: 30px;
+
+    h2 {
+      font-size: 17px !important;
+      margin-bottom: 15px;
+    }
   }
 
   .note-body {
     background-color: white;
     height: 300px;
-    padding: 15px;
+    padding: 13px;
   }
 
   .btns {
