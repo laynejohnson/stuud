@@ -88,7 +88,7 @@
         <div class="card-invoice">
           <%= link_to invoice.client.fullname, client_path(invoice.client), class: "client-name" %>
           <div id="invoice-info">
-            <p><%= link_to "#10148#{invoice.id}", invoice_path(invoice) %></p>
+            <p><%= link_to "#10148#{invoice.id}", invoice_path(invoice), target: "_blank" %></p>
             <p>$<%= invoice.event.price %></p>
             <p class="bold"><%= invoice.event.start_time.localtime.strftime("%b %d") %></p>
           </div>

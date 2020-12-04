@@ -152,7 +152,7 @@
                 <% end %>
               </div>
               <div id="invoice-info">
-                <p><%= link_to "#10148#{invoice.id}", invoice_path(invoice) %></p>
+                <p><%= link_to "#10148#{invoice.id}", invoice_path(invoice), target: "_blank" %></p>
                 <p>$<%= invoice.event.price %></p>
                 <p class="bold">OVERDUE </p>
               </div>
@@ -216,7 +216,7 @@
                   <% end %>
                 </div>
                 <div id="invoice-info">
-                  <p><%= link_to "#10148#{invoice.id}", invoice_path(invoice) %></p>
+                  <p><%= link_to "#10148#{invoice.id}", invoice_path(invoice), target: "_blank" %></p>
                   <p>$<%= invoice.event.price %></p>
                   <p class="bold"><%= invoice.created_at.localtime.strftime("%b %d") %></p>
                 </div>
@@ -264,7 +264,7 @@
                 <% end %>
               </div>
               <div id="invoice-info">
-                <p><%= link_to "#10148#{invoice.id}", invoice_path(invoice) %></p>
+                <p><%= link_to "#10148#{invoice.id}", invoice_path(invoice), target: "_blank" %></p>
                 <p>$<%= invoice.event.price %></p>
                 <p class="bold">PAID </p>
               </div>
